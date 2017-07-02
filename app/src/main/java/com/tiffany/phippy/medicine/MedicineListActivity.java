@@ -25,14 +25,14 @@ public class MedicineListActivity extends BaseActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_medicine);
+        setContentView(R.layout.activity_medicinelist);
 
         Intent intent = getIntent();
         final int page = intent.getIntExtra("com.tiffany.android_intent.age",0);
-        ListView listView = (ListView)findViewById(R.id.medicine_listview);
+        ListView listView = (ListView)findViewById(R.id.medList_listview);
         listView.setAdapter(new MedicineListAdapter(this,getDataList(page)));
 
-        TextView title = (TextView) findViewById(R.id.medicine_title);
+        TextView title = (TextView) findViewById(R.id.medList_title);
         title.setText(new String[]{"滋补调养","男科用药","风湿骨科","肠胃用药","维生素钙","五官用药","皮肤用药","妇儿用药","感冒发烧"}[page-1]);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

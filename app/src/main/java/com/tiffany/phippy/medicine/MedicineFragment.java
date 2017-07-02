@@ -14,7 +14,6 @@ import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.tiffany.phippy.R;
 import com.tiffany.phippy.adapter.HomeListAdapter;
-import com.tiffany.phippy.adapter.MedicineListAdapter;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -32,7 +31,7 @@ public class MedicineFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        contentView = inflater.inflate(R.layout.home_fragment, container, false);
+        contentView = inflater.inflate(R.layout.fragment_medicine, container, false);
         View  banner_view = inflater.inflate(R.layout.medicine_banner, container, false);
         convenientBanner = (ConvenientBanner) banner_view.findViewById(R.id.convenientBanner);
         //获取本地的图片
@@ -66,7 +65,7 @@ public class MedicineFragment extends Fragment {
 
 
 
-        ListView listView = (ListView) contentView.findViewById(R.id.home_listView);
+        ListView listView = (ListView) contentView.findViewById(R.id.medicine_listView);
         listView.setAdapter(new HomeListAdapter(getContext(),null));
         listView.addHeaderView(convenientBanner);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -76,35 +75,6 @@ public class MedicineFragment extends Fragment {
                 Intent intent = new Intent(getActivity(),MedicineListActivity.class);
                 intent.putExtra("com.tiffany.android_intent.age", i);
                 startActivity(intent);
-//                switch (i){
-//                    case 1:{
-//                        break;
-//                    }
-//                    case 2:{
-//                        break;
-//                    }
-//                    case 3:{
-//                        break;
-//                    }
-//                    case 4:{
-//                        break;
-//                    }
-//                    case 5:{
-//                        break;
-//                    }
-//                    case 6:{
-//                        break;
-//                    }
-//                    case 7:{
-//                        break;
-//                    }
-//                    case 8:{
-//                        break;
-//                    }
-//                    case 9:{
-//                        break;
-//                    }
-//                }
             }
         });
         return contentView;

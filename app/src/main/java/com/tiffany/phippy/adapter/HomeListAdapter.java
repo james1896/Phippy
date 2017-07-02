@@ -32,7 +32,7 @@ public class HomeListAdapter extends BaseListAdapter {
 
         Map<String,Object> map = this.dataList.get(position);
 
-        View item = mInflater.inflate(R.layout.home_listview_item, null);
+        View item = mInflater.inflate(R.layout.medicine_listview_item, null);
         TextView title = (TextView)item.findViewById(R.id.home_textView);
 //        ImageView img = (ImageView)item.findViewById(R.id.imageView);
 
