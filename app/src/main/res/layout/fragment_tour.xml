@@ -5,7 +5,7 @@
     android:orientation="vertical"
     tools:context="com.tiffany.phippy.tour.TourFragment">
 
-    <include layout="@layout/tabbar"/>
+    <include layout="@layout/toolbar"/>
 
     <ListView
         android:id="@+id/tour_listview"
