@@ -1,51 +1,56 @@
 package com.tiffany.phippy.tour;
 
-
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.tiffany.phippy.BaseFragment;
 import com.tiffany.phippy.R;
+import com.tiffany.phippy.adapter.BaseListAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-
 /**
- * A simple {@link Fragment} subclass.
+ * Created by moses on 27/06/2017.
  */
-public class TourFragment extends BaseFragment {
+
+public class TourListAdapter extends BaseListAdapter {
 
 
-    public TourFragment() {
-        // Required empty public constructor
+//    protected ArrayList<Map> dataList;
+
+    public TourListAdapter(Context context, ArrayList<Map> list) {
+        super(context,list);
+//        //根据context上下文加载布局，这里的是 本身，即this
+//        this.mInflater = LayoutInflater.from(context);
+        this.dataList = list;
     }
 
 
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_tour, container, false);
-//    }
 
     @Override
-    public int getContentView() {
-        return R.layout.fragment_tour;
+    public View getView(int position, View convertView, ViewGroup parent) {
+
+        Map<String,Object> map = this.dataList.get(position);
+
+        View item = mInflater.inflate(R.layout.tour_list_item, null);
+        TextView title = (TextView)item.findViewById(R.id.tour_textview);
+//        ImageView img = (ImageView)item.findViewById(R.id.imageView);
+
+        String titleS = (String) map.get("title");
+//        int resid = (int) map.get("resId");
+        title.setText(titleS);
+        Log.e("getView","position:"+position+" title:"+titleS);
+//        img.setImageResource(resid);
+        return item;
     }
 
-    @Override
-    public void init() {
-        ListView listview = (ListView) contentView.findViewById(R.id.tour_listview);
-        listview.setAdapter(new TourListAdapter(getContext(),getDataList()));
-        Log.e("init","aa");
-    }
     private ArrayList<Map> getDataList(){
         ArrayList<Map> list = new ArrayList<>();
 

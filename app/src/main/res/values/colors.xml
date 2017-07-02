@@ -15,4 +15,6 @@
     <color name="theme_green">#72A346</color>
     <color name="theme_pink">#DDC1C4</color>
     <color name="text_gray">#2F4F4F</color>
+
+    <color name="tiffanyPink">#FF6599</color>
 </resources>

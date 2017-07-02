@@ -25,7 +25,7 @@ public class MedicineListActivity extends BaseActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.medicine_fragment);
+        setContentView(R.layout.fragment_medicine);
 
         Intent intent = getIntent();
         final int page = intent.getIntExtra("com.tiffany.android_intent.age",0);

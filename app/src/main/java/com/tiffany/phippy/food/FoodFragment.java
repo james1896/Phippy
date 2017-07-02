@@ -7,25 +7,28 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.tiffany.phippy.BaseFragment;
 import com.tiffany.phippy.R;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FoodFragment extends Fragment {
+public class FoodFragment extends BaseFragment {
 
 
     public FoodFragment() {
         // Required empty public constructor
     }
 
+    @Override
+    public int getContentView() {
+        return R.layout.fragment_food;
+    }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_food, container, false);
+    public void init() {
+
     }
 
 }

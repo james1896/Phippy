@@ -14,6 +14,7 @@ import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.tiffany.phippy.R;
 import com.tiffany.phippy.adapter.HomeListAdapter;
+import com.tiffany.phippy.adapter.MedicineListAdapter;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public class MedicineFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         contentView = inflater.inflate(R.layout.home_fragment, container, false);
-        View  banner_view = inflater.inflate(R.layout.home_banner, container, false);
+        View  banner_view = inflater.inflate(R.layout.medicine_banner, container, false);
         convenientBanner = (ConvenientBanner) banner_view.findViewById(R.id.convenientBanner);
         //获取本地的图片
         for (int position = 0; position < 3; position++) {

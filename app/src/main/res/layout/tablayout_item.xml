@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:padding="3dp"
         android:layout_height="wrap_content"
-        android:src="@drawable/tab_home_icon_selector" />
+        android:src="@drawable/tab_tour_icon_selector" />
 
     <TextView
         android:id="@+id/textview"

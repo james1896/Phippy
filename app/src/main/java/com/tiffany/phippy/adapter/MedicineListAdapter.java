@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.tiffany.phippy.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 /**

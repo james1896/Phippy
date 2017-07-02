@@ -7,23 +7,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.tiffany.phippy.BaseFragment;
 import com.tiffany.phippy.R;
 
 /**
  * Created by moses on 09/06/2017.
  */
 
-public class MeFragment extends Fragment {
+public class MeFragment extends BaseFragment {
     protected View contentView;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public int getContentView() {
+        return R.layout.me_fragment;
+    }
 
+    @Override
+    public void init() {
 
-        contentView = inflater.inflate(R.layout.me_fragment, container, false);
-
-//        ListView listView = (ListView) contentView.findViewById(R.id.me_listView);
-//        listView.setAdapter(new MedicineListAdapter(getContext(),null));
-
-        return contentView;
     }
 }
