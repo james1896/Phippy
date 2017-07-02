@@ -17,4 +17,6 @@
     <color name="text_gray">#2F4F4F</color>
 
     <color name="tiffanyPink">#FF6599</color>
+    <color name="theme_white">#FFFFFF</color>
+    <color name="theme_text_black">#111111</color>
 </resources>

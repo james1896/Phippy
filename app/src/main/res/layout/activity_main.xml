@@ -8,17 +8,6 @@
 
     tools:context="com.tiffany.phippy.MainActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:gravity="center_vertical|bottom"
-        android:textSize="18sp"
-        android:textColor="@color/background_whit"
-        android:background="@color/tiffanyPink"
-        android:paddingLeft="10dp"
-        android:paddingBottom="4dp"
-        android:text="PHIPPY"/>
-
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpage"
         android:layout_width="match_parent"
