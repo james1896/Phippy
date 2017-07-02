@@ -15,9 +15,9 @@ import java.util.Map;
  * Created by toby on 20/04/2017.
  */
 
-public class HomeListAdapter extends BaseListAdapter {
+public class MedicineAdapter extends BaseListAdapter {
 
-    public HomeListAdapter(Context context, ArrayList<Map> list) {
+    public MedicineAdapter(Context context, ArrayList<Map> list) {
         super(context, list);
 
         this.dataList = getDataList();

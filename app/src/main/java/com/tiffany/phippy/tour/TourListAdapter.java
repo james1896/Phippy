@@ -29,7 +29,7 @@ public class TourListAdapter extends BaseListAdapter {
         super(context,list);
 //        //根据context上下文加载布局，这里的是 本身，即this
 //        this.mInflater = LayoutInflater.from(context);
-        this.dataList = list;
+        this.dataList = getDataList();
     }
 
 
@@ -40,13 +40,15 @@ public class TourListAdapter extends BaseListAdapter {
         Map<String,Object> map = this.dataList.get(position);
 
         View item = mInflater.inflate(R.layout.tour_list_item, null);
-        TextView title = (TextView)item.findViewById(R.id.tour_textview);
+        TextView titleTV = (TextView)item.findViewById(R.id.tour_item_title);
+        TextView descTV = (TextView)item.findViewById(R.id.tour_item_desc);
 //        ImageView img = (ImageView)item.findViewById(R.id.imageView);
 
-        String titleS = (String) map.get("title");
+        String titleStr = (String) map.get("title");
+        String descStr = (String) map.get("desc");
 //        int resid = (int) map.get("resId");
-        title.setText(titleS);
-        Log.e("getView","position:"+position+" title:"+titleS);
+        titleTV.setText(titleStr);
+        descTV.setText(descStr);
 //        img.setImageResource(resid);
         return item;
     }
@@ -55,28 +57,29 @@ public class TourListAdapter extends BaseListAdapter {
         ArrayList<Map> list = new ArrayList<>();
 
         Map<String,Object> map1 = new HashMap<String,Object>();
-        map1.put("title","礼物赠送");
+        map1.put("title","从波多黎各到维京群岛，一个人的七天六夜");
 //        map1.put("resId",R.drawable.me_list_zengsong);
+        map1.put("desc","决定来Puerto Rico的时间，是2017年4月20日的凌晨1点，定好所有机票和酒店的时间，是4月20日的凌晨3点。给最好的朋友发微信，\"我又要一个人去旅行了，刚订好了所有机票和酒店。\" 朋友回：\"So You\"");
         list.add(map1);
 
         Map<String,Object> map2 = new HashMap<String,Object>();
-        map2.put("title","生活助手");
-//        map2.put("resId",R.drawable.me_list_key);
+        map2.put("title","洛杉矶必玩！世界第一家好莱坞环球影城");
+        map2.put("desc","决定来Puerto Rico的时间，是2017年4月20日的凌晨1点，定好所有机票和酒店的时间，是4月20日的凌晨3点。给最好的朋友发微信，\"我又要一个人去旅行了，刚订好了所有机票和酒店。\" 朋友回：\"So You\"");
         list.add(map2);
 
         Map<String,Object> map3 = new HashMap<String,Object>();
-        map3.put("title","意见反馈");
-//        map3.put("resId",R.drawable.me_list_yijian);
+        map3.put("title","去台湾，不做这些事情就等于白去了？");
+        map3.put("desc","决定来Puerto Rico的时间，是2017年4月20日的凌晨1点，定好所有机票和酒店的时间，是4月20日的凌晨3点。给最好的朋友发微信，\"我又要一个人去旅行了，刚订好了所有机票和酒店。\" 朋友回：\"So You\"");
         list.add(map3);
 
         Map<String,Object> map4 = new HashMap<String,Object>();
-        map4.put("title","呜谢组织");
-//        map4.put("resId",R.drawable.me_list_thank);
+        map4.put("title","左手拉着老公，右手拉着闺蜜，浪在苏梅岛");
+        map4.put("desc","决定来Puerto Rico的时间，是2017年4月20日的凌晨1点，定好所有机票和酒店的时间，是4月20日的凌晨3点。给最好的朋友发微信，\"我又要一个人去旅行了，刚订好了所有机票和酒店。\" 朋友回：\"So You\"");
         list.add(map4);
 
         Map<String,Object> map5 = new HashMap<String,Object>();
-        map5.put("title","关于我们");
-//        map5.put("resId",R.drawable.me_list_about);
+        map5.put("title","一张票，走遍整个瑞士！");
+        map5.put("desc","决定来Puerto Rico的时间，是2017年4月20日的凌晨1点，定好所有机票和酒店的时间，是4月20日的凌晨3点。给最好的朋友发微信，\"我又要一个人去旅行了，刚订好了所有机票和酒店。\" 朋友回：\"So You\"");
         list.add(map5);
 
         return list;

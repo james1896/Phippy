@@ -40,6 +40,7 @@ public class MedicineListAdapter extends BaseListAdapter {
         title.setText(titleS);
         priceTv.setText(price);
         img.setImageResource(resid);
+
         return item;
     }
 }

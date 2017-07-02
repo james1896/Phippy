@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.tiffany.phippy.BaseFragment;
@@ -43,38 +44,12 @@ public class TourFragment extends BaseFragment {
     @Override
     public void init() {
         ListView listview = (ListView) contentView.findViewById(R.id.tour_listview);
-        listview.setAdapter(new TourListAdapter(getContext(),getDataList()));
-        Log.e("init","aa");
-    }
-    private ArrayList<Map> getDataList(){
-        ArrayList<Map> list = new ArrayList<>();
 
-        Map<String,Object> map1 = new HashMap<String,Object>();
-        map1.put("title","礼物赠送");
-//        map1.put("resId",R.drawable.me_list_zengsong);
-        list.add(map1);
+        LinearLayout mLoadingLayout = (LinearLayout) View.inflate(getContext(), R.layout.tour_header, null);
+        listview.addHeaderView(mLoadingLayout);
+        listview.setAdapter(new TourListAdapter(getContext(),null));
 
-        Map<String,Object> map2 = new HashMap<String,Object>();
-        map2.put("title","生活助手");
-//        map2.put("resId",R.drawable.me_list_key);
-        list.add(map2);
 
-        Map<String,Object> map3 = new HashMap<String,Object>();
-        map3.put("title","意见反馈");
-//        map3.put("resId",R.drawable.me_list_yijian);
-        list.add(map3);
-
-        Map<String,Object> map4 = new HashMap<String,Object>();
-        map4.put("title","呜谢组织");
-//        map4.put("resId",R.drawable.me_list_thank);
-        list.add(map4);
-
-        Map<String,Object> map5 = new HashMap<String,Object>();
-        map5.put("title","关于我们");
-//        map5.put("resId",R.drawable.me_list_about);
-        list.add(map5);
-
-        return list;
 
     }
 }

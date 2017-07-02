@@ -2,11 +2,74 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="10dp">
 
     <TextView
-        android:id="@+id/tour_textview"
+
+        android:id="@+id/tour_item_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimary"/>
+        android:textSize="18sp"
+        android:textColor="@color/colorBlock"
+        />
+
+    <!--图和内容描述-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="#FFFFCC"/>
+        <TextView
+            android:id="@+id/tour_item_desc"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:paddingLeft="10dp"
+
+            android:maxLines="4"
+            android:ellipsize="end"
+
+            />
+        <!--这个属性有五个选项 start end   middle       none               marquee
+            分别表示省略号位于 开始，结束，居中位置，none不显示省略号，最后的marquee是跑马灯效果-->
+    </LinearLayout>
+
+    <!--作者时间浏览测试-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="作者-达美旅行"/>
+
+        <!--占位-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1">
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="17-06-21"
+            />
+        <TextView
+            android:paddingLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1650"
+
+            android:textColor="#FF9933"
+            android:textStyle="bold"/>
+    </LinearLayout>
 </LinearLayout>

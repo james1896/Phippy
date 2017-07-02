@@ -5,11 +5,6 @@
     android:orientation="vertical"
     tools:context="com.tiffany.phippy.tour.TourFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="tour" />
-
     <ListView
         android:id="@+id/tour_listview"
         android:layout_width="match_parent"
