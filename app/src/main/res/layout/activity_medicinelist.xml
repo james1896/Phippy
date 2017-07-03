@@ -25,4 +25,5 @@
         android:id="@+id/medList_listview">
 
     </ListView>
+
 </LinearLayout>

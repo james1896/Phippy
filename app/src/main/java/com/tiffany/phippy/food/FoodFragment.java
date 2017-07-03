@@ -1,14 +1,15 @@
 package com.tiffany.phippy.food;
 
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.tiffany.phippy.BaseFragment;
 import com.tiffany.phippy.R;
+import com.tiffany.phippy.tour.TourListAdapter;
 
 
 /**
@@ -28,7 +29,14 @@ public class FoodFragment extends BaseFragment {
 
     @Override
     public void init() {
+        ListView listview = (ListView) contentView.findViewById(R.id.food_listview);
 
+        LinearLayout mLoadingLayout = (LinearLayout) View.inflate(getContext(), R.layout.tour_or_food_header, null);
+
+        TextView headerText = (TextView) mLoadingLayout.findViewById(R.id.header_text);
+        headerText.setText("猜你喜欢");
+        listview.addHeaderView(mLoadingLayout);
+        listview.setAdapter(new FoodListAdapter(getContext(),null));
     }
 
 }

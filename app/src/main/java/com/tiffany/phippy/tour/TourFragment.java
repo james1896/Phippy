@@ -1,21 +1,14 @@
 package com.tiffany.phippy.tour;
 
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.tiffany.phippy.BaseFragment;
 import com.tiffany.phippy.R;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 
 /**
@@ -45,10 +38,13 @@ public class TourFragment extends BaseFragment {
     public void init() {
         ListView listview = (ListView) contentView.findViewById(R.id.tour_listview);
 
-        LinearLayout mLoadingLayout = (LinearLayout) View.inflate(getContext(), R.layout.tour_header, null);
+        LinearLayout mLoadingLayout = (LinearLayout) View.inflate(getContext(), R.layout.tour_or_food_header, null);
         listview.addHeaderView(mLoadingLayout);
         listview.setAdapter(new TourListAdapter(getContext(),null));
 
+
+        TextView headerText = (TextView) mLoadingLayout.findViewById(R.id.header_text);
+        headerText.setText("推荐攻略");
 
 
     }

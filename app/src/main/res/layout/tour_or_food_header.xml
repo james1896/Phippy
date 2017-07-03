@@ -107,10 +107,11 @@
    </LinearLayout>
 
    <TextView
+       android:id="@+id/header_text"
        android:layout_width="match_parent"
        android:layout_height="30dp"
        android:background="#CCCCCC"
        android:gravity="center"
-       android:text=" 推荐攻略 "/>
+       android:text=""/>
 
 </LinearLayout>
