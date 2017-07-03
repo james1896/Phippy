@@ -1,11 +1,9 @@
 package com.tiffany.phippy.me;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.tiffany.phippy.BaseFragment;
 import com.tiffany.phippy.R;
@@ -15,15 +13,22 @@ import com.tiffany.phippy.R;
  */
 
 public class MeFragment extends BaseFragment {
-    protected View contentView;
 
     @Override
     public int getContentView() {
-        return R.layout.me_fragment;
+        return R.layout.fragment_me;
     }
+
 
     @Override
     public void init() {
+        ListView listview = (ListView) contentView.findViewById(R.id.me_listview);
 
+        LinearLayout mLoadingLayout = (LinearLayout) View.inflate(getContext(), R.layout.me_headerview, null);
+
+//        TextView headerText = (TextView) mLoadingLayout.findViewById(R.id.header_text);
+//        headerText.setText("猜你喜欢");
+        listview.addHeaderView(mLoadingLayout);
+        listview.setAdapter(new MeListAdapter(getContext(),null));
     }
 }

@@ -16,13 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".medicine.MedicineListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.Medicine" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".food.FoodDetailActivity"></activity>
     </application>
 
 </manifest>
