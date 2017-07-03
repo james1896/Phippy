@@ -48,7 +48,7 @@ public class TourFragment extends BaseFragment {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getActivity(),StrategyOfDetailsActivity.class);
+                Intent intent = new Intent(getActivity(),TourRecActivity.class);
                 intent.putExtra("com.tiffany.tour", i);
                 startActivity(intent);
             }

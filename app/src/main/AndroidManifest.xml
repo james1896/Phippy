@@ -23,8 +23,8 @@
         </activity>
         <activity android:name=".food.FoodDetailActivity" />
         <activity android:name=".life.MedicineActivity" />
+        <activity android:name=".tour.TourRecActivity" />
 
-        <activity android:name=".tour.StrategyOfDetailsActivity" />
     </application>
 
 </manifest>
