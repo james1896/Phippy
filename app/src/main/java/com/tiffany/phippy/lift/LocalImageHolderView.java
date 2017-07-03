@@ -1,4 +1,4 @@
-package com.tiffany.phippy.medicine;
+package com.tiffany.phippy.lift;
 
 import android.content.Context;
 import android.view.View;

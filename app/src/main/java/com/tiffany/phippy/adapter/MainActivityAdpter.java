@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.tiffany.phippy.food.FoodFragment;
 import com.tiffany.phippy.me.MeFragment;
-import com.tiffany.phippy.medicine.MedicineFragment;
+import com.tiffany.phippy.lift.MedicineFragment;
 import com.tiffany.phippy.tour.TourFragment;
 
 import java.util.ArrayList;
