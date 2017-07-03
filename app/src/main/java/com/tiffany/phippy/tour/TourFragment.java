@@ -1,8 +1,11 @@
 package com.tiffany.phippy.tour;
 
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -41,11 +44,49 @@ public class TourFragment extends BaseFragment {
         LinearLayout mLoadingLayout = (LinearLayout) View.inflate(getContext(), R.layout.tour_or_food_header, null);
         listview.addHeaderView(mLoadingLayout);
         listview.setAdapter(new TourListAdapter(getContext(),null));
-
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(),StrategyOfDetailsActivity.class);
+                intent.putExtra("com.tiffany.tour", i);
+                startActivity(intent);
+            }
+        });
 
         TextView headerText = (TextView) mLoadingLayout.findViewById(R.id.header_text);
         headerText.setText("推荐攻略");
 
+
+
+        ViewGroup upleft = (ViewGroup) mLoadingLayout.findViewById(R.id.upleft);
+        ViewGroup upright = (ViewGroup) mLoadingLayout.findViewById(R.id.upright);
+        ViewGroup downleft = (ViewGroup) mLoadingLayout.findViewById(R.id.downleft);
+        ViewGroup downright = (ViewGroup) mLoadingLayout.findViewById(R.id.downright);
+
+        upleft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        upright.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        downleft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        downright.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
     }
 }

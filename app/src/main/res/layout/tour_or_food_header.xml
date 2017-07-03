@@ -4,115 +4,127 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="200dp"
-       android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical">
 
-       <!--上两个-->
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="0dp"
-          android:layout_weight="1"
-          android:orientation="horizontal">
-
-          <!--上左-->
-        <RelativeLayout
+        <!--上两个-->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/cardview_dark_background">
+            android:orientation="horizontal">
 
-           <!--<ImageView-->
-               <!--android:layout_width="40dp"-->
-               <!--android:layout_height="40dp"-->
-               <!--android:background="@color/colorAccent"-->
-               <!--/>-->
-            <!--<TextView-->
+            <!--上左-->
+            <RelativeLayout
+                android:id="@+id/upleft"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/cardview_dark_background">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_centerInParent="true">
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@color/colorAccent"
+                        />
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="title"/>
+                </LinearLayout>
+            </RelativeLayout>
+            <!--上右-->
+            <RelativeLayout
+                android:id="@+id/upright"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary">
+
+                <!--<ImageView-->
+                <!--android:layout_width="40dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:background="@color/colorAccent"-->
+                <!--/>-->
+                <!--<TextView-->
                 <!---->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content" -->
                 <!--android:text="title"/>-->
-        </RelativeLayout>
-        <!--上右-->
-          <RelativeLayout
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:layout_gravity="center"
-              android:layout_weight="1"
-              android:background="@color/colorPrimary">
+            </RelativeLayout>
 
-              <!--<ImageView-->
-              <!--android:layout_width="40dp"-->
-              <!--android:layout_height="40dp"-->
-              <!--android:background="@color/colorAccent"-->
-              <!--/>-->
-              <!--<TextView-->
-              <!---->
-              <!--android:layout_width="wrap_content"-->
-              <!--android:layout_height="wrap_content" -->
-              <!--android:text="title"/>-->
-          </RelativeLayout>
-
-      </LinearLayout>
+        </LinearLayout>
 
         <!--下两个-->
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="0dp"
-           android:layout_weight="1"
-           android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
-           <!--下左-->
-           <RelativeLayout
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               android:layout_gravity="center"
-               android:layout_weight="1"
-               android:background="@color/theme_green">
+            <!--下左-->
+            <RelativeLayout
+                android:id="@+id/downleft"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/theme_green">
 
-               <!--<ImageView-->
-               <!--android:layout_width="40dp"-->
-               <!--android:layout_height="40dp"-->
-               <!--android:background="@color/colorAccent"-->
-               <!--/>-->
-               <!--<TextView-->
-               <!---->
-               <!--android:layout_width="wrap_content"-->
-               <!--android:layout_height="wrap_content" -->
-               <!--android:text="title"/>-->
-           </RelativeLayout>
+                <!--<ImageView-->
+                <!--android:layout_width="40dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:background="@color/colorAccent"-->
+                <!--/>-->
+                <!--<TextView-->
+                <!---->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" -->
+                <!--android:text="title"/>-->
+            </RelativeLayout>
 
             <!--下右-->
-           <RelativeLayout
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               android:layout_gravity="center"
-               android:layout_weight="1"
-               android:background="@color/white">
+            <RelativeLayout
+                android:id="@+id/downright"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/white">
 
-               <!--<ImageView-->
-               <!--android:layout_width="40dp"-->
-               <!--android:layout_height="40dp"-->
-               <!--android:background="@color/colorAccent"-->
-               <!--/>-->
-               <!--<TextView-->
-               <!---->
-               <!--android:layout_width="wrap_content"-->
-               <!--android:layout_height="wrap_content" -->
-               <!--android:text="title"/>-->
-           </RelativeLayout>
+                <!--<ImageView-->
+                <!--android:layout_width="40dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:background="@color/colorAccent"-->
+                <!--/>-->
+                <!--<TextView-->
+                <!---->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" -->
+                <!--android:text="title"/>-->
+            </RelativeLayout>
 
-       </LinearLayout>
-   </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 
-   <TextView
-       android:id="@+id/header_text"
-       android:layout_width="match_parent"
-       android:layout_height="30dp"
-       android:background="#CCCCCC"
-       android:gravity="center"
-       android:text=""/>
+    <TextView
+        android:id="@+id/header_text"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#CCCCCC"
+        android:gravity="center"
+        android:text=""/>
 
 </LinearLayout>
