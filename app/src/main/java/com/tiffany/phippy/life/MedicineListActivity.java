@@ -1,4 +1,4 @@
-package com.tiffany.phippy.lift;
+package com.tiffany.phippy.life;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,7 +28,7 @@ public class MedicineListActivity extends BaseActivity {
         setContentView(R.layout.activity_medicinelist);
 
         Intent intent = getIntent();
-        final int page = intent.getIntExtra("com.tiffany.android_intent.age",0);
+        final int page = intent.getIntExtra("com.tiffany.android_intent.age1",0);
         ListView listView = (ListView)findViewById(R.id.medList_listview);
         listView.setAdapter(new MedicineListAdapter(this,getDataList(page)));
 

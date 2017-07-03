@@ -1,17 +1,15 @@
-package com.tiffany.phippy.lift;
+package com.tiffany.phippy.life;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
+import com.tiffany.phippy.BaseActivity;
 import com.tiffany.phippy.R;
 import com.tiffany.phippy.adapter.MedicineAdapter;
 
@@ -19,20 +17,19 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 /**
- * Created by moses on 09/06/2017.
+ * Created by moses on 03/07/2017.
  */
 
-public class MedicineFragment extends Fragment {
-    protected View contentView;
-
+public class MedicineActivity extends BaseActivity {
 
     private ConvenientBanner convenientBanner;
     private ArrayList<Integer> localImages = new ArrayList<Integer>();
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        contentView = inflater.inflate(R.layout.fragment_medicine, container, false);
-        View  banner_view = inflater.inflate(R.layout.medicine_banner, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_medicine);
+
+        View banner_view = View.inflate(this, R.layout.medicine_banner, null);
         convenientBanner = (ConvenientBanner) banner_view.findViewById(R.id.convenientBanner);
         //获取本地的图片
         for (int position = 0; position < 3; position++) {
@@ -65,19 +62,20 @@ public class MedicineFragment extends Fragment {
 
 
 
-        ListView listView = (ListView) contentView.findViewById(R.id.medicine_listView);
-        listView.setAdapter(new MedicineAdapter(getContext(),null));
+        ListView listView = (ListView) findViewById(R.id.medicine_listView1);
+        listView.setAdapter(new MedicineAdapter(this,null));
         listView.addHeaderView(convenientBanner);
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                Intent intent = new Intent(getActivity(),MedicineListActivity.class);
-                intent.putExtra("com.tiffany.android_intent.age", i);
+                Log.e("life","click"+i);
+                Intent intent = new Intent(MedicineActivity.this , MedicineListActivity.class);
+                intent.putExtra("com.tiffany.android_intent.age1", i);
                 startActivity(intent);
             }
         });
-        return contentView;
+
     }
 
     /**
@@ -97,4 +95,3 @@ public class MedicineFragment extends Fragment {
         }
     }
 }
-

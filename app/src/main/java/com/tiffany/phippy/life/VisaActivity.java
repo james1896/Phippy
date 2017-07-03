@@ -1,4 +1,4 @@
-package com.tiffany.phippy.lift;
+package com.tiffany.phippy.life;
 
 import android.os.Bundle;
 

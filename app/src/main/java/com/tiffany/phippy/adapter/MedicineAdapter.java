@@ -23,10 +23,6 @@ public class MedicineAdapter extends BaseListAdapter {
         this.dataList = getDataList();
     }
 
-    public void setDataList(ArrayList<Map> list){
-        this.dataList = getDataList();
-
-    }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 

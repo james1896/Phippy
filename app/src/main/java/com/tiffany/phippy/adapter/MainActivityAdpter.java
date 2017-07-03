@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.tiffany.phippy.food.FoodFragment;
 import com.tiffany.phippy.me.MeFragment;
-import com.tiffany.phippy.lift.MedicineFragment;
+import com.tiffany.phippy.life.LifeFragment;
 import com.tiffany.phippy.tour.TourFragment;
 
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ public class MainActivityAdpter extends FragmentPagerAdapter {
 
         this.fragments.add(new TourFragment());
         this.fragments.add(new FoodFragment());
-        this.fragments.add(new MedicineFragment());
+        this.fragments.add(new LifeFragment());
         this.fragments.add(new MeFragment());
     }
 

@@ -16,16 +16,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".lift.MedicineListActivity">
+        <activity android:name=".life.MedicineListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.Medicine" />
             </intent-filter>
         </activity>
         <activity android:name=".food.FoodDetailActivity" />
-        <activity
-            android:name=".tour.StrategyOfDetailsActivity"
-            android:label="@string/title_activity_strategy_of_details"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity android:name=".life.MedicineActivity" />
+
+        <activity android:name=".tour.StrategyOfDetailsActivity" />
     </application>
 
 </manifest>
