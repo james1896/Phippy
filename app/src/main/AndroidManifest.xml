@@ -21,7 +21,11 @@
                 <action android:name="android.intent.action.Medicine" />
             </intent-filter>
         </activity>
-        <activity android:name=".food.FoodDetailActivity"></activity>
+        <activity android:name=".food.FoodDetailActivity" />
+        <activity
+            android:name=".tour.StrategyOfDetailsActivity"
+            android:label="@string/title_activity_strategy_of_details"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
 </manifest>
