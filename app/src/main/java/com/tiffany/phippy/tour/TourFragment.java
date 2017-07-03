@@ -3,6 +3,7 @@ package com.tiffany.phippy.tour;
 
 import android.content.Intent;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -66,25 +67,25 @@ public class TourFragment extends BaseFragment {
         upleft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Log.e("tour","1");
             }
         });
         upright.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Log.e("tour","2");
             }
         });
         downleft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Log.e("tour","3");
             }
         });
         downright.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Log.e("tour","4");
             }
         });
 

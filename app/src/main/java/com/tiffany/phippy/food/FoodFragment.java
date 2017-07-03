@@ -2,7 +2,9 @@ package com.tiffany.phippy.food;
 
 
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -37,6 +39,37 @@ public class FoodFragment extends BaseFragment {
         headerText.setText("猜你喜欢");
         listview.addHeaderView(mLoadingLayout);
         listview.setAdapter(new FoodListAdapter(getContext(),null));
+
+
+        ViewGroup upleft = (ViewGroup) mLoadingLayout.findViewById(R.id.upleft);
+        ViewGroup upright = (ViewGroup) mLoadingLayout.findViewById(R.id.upright);
+        ViewGroup downleft = (ViewGroup) mLoadingLayout.findViewById(R.id.downleft);
+        ViewGroup downright = (ViewGroup) mLoadingLayout.findViewById(R.id.downright);
+
+        upleft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e("food","1");
+            }
+        });
+        upright.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e("food","2");
+            }
+        });
+        downleft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e("food","3");
+            }
+        });
+        downright.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e("food","4");
+            }
+        });
     }
 
 }
