@@ -11,8 +11,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
@@ -37,12 +39,30 @@ public class LifeFragment extends Fragment {
 
         contentView = inflater.inflate(R.layout.fragment_life, container, false);
 
+        LinearLayout fragment = (LinearLayout) contentView.findViewById(R.id.fragment_life);
+        fragment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(),"商家正在入驻",Toast.LENGTH_SHORT).show();
+            }
+        });
+
         //小娘子药铺
         ImageView xiaoniangzi = (ImageView) contentView.findViewById(R.id.life_medicine);
         xiaoniangzi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(),MedicineActivity.class);
+                startActivity(intent);
+            }
+        });
+
+//        签证
+        LinearLayout layoutVisa = (LinearLayout) contentView.findViewById(R.id.life_layout_visa);
+        layoutVisa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),VisaActivity.class);
                 startActivity(intent);
             }
         });

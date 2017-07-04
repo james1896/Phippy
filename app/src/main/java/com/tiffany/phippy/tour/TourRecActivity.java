@@ -22,14 +22,18 @@ public class TourRecActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tour_recommend);
 
-        RelativeLayout mLoadingLayout = (RelativeLayout) View.inflate(this, R.layout.tour_or_food_rec_header, null);
-        ImageView imageview = (ImageView) mLoadingLayout.findViewById(R.id.tf_rec_header_groundimage);
-        TextView textview = (TextView) mLoadingLayout.findViewById(R.id.tf_rec_header_title);
+        RelativeLayout header = (RelativeLayout) View.inflate(this, R.layout.tour_or_food_rec_header, null);
+        ImageView imageview = (ImageView) header.findViewById(R.id.tf_rec_header_groundimage);
+        TextView textview = (TextView) header.findViewById(R.id.tf_rec_header_title);
         imageview.setImageResource(R.mipmap.tour_rec_header_img);
         textview.setText("最美旅游");
 
+        LinearLayout subHeader = (LinearLayout) View.inflate(this,R.layout.tour_rec_subheader,null);
+
+
         ListView listview = (ListView) findViewById(R.id.tour_rec_listview);
-        listview.addHeaderView(mLoadingLayout);
+        listview.addHeaderView(header);
+        listview.addHeaderView(subHeader);
         listview.setAdapter(new TourRecListAdapter(this,null));
 
     }

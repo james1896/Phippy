@@ -21,9 +21,13 @@
                 <action android:name="android.intent.action.Medicine" />
             </intent-filter>
         </activity>
+
         <activity android:name=".food.FoodDetailActivity" />
         <activity android:name=".food.FoodRecActivity" />
+
         <activity android:name=".life.MedicineActivity" />
+        <activity android:name=".life.VisaActivity"/>
+
         <activity android:name=".tour.TourRecActivity" />
 
 

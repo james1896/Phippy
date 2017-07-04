@@ -3,7 +3,6 @@ package com.tiffany.phippy.food;
 
 import android.content.Intent;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -12,7 +11,6 @@ import android.widget.TextView;
 
 import com.tiffany.phippy.BaseFragment;
 import com.tiffany.phippy.R;
-import com.tiffany.phippy.tour.TourListAdapter;
 
 
 /**
@@ -34,7 +32,7 @@ public class FoodFragment extends BaseFragment implements View.OnClickListener {
     public void init() {
         ListView listview = (ListView) contentView.findViewById(R.id.food_listview);
 
-        LinearLayout mLoadingLayout = (LinearLayout) View.inflate(getContext(), R.layout.tour_or_food_header, null);
+        LinearLayout mLoadingLayout = (LinearLayout) View.inflate(getContext(), R.layout.img_and_text_header, null);
 
         TextView headerText = (TextView) mLoadingLayout.findViewById(R.id.header_text);
         headerText.setText("猜你喜欢");

@@ -3,7 +3,6 @@ package com.tiffany.phippy.tour;
 
 import android.content.Intent;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -42,7 +41,7 @@ public class TourFragment extends BaseFragment implements View.OnClickListener {
     public void init() {
         ListView listview = (ListView) contentView.findViewById(R.id.tour_listview);
 
-        LinearLayout mLoadingLayout = (LinearLayout) View.inflate(getContext(), R.layout.tour_or_food_header, null);
+        LinearLayout mLoadingLayout = (LinearLayout) View.inflate(getContext(), R.layout.img_and_text_header, null);
         listview.addHeaderView(mLoadingLayout);
         listview.setAdapter(new TourListAdapter(getContext(),null));
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
