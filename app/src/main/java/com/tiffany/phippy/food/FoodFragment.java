@@ -1,6 +1,7 @@
 package com.tiffany.phippy.food;
 
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.View;
@@ -17,7 +18,7 @@ import com.tiffany.phippy.tour.TourListAdapter;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FoodFragment extends BaseFragment {
+public class FoodFragment extends BaseFragment implements View.OnClickListener {
 
 
     public FoodFragment() {
@@ -46,30 +47,34 @@ public class FoodFragment extends BaseFragment {
         ViewGroup downleft = (ViewGroup) mLoadingLayout.findViewById(R.id.downleft);
         ViewGroup downright = (ViewGroup) mLoadingLayout.findViewById(R.id.downright);
 
-        upleft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.e("food","1");
-            }
-        });
-        upright.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.e("food","2");
-            }
-        });
-        downleft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.e("food","3");
-            }
-        });
-        downright.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.e("food","4");
-            }
-        });
+        upleft.setOnClickListener(this);
+        upright.setOnClickListener(this);
+        downleft.setOnClickListener(this);
+        downright.setOnClickListener(this);
     }
 
+    @Override
+    public void onClick(View view) {
+        Intent intent = new Intent(getActivity(),FoodRecActivity.class);
+        startActivity(intent);
+        switch (view.getId()){
+            case R.id.upleft:{
+
+                break;
+            }
+
+            case R.id.upright:{
+
+                break;
+            }
+
+            case R.id.downleft:{
+                break;
+            }
+
+            case R.id.downright:{
+                break;
+            }
+        }
+    }
 }

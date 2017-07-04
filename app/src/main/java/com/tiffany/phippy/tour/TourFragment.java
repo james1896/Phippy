@@ -18,7 +18,7 @@ import com.tiffany.phippy.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TourFragment extends BaseFragment {
+public class TourFragment extends BaseFragment implements View.OnClickListener {
 
 
     public TourFragment() {
@@ -48,9 +48,9 @@ public class TourFragment extends BaseFragment {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getActivity(),TourRecActivity.class);
-                intent.putExtra("com.tiffany.tour", i);
-                startActivity(intent);
+//                Intent intent = new Intent(getActivity(),TourRecActivity.class);
+//                intent.putExtra("com.tiffany.tour", i);
+//                startActivity(intent);
             }
         });
 
@@ -64,30 +64,16 @@ public class TourFragment extends BaseFragment {
         ViewGroup downleft = (ViewGroup) mLoadingLayout.findViewById(R.id.downleft);
         ViewGroup downright = (ViewGroup) mLoadingLayout.findViewById(R.id.downright);
 
-        upleft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.e("tour","1");
-            }
-        });
-        upright.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.e("tour","2");
-            }
-        });
-        downleft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.e("tour","3");
-            }
-        });
-        downright.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.e("tour","4");
-            }
-        });
+        upleft.setOnClickListener(this);
+        upright.setOnClickListener(this);
+        downleft.setOnClickListener(this);
+        downright.setOnClickListener(this);
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent intent = new Intent(getActivity(),TourRecActivity.class);
+        startActivity(intent);
     }
 }
