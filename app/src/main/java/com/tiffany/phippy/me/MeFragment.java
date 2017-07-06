@@ -3,7 +3,6 @@ package com.tiffany.phippy.me;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.tiffany.phippy.BaseFragment;
 import com.tiffany.phippy.R;
@@ -24,7 +23,7 @@ public class MeFragment extends BaseFragment {
     public void init() {
         ListView listview = (ListView) contentView.findViewById(R.id.me_listview);
 
-        LinearLayout mLoadingLayout = (LinearLayout) View.inflate(getContext(), R.layout.me_headerview, null);
+        LinearLayout mLoadingLayout = (LinearLayout) View.inflate(getContext(), R.layout.me_header, null);
 
 //        TextView headerText = (TextView) mLoadingLayout.findViewById(R.id.header_text);
 //        headerText.setText("猜你喜欢");

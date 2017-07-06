@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import com.tiffany.phippy.BaseActivity;
 import com.tiffany.phippy.R;
-import com.tiffany.phippy.adapter.MedicineListAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;

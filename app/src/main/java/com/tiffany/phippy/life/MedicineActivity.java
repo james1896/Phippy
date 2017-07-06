@@ -6,12 +6,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.tiffany.phippy.BaseActivity;
 import com.tiffany.phippy.R;
-import com.tiffany.phippy.adapter.MedicineAdapter;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -28,6 +28,9 @@ public class MedicineActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicine);
+
+        TextView titleTV = (TextView) findViewById(R.id.toolbar_textview);
+        titleTV.setText("小娘子药铺");
 
         View banner_view = View.inflate(this, R.layout.medicine_banner, null);
         convenientBanner = (ConvenientBanner) banner_view.findViewById(R.id.convenientBanner);

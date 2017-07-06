@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.tiffany.phippy.BaseActivity;
 import com.tiffany.phippy.R;
@@ -18,6 +19,9 @@ public class VisaActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visa);
+
+        TextView titleTV = (TextView) findViewById(R.id.toolbar_textview);
+        titleTV.setText("全民签证");
 
         RelativeLayout header = (RelativeLayout) View.inflate(this, R.layout.tour_or_food_rec_header, null);
         ImageView imageview = (ImageView) header.findViewById(R.id.tf_rec_header_groundimage);

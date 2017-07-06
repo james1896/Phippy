@@ -1,4 +1,4 @@
-package com.tiffany.phippy.adapter;
+package com.tiffany.phippy.life;
 
 import android.content.Context;
 import android.view.View;
@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tiffany.phippy.R;
+import com.tiffany.phippy.adapter.BaseListAdapter;
 
 import java.util.ArrayList;
 import java.util.Map;

@@ -71,23 +71,28 @@ public class MeListAdapter extends BaseListAdapter {
         list.add(map1);
 
         Map<String,Object> map2 = new HashMap<String,Object>();
-        map2.put("title","我的订单");
+        map2.put("title","意见反馈");
 
         list.add(map2);
 
         Map<String,Object> map3 = new HashMap<String,Object>();
-        map3.put("title","我的优惠券");
+        map3.put("title","关于我们");
         list.add(map3);
 
         Map<String,Object> map4 = new HashMap<String,Object>();
-        map4.put("title","我的钱包");
+        map4.put("title","退出登录");
 
         list.add(map4);
-
-        Map<String,Object> map5 = new HashMap<String,Object>();
-        map5.put("title","我的游记");
-
-        list.add(map5);
+//
+//        Map<String,Object> map5 = new HashMap<String,Object>();
+//        map5.put("title","");
+//
+//        list.add(map5);
+//
+//        Map<String,Object> map6 = new HashMap<String,Object>();
+//        map6.put("title","");
+//
+//        list.add(map6);
 
         return list;
 
