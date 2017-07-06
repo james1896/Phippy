@@ -3,7 +3,6 @@ package com.tiffany.phippy.food;
 
 import android.content.Intent;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -11,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.tiffany.phippy.BaseFragment;
+import com.tiffany.phippy.base.BaseFragment;
 import com.tiffany.phippy.R;
 
 import java.util.ArrayList;

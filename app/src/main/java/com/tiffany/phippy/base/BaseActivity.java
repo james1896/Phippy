@@ -1,4 +1,4 @@
-package com.tiffany.phippy;
+package com.tiffany.phippy.base;
 
 import android.os.Build;
 import android.os.Bundle;

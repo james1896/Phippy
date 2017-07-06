@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
-import com.tiffany.phippy.BaseActivity;
+import com.tiffany.phippy.base.BaseActivity;
 import com.tiffany.phippy.R;
 
 import java.lang.reflect.Field;

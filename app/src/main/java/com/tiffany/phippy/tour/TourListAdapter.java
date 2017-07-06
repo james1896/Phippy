@@ -1,16 +1,12 @@
 package com.tiffany.phippy.tour;
 
 import android.content.Context;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tiffany.phippy.R;
-import com.tiffany.phippy.adapter.BaseListAdapter;
+import com.tiffany.phippy.base.BaseListAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;

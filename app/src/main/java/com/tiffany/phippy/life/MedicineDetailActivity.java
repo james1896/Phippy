@@ -2,7 +2,7 @@ package com.tiffany.phippy.life;
 
 import android.os.Bundle;
 
-import com.tiffany.phippy.BaseActivity;
+import com.tiffany.phippy.base.BaseActivity;
 import com.tiffany.phippy.R;
 
 /**

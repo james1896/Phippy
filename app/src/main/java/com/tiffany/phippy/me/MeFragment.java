@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
-import com.tiffany.phippy.BaseFragment;
+import com.tiffany.phippy.base.BaseFragment;
 import com.tiffany.phippy.R;
 
 /**

@@ -7,7 +7,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.tiffany.phippy.BaseActivity;
+import com.tiffany.phippy.base.BaseActivity;
 import com.tiffany.phippy.R;
 import com.tiffany.phippy.tour.TourRecListAdapter;
 

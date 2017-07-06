@@ -1,4 +1,4 @@
-package com.tiffany.phippy.adapter;
+package com.tiffany.phippy;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;

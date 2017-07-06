@@ -1,4 +1,4 @@
-package com.tiffany.phippy.adapter;
+package com.tiffany.phippy.base;
 
 import android.content.Context;
 import android.view.LayoutInflater;
