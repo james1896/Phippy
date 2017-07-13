@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1.15"
-                android:text="之坊"
+                android:text="梦之蓝，蓝色经典"
                 android:gravity="center"/>
 
             <!--小娘子药铺-->

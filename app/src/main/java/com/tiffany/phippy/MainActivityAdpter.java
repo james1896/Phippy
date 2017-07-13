@@ -21,8 +21,8 @@ public class MainActivityAdpter extends FragmentPagerAdapter {
         super(context.getSupportFragmentManager());
         this.context = context;
 
-        this.fragments.add(new TourFragment());
         this.fragments.add(new FoodFragment());
+        this.fragments.add(new TourFragment());
         this.fragments.add(new LifeFragment());
         this.fragments.add(new MeFragment());
     }
