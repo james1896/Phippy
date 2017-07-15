@@ -30,6 +30,8 @@
 
         <activity android:name=".tour.TourRecActivity" />
 
+        <activity android:name=".me.DBDebugActivity"/>
+
 
     </application>
 

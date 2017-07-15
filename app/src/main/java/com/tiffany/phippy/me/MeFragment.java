@@ -1,6 +1,9 @@
 package com.tiffany.phippy.me;
 
+import android.content.Intent;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -29,5 +32,19 @@ public class MeFragment extends BaseFragment {
 //        headerText.setText("猜你喜欢");
         listview.addHeaderView(mLoadingLayout);
         listview.setAdapter(new MeListAdapter(getContext(),null));
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                switch (i){
+                    case 7:{
+                        Intent intent = new Intent(getActivity(),DBDebugActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    default:
+                        Log.e("点击",""+i);
+                }
+            }
+        });
     }
 }

@@ -90,10 +90,16 @@ public class MeListAdapter extends BaseListAdapter {
         map5.put("title","应急求助");
 
         list.add(map5);
+
         Map<String,Object> map6 = new HashMap<String,Object>();
         map6.put("title","退出登录");
 
         list.add(map6);
+
+        Map<String,Object> map7 = new HashMap<String,Object>();
+        map7.put("title","DBDebug");
+
+        list.add(map7);
 //        Map<String,Object> map5 = new HashMap<String,Object>();
 //        map5.put("title","");
 //
