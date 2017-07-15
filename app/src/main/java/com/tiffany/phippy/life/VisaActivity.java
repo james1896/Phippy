@@ -20,7 +20,7 @@ public class VisaActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visa);
 
-        TextView titleTV = (TextView) findViewById(R.id.toolbar_textview);
+        TextView titleTV = (TextView) findViewById(R.id.toolbar_sub_textview);
         titleTV.setText("全民签证");
 
         RelativeLayout header = (RelativeLayout) View.inflate(this, R.layout.tour_or_food_rec_header, null);

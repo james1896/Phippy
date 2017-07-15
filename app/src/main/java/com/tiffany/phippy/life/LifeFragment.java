@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.bigkoo.convenientbanner.ConvenientBanner;
@@ -32,7 +33,7 @@ public class LifeFragment extends Fragment {
 
         contentView = inflater.inflate(R.layout.fragment_life, container, false);
 
-        LinearLayout fragment = (LinearLayout) contentView.findViewById(R.id.fragment_life);
+        RelativeLayout fragment = (RelativeLayout) contentView.findViewById(R.id.fragment_life);
         fragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

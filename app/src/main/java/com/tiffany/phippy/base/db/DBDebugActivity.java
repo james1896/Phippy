@@ -11,6 +11,12 @@ import android.widget.TextView;
 
 import com.tiffany.phippy.R;
 
+
+
+//参考
+//http://blog.csdn.net/codeeer/article/details/30237597/
+
+
 public class DBDebugActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView textView;

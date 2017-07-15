@@ -29,7 +29,7 @@ public class MedicineActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicine);
 
-        TextView titleTV = (TextView) findViewById(R.id.toolbar_textview);
+        TextView titleTV = (TextView) findViewById(R.id.toolbar_sub_textview);
         titleTV.setText("小娘子药铺");
 
         View banner_view = View.inflate(this, R.layout.medicine_banner, null);

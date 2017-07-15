@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -9,100 +9,109 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_weight="5">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <!--燕 娘子-->
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="5.3"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/life_ruby"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1.15"
-                android:text="梦之蓝，蓝色经典"
-                android:gravity="center"/>
-
-            <!--小娘子药铺-->
-            <ImageView
-                android:id="@+id/life_medicine"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="@mipmap/ic_test_2"/>
-
-        </LinearLayout>
-
-        <!--签证-->
-        <LinearLayout
-            android:id="@+id/life_layout_visa"
-            android:layout_weight="3"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="当前温度: 32 °C"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="全民"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="公民"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="公证"/>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="30dp">
-
-        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="海运 空运 陆运 太空运"/>
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="5">
 
-    </LinearLayout>
+            <!--燕 娘子-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5.3"
+                android:orientation="vertical">
 
-    <!--汇款-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_weight="3">
+                <TextView
+                    android:id="@+id/life_ruby"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.15"
+                    android:text="梦之蓝，蓝色经典"
+                    android:gravity="center"/>
+
+                <!--小娘子药铺-->
+                <ImageView
+                    android:id="@+id/life_medicine"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@mipmap/ic_test_2"/>
+
+            </LinearLayout>
+
+            <!--签证-->
+            <LinearLayout
+                android:id="@+id/life_layout_visa"
+                android:layout_weight="3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="当前温度: 32 °C"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="全民"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="公民"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="公证"/>
+            </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/theme_green">
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="海运 空运 陆运 太空运"/>
 
         </LinearLayout>
+
+        <!--汇款-->
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="3">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/theme_green">
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </LinearLayout>
 
         </LinearLayout>
-
     </LinearLayout>
-</LinearLayout>
+
+
+    <include layout="@layout/toolbar"/>
+</RelativeLayout>
