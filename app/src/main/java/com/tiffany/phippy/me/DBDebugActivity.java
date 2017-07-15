@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.tiffany.phippy.R;
-import com.tiffany.phippy.base.PhippyDBHelper;
+import com.tiffany.phippy.base.db.PhippyDBHelper;
 
 public class DBDebugActivity extends AppCompatActivity {
 
@@ -97,7 +97,7 @@ public class DBDebugActivity extends AppCompatActivity {
 //生成ContentValues对象 //key:列名，value:想插入的值
             ContentValues cv = new ContentValues();
 //往ContentValues对象存放数据，键-值对模式
-            cv.put("id", 1);
+//            cv.put("id", 1);
             cv.put("sname", "xiaoming");
             cv.put("sage", 21);
             cv.put("ssex", "male");
@@ -128,11 +128,13 @@ public class DBDebugActivity extends AppCompatActivity {
             Cursor cursor = db.query("stu_table", new String[]{"id","sname","sage","ssex"}, null, null, null, null, null);
             String str =null;
             while(cursor.moveToNext()){
-                String id = cursor.getString(cursor.getColumnIndex("id"));
+
+
+                int id = cursor.getInt(0);
                 String name = cursor.getString(cursor.getColumnIndex("sname"));
                 String age = cursor.getString(cursor.getColumnIndex("sage"));
                 String sex = cursor.getString(cursor.getColumnIndex("ssex"));
-                System.out.println("query------->" +"ID:" + id + "姓名："+name+" "+"年龄："+age+" "+"性别："+sex);
+                System.out.println("query------->" +"id:" + id + "姓名："+name+" "+"年龄："+age+" "+"性别："+sex);
                 str += "\n姓名："+name+" "+"年龄："+age+" "+"性别："+sex;
             }
 

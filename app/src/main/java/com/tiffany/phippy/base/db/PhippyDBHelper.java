@@ -1,4 +1,4 @@
-package com.tiffany.phippy.base;
+package com.tiffany.phippy.base.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -19,7 +19,7 @@ public class PhippyDBHelper extends SQLiteOpenHelper {
 
     // 当第一次创建数据库的时候，调用该方法
     public void onCreate(SQLiteDatabase db) {
-        String sql = "create table stu_table(id int,sname varchar(20),sage int,ssex varchar(10))";
+        String sql = "create table stu_table(id integer primary key autoincrement,sname varchar(20),sage int,ssex varchar(10))";
 //输出创建数据库的日志信息
         Log.i(TAG, "create Database------------->");
 //execSQL函数用于执行SQL语句
