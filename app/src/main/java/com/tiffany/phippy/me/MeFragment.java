@@ -9,6 +9,7 @@ import android.widget.ListView;
 
 import com.tiffany.phippy.base.BaseFragment;
 import com.tiffany.phippy.R;
+import com.tiffany.phippy.base.db.DBDebugActivity;
 
 /**
  * Created by moses on 09/06/2017.
