@@ -8,12 +8,12 @@
     tools:context="com.tiffany.phippy.food.FoodDetailActivity">
 
 
-    <ListView
-        android:id="@+id/food_detail_listview"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/food_detail_RecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    </ListView>
+    </android.support.v7.widget.RecyclerView>
     <include layout="@layout/toolbar_back"/>
 
 </RelativeLayout>

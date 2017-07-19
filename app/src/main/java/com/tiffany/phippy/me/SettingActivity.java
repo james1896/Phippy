@@ -13,8 +13,6 @@ import java.util.Map;
 
 public class SettingActivity extends BaseActivity {
 
-
-
     @Override
     protected int getContentView() {
         return R.layout.activity_setting;
