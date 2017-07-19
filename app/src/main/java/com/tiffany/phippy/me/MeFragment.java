@@ -37,7 +37,15 @@ public class MeFragment extends BaseFragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i){
-                    case 7:{
+
+                    case 3:{
+                        //常用设置
+                        Intent intent = new Intent(getActivity(),SettingActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 8:{
+//                        DB 调试
                         Intent intent = new Intent(getActivity(),DBDebugActivity.class);
                         startActivity(intent);
                         break;

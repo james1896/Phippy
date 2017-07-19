@@ -12,16 +12,19 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.tiffany.phippy.R;
+import com.tiffany.phippy.base.BaseActivity;
 
-public class FoodDetailActivity extends Activity {
+public class FoodDetailActivity extends BaseActivity {
+
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_food_detail);
+    protected int getContentView() {
+        return R.layout.activity_food_detail;
+    }
 
-//        intent.putExtra("com.tiffany.food.fooddetail.title", (String) map.get("title"));
-
+    @Override
+    protected void init() {
         Intent intent = getIntent();
 //        intent.putExtra("com.tiffany.food.fooddetail.Resource",R.mipmap.food_rec_header_img);
 
@@ -29,7 +32,7 @@ public class FoodDetailActivity extends Activity {
         int resourceId = intent.getIntExtra("com.tiffany.food.fooddetail.Resource",0);
         Log.e("food",title);
 
-        RelativeLayout mLoadingLayout = (RelativeLayout) View.inflate(this, R.layout.tour_or_food_rec_header, null);
+        LinearLayout mLoadingLayout = (LinearLayout) View.inflate(this, R.layout.tour_or_food_rec_header, null);
         TextView textView = (TextView) mLoadingLayout.findViewById(R.id.tf_rec_header_title);
         textView.setText(title);
         ImageView img = (ImageView) mLoadingLayout.findViewById(R.id.tf_rec_header_groundimage);
@@ -38,6 +41,5 @@ public class FoodDetailActivity extends Activity {
         ListView listview = (ListView) findViewById(R.id.food_detail_listview);
         listview.addHeaderView(mLoadingLayout);
         listview.setAdapter(new FoodDetailListAdapter(this,null));
-
     }
 }

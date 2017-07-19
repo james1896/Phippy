@@ -10,11 +10,13 @@ import com.tiffany.phippy.base.BaseActivity;
 public class MainActivity extends BaseActivity implements TabLayout.OnTabSelectedListener {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected int getContentView() {
+        return R.layout.activity_main;
+    }
 
-        //viewPage
+    @Override
+    protected void init() {
+//viewPage
         ViewPager viewPage = (ViewPager) findViewById(R.id.viewpage);
         viewPage.setOffscreenPageLimit(4);
         viewPage.setAdapter(new MainActivityAdpter(this));

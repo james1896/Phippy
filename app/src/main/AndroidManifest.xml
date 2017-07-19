@@ -21,18 +21,16 @@
                 <action android:name="android.intent.action.Medicine" />
             </intent-filter>
         </activity>
-
         <activity android:name=".food.FoodDetailActivity" />
         <activity android:name=".food.FoodRecActivity" />
-
         <activity android:name=".life.MedicineActivity" />
-        <activity android:name=".life.VisaActivity"/>
-
+        <activity android:name=".life.VisaActivity" />
         <activity android:name=".tour.TourRecActivity" />
-
-        <activity android:name=".base.db.DBDebugActivity"/>
-
-
+        <activity android:name=".base.db.DBDebugActivity" />
+        <activity
+            android:name=".me.SettingActivity"
+            android:label="@string/title_activity_setting"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
 </manifest>

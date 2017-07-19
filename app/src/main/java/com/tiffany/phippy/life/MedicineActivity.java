@@ -25,10 +25,14 @@ public class MedicineActivity extends BaseActivity {
     private ConvenientBanner convenientBanner;
     private ArrayList<Integer> localImages = new ArrayList<Integer>();
 
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_medicine);
 
+    @Override
+    protected int getContentView() {
+        return R.layout.activity_medicine;
+    }
+
+    @Override
+    protected void init() {
         TextView titleTV = (TextView) findViewById(R.id.toolbar_sub_textview);
         titleTV.setText("小娘子药铺");
 
@@ -78,7 +82,6 @@ public class MedicineActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
-
     }
 
     /**

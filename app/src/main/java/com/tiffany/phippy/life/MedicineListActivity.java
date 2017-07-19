@@ -21,11 +21,13 @@ import java.util.Map;
 
 public class MedicineListActivity extends BaseActivity {
 
+    @Override
+    protected int getContentView() {
+        return R.layout.activity_medicinelist;
+    }
 
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_medicinelist);
-
+    @Override
+    protected void init() {
         Intent intent = getIntent();
         final int page = intent.getIntExtra("com.tiffany.android_intent.age1",0);
         ListView listView = (ListView)findViewById(R.id.medList_listview);

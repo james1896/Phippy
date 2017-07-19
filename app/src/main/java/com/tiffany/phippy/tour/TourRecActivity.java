@@ -18,10 +18,12 @@ import com.tiffany.phippy.R;
 public class TourRecActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tour_recommend);
+    protected int getContentView() {
+        return R.layout.activity_tour_recommend;
+    }
 
+    @Override
+    protected void init() {
         RelativeLayout header = (RelativeLayout) View.inflate(this, R.layout.tour_or_food_rec_header, null);
         ImageView imageview = (ImageView) header.findViewById(R.id.tf_rec_header_groundimage);
         TextView textview = (TextView) header.findViewById(R.id.tf_rec_header_title);
@@ -35,7 +37,6 @@ public class TourRecActivity extends BaseActivity {
         listview.addHeaderView(header);
         listview.addHeaderView(subHeader);
         listview.setAdapter(new TourRecListAdapter(this,null));
-
     }
 
 }

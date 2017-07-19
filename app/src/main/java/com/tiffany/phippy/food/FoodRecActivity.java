@@ -16,12 +16,15 @@ import com.tiffany.phippy.tour.TourRecListAdapter;
  */
 
 public class FoodRecActivity extends BaseActivity {
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_food_recommend);
+    protected int getContentView() {
+        return R.layout.activity_food_recommend;
+    }
 
-
+    @Override
+    protected void init() {
         RelativeLayout mLoadingLayout = (RelativeLayout) View.inflate(this, R.layout.tour_or_food_rec_header, null);
         ImageView imageview = (ImageView) mLoadingLayout.findViewById(R.id.tf_rec_header_groundimage);
         TextView textview = (TextView) mLoadingLayout.findViewById(R.id.tf_rec_header_title);
@@ -31,6 +34,5 @@ public class FoodRecActivity extends BaseActivity {
         ListView listview = (ListView) findViewById(R.id.food_rec_listview);
         listview.addHeaderView(mLoadingLayout);
         listview.setAdapter(new TourRecListAdapter(this,null));
-
     }
 }

@@ -10,8 +10,15 @@ import com.tiffany.phippy.R;
  */
 
 public class MedicineDetailActivity extends BaseActivity {
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.medicine_detail_activity);
+
+
+    @Override
+    protected int getContentView() {
+        return R.layout.medicine_detail_activity;
+    }
+
+    @Override
+    protected void init() {
+
     }
 }

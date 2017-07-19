@@ -3,6 +3,7 @@ package com.tiffany.phippy.life;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -15,15 +16,19 @@ import com.tiffany.phippy.R;
  */
 
 public class VisaActivity extends BaseActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_visa);
 
+
+    @Override
+    protected int getContentView() {
+        return R.layout.activity_visa;
+    }
+
+    @Override
+    protected void init() {
         TextView titleTV = (TextView) findViewById(R.id.toolbar_sub_textview);
         titleTV.setText("全民签证");
 
-        RelativeLayout header = (RelativeLayout) View.inflate(this, R.layout.tour_or_food_rec_header, null);
+        LinearLayout header = (LinearLayout) View.inflate(this, R.layout.tour_or_food_rec_header, null);
         ImageView imageview = (ImageView) header.findViewById(R.id.tf_rec_header_groundimage);
         imageview.setImageResource(R.mipmap.visa_header_img);
 
