@@ -16,7 +16,7 @@
     <TextView
         android:layout_alignParentRight="true"
 
-        android:id="@+id/switch_textview"
+        android:id="@+id/setting_switch_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="关"/>

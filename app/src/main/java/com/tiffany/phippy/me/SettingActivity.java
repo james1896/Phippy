@@ -1,8 +1,12 @@
 package com.tiffany.phippy.me;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 
+import com.tiffany.phippy.PHIUserManager;
 import com.tiffany.phippy.R;
 import com.tiffany.phippy.base.BaseActivity;
 import com.tiffany.phippy.food.FoodListAdapter;
@@ -22,6 +26,20 @@ public class SettingActivity extends BaseActivity {
     protected void init() {
         ListView listview = (ListView) findViewById(R.id.setting_listview);
         listview.setAdapter(new SettingListAdapter(this,getDataList()));
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                switch (i){
+                    case 0:{
+                        PHIUserManager.getInstance().setDownloadImageOnlyWIFI(!PHIUserManager.getInstance().isDownloadImageOnlyWIFI());
+                        //仅在wifi环境 下载图片
+                        TextView textView = (TextView) view.findViewById(R.id.setting_switch_textview);
+                        textView.setText((PHIUserManager.getInstance().isDownloadImageOnlyWIFI()?"开":"关"));
+                        break;
+                    }
+                }
+            }
+        });
     }
 
     private ArrayList<Map> getDataList() {
