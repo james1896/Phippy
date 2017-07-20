@@ -91,6 +91,7 @@ public class FoodRecRecyclerAdapter extends RecyclerView.Adapter<FoodRecRecycler
     //构造函数
     public FoodRecRecyclerAdapter(List<String> list) {
         mDataList = list;
+
     }
 
     public int getItemCount() {

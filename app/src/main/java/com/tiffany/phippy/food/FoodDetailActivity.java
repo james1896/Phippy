@@ -62,7 +62,10 @@ public class FoodDetailActivity extends BaseActivity {
             public int getSpanSize(int position) {
                 if (position == 0) {
                     return FoodRecRecyclerAdapter.PHI_SPAN_COUNT;
-                }else{
+                } else if(position == 11){
+                    return FoodRecRecyclerAdapter.PHI_SPAN_COUNT;
+                }
+                else {
                     return 1;
                 }
             }
@@ -80,8 +83,8 @@ public class FoodDetailActivity extends BaseActivity {
         View header = LayoutInflater.from(this).inflate(R.layout.recyclerview_header_footer, mRecyclerView, false);
         adapter.setHeaderView(header);
 
-        View header1 = LayoutInflater.from(this).inflate(R.layout.recyclerview_header_footer, mRecyclerView, false);
-        adapter.setFooterView(header1);
+        View footer = LayoutInflater.from(this).inflate(R.layout.recycler_footer, mRecyclerView, false);
+        adapter.setFooterView(footer);
 
         mRecyclerView.setAdapter(adapter);
 
