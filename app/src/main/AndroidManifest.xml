@@ -17,15 +17,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".life.MedicineListActivity">
+        <activity android:name=".life.xiaoniangzi.MedicineListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.Medicine" />
             </intent-filter>
         </activity>
         <activity android:name=".food.FoodDetailActivity" />
         <activity android:name=".food.FoodRecActivity" />
-        <activity android:name=".life.MedicineActivity" />
-        <activity android:name=".life.VisaActivity" />
+        <activity android:name=".life.xiaoniangzi.MedicineActivity" />
+        <activity android:name=".life.visa.VisaActivity" />
         <activity android:name=".tour.TourRecActivity" />
         <activity android:name=".base.db.DBDebugActivity" />
         <activity

@@ -1,7 +1,6 @@
-package com.tiffany.phippy.life;
+package com.tiffany.phippy.life.xiaoniangzi;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;

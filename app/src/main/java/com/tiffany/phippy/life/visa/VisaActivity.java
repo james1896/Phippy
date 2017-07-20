@@ -1,11 +1,9 @@
-package com.tiffany.phippy.life;
+package com.tiffany.phippy.life.visa;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.tiffany.phippy.base.BaseActivity;

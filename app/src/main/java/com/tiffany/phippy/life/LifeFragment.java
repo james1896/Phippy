@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.tiffany.phippy.R;
+import com.tiffany.phippy.life.visa.VisaActivity;
+import com.tiffany.phippy.life.xiaoniangzi.MedicineActivity;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

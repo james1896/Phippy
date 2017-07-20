@@ -1,4 +1,4 @@
-package com.tiffany.phippy.life;
+package com.tiffany.phippy.life.xiaoniangzi;
 
 import android.os.Bundle;
 
