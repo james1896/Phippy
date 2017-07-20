@@ -24,6 +24,8 @@ public class SettingActivity extends BaseActivity {
 
     @Override
     protected void init() {
+
+        setToolbarTitle("常用设置");
         ListView listview = (ListView) findViewById(R.id.setting_listview);
         listview.setAdapter(new SettingListAdapter(this,getDataList()));
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {

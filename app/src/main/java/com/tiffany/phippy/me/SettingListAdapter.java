@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.tiffany.phippy.PHIUserManager;
 import com.tiffany.phippy.R;
 import com.tiffany.phippy.base.BaseListAdapter;
 
@@ -42,6 +43,10 @@ public class SettingListAdapter extends BaseListAdapter {
         TextView titleTV = (TextView) item.findViewById(R.id.setting_item_title);
         titleTV.setText(titleStr);
 
+
+        //仅在wifi环境 下载图片的开关
+        TextView textView = (TextView) item.findViewById(R.id.setting_switch_textview);
+        textView.setText((PHIUserManager.getInstance().isDownloadImageOnlyWIFI()?"开":"关"));
         return item;
     }
 

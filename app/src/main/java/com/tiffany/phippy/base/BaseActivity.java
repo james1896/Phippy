@@ -8,8 +8,11 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.tiffany.phippy.R;
+
+import org.w3c.dom.Text;
 
 /**
  * Created by moses on 17/06/2017.
@@ -18,6 +21,8 @@ import com.tiffany.phippy.R;
 public abstract class BaseActivity extends AppCompatActivity {
 
     View toolbar;
+    protected String toolbarTitle;
+    private TextView toolbarTilteTV;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getContentView());
@@ -28,6 +33,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
         //toolbar
         toolbar = (View) findViewById(R.id.toobar_back);
+
+
+        //-----------------------------------
+        //如果toolbar上有返回按钮 设置返回点击事件
+        //-----------------------------------
         ImageView back = (ImageView)findViewById(R.id.toolbar_back_button);
         if(back != null){
             back.setOnClickListener(new View.OnClickListener() {
@@ -38,7 +48,28 @@ public abstract class BaseActivity extends AppCompatActivity {
                 }
             });
         }
-    init();
+
+        //-----------------------------------
+        //如果toolbar上有title textview
+        //-----------------------------------
+        this.toolbarTilteTV = (TextView) findViewById(R.id.toolbar_back_title);
+
+        init();
+    }
+
+    public String getToolbarTitle() {
+        return toolbarTitle;
+    }
+
+    public void setToolbarTitle(String toolbarTitle) {
+
+        Log.e("setting11","1");
+        if(this.toolbarTilteTV != null && toolbarTitle != null){
+            Log.e("setting11","2");
+            this.toolbarTilteTV.setText(toolbarTitle);
+
+            this.toolbarTitle = toolbarTitle;
+        }
 
     }
 
