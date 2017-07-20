@@ -3,6 +3,7 @@ package com.tiffany.phippy.food;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -50,20 +51,40 @@ public class FoodDetailActivity extends BaseActivity {
 
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.food_detail_RecyclerView);
         //设置线性管理器
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        //设置表格管理器
+
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,FoodRecRecyclerAdapter.PHI_SPAN_COUNT);
+        mRecyclerView.setLayoutManager(gridLayoutManager);
+        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                if (position == 0) {
+                    return FoodRecRecyclerAdapter.PHI_SPAN_COUNT;
+                }else{
+                    return 1;
+                }
+            }
+        });
+
 
         List<String> mDataList = new ArrayList<String>();
-        for (int i=0;i<50;i++){
+        for (int i=0;i<10;i++){
             mDataList.add("内容 - "+i);
         }
         /*
         设置适配器
          */
         FoodRecRecyclerAdapter adapter = new FoodRecRecyclerAdapter(mDataList);
-
-        mRecyclerView.setAdapter(adapter);
         View header = LayoutInflater.from(this).inflate(R.layout.recyclerview_header_footer, mRecyclerView, false);
         adapter.setHeaderView(header);
+
+        View header1 = LayoutInflater.from(this).inflate(R.layout.recyclerview_header_footer, mRecyclerView, false);
+        adapter.setFooterView(header1);
+
+        mRecyclerView.setAdapter(adapter);
+
         adapter.setOnItemClickListener(new FoodRecRecyclerAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
