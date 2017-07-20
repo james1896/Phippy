@@ -9,6 +9,7 @@
     tools:context="com.tiffany.phippy.me.SettingActivity"
     tools:showIn="@layout/activity_setting">
 
+    <include layout="@layout/toolbar_back"/>
     <ListView
         android:id="@+id/setting_listview"
         android:layout_width="match_parent"
