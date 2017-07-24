@@ -23,7 +23,8 @@ public class RequestManager extends Request{
     // phippy 相关
     //--------------------------------------------------------------------------------
 
-    static String TB_BASE_URL = "http://127.0.0.1:5000";
+    static String TB_BASE_URL = "http://10.71.66.2:5000";
+//      static String TB_BASE_URL = "http://127.0.0.1:5000";
 
 //    getstore
 //            getgoods

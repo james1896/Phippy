@@ -15,10 +15,15 @@ import android.widget.TextView;
 
 import com.tiffany.phippy.base.BaseFragment;
 import com.tiffany.phippy.R;
+import com.tiffany.phippy.venv.RequestCallBack;
+import com.tiffany.phippy.venv.RequestManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import okhttp3.Call;
+import okhttp3.Response;
 
 
 /**
@@ -55,7 +60,13 @@ public class FoodFragment extends BaseFragment implements View.OnClickListener, 
     protected void viewWillAppear() {
         super.viewWillAppear();
 
-        Log.e("foodFragment","init");
+        RequestManager.getInstant().getStore("2", new RequestCallBack() {
+            @Override
+            public void onSuccess(String s, Call call, Response response) {
+                super.onSuccess(s, call, response);
+
+            }
+        });
     }
 
     @Override

@@ -63,24 +63,24 @@ public class FoodRecRecyclerAdapter extends RecyclerView.Adapter<FoodRecRecycler
 
         if (position == 0 && mHeaderView != null){
             //第一个item应该加载Header
-            Log.e("getItemCount","1");
+//            Log.e("getItemCount","1");
             return TYPE_HEADER;
         }
         if(position == getItemCount()-1 && mHeaderView == null && mFooterView != null){
-            Log.e("getItemCount","2");
+//            Log.e("getItemCount","2");
             return TYPE_FOOTER;
         }
 
         if(position == getItemCount()-1 && mHeaderView != null && mFooterView == null){
-            Log.e("getItemCount","3");
+//            Log.e("getItemCount","3");
             return TYPE_NORMAL;
         }
 
         if(position == getItemCount()-1 && mHeaderView != null && mFooterView != null){
-            Log.e("getItemCount","4");
+//            Log.e("getItemCount","4");
             return TYPE_FOOTER;
         }
-        Log.e("getItemCount","5");
+//        Log.e("getItemCount","5");
         return TYPE_NORMAL;
     }
 

@@ -1,14 +1,23 @@
 package com.tiffany.phippy.food;
 
+import android.Manifest;
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.telephony.SmsManager;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -17,14 +26,20 @@ import android.widget.TextView;
 
 import com.tiffany.phippy.R;
 import com.tiffany.phippy.base.BaseActivity;
+import com.tiffany.phippy.venv.RequestCallBack;
+import com.tiffany.phippy.venv.RequestManager;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FoodDetailActivity extends BaseActivity {
+import okhttp3.Call;
+import okhttp3.Response;
 
+import static android.R.id.message;
+
+public class FoodDetailActivity extends BaseActivity {
 
 
     @Override
@@ -38,8 +53,8 @@ public class FoodDetailActivity extends BaseActivity {
 //        intent.putExtra("com.tiffany.food.fooddetail.Resource",R.mipmap.food_rec_header_img);
 
         String title = intent.getStringExtra("com.tiffany.food.fooddetail.title");
-        int resourceId = intent.getIntExtra("com.tiffany.food.fooddetail.Resource",0);
-        Log.e("food",title);
+        int resourceId = intent.getIntExtra("com.tiffany.food.fooddetail.Resource", 0);
+        Log.e("food", title);
 
 //        LinearLayout mLoadingLayout = (LinearLayout) View.inflate(this, R.layout.tour_or_food_rec_header, null);
 //        TextView textView = (TextView) mLoadingLayout.findViewById(R.id.tf_rec_header_title);
@@ -57,17 +72,16 @@ public class FoodDetailActivity extends BaseActivity {
         //设置表格管理器
 
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,FoodRecRecyclerAdapter.PHI_SPAN_COUNT);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, FoodRecRecyclerAdapter.PHI_SPAN_COUNT);
         mRecyclerView.setLayoutManager(gridLayoutManager);
         gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
                 if (position == 0) {
                     return FoodRecRecyclerAdapter.PHI_SPAN_COUNT;
-                } else if(position == 11){
+                } else if (position == 11) {
                     return FoodRecRecyclerAdapter.PHI_SPAN_COUNT;
-                }
-                else {
+                } else {
                     return 1;
                 }
             }
@@ -75,8 +89,8 @@ public class FoodDetailActivity extends BaseActivity {
 
 
         List<String> mDataList = new ArrayList<String>();
-        for (int i=0;i<10;i++){
-            mDataList.add("内容 - "+i);
+        for (int i = 0; i < 10; i++) {
+            mDataList.add("内容 - " + i);
         }
         /*
         设置适配器
@@ -93,7 +107,7 @@ public class FoodDetailActivity extends BaseActivity {
         adapter.setOnItemClickListener(new FoodRecRecyclerAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Log.e("onItem",""+position);
+                Log.e("onItem", "" + position);
             }
         });
 
@@ -104,7 +118,68 @@ public class FoodDetailActivity extends BaseActivity {
         right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.e("right","right");
+//                Window window = myDialog.getWindow();
+                new AlertDialog.Builder(FoodDetailActivity.this)
+                        .setMessage("退出当前账号不会删除任何历史数据，下次登录依然可以使用本账号")
+                        .setPositiveButton("微信", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+//                                              //参考文献
+//                http://blog.csdn.net/lovexieyuan520/article/details/44301753
+                                try {
+                                    PackageManager packageManager = getPackageManager();
+                                    Intent intent = new Intent();
+                                    intent = packageManager.getLaunchIntentForPackage("com.tencent.mm");
+                                    startActivity(intent);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                    Intent viewIntent = new
+                                            Intent("android.intent.action.VIEW", Uri.parse("http://weixin.qq.com/"));
+                                    startActivity(viewIntent);
+                                }
+                            }
+                        }).setNegativeButton("电话", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        if (ActivityCompat.checkSelfPermission(FoodDetailActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                            // TODO: Consider calling
+                            //    ActivityCompat#requestPermissions
+                            // here to request the missing permissions, and then overriding
+                            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                            //                                          int[] grantResults)
+                            // to handle the case where the user grants the permission. See the documentation
+                            // for ActivityCompat#requestPermissions for more details.
+                            return;
+                        }
+                        Uri uri = Uri.parse("tel:" + 123);
+                        Intent intent = new Intent(Intent.ACTION_CALL, uri);
+                        startActivity(intent);
+                    }
+                }).setNegativeButton("短信", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+//                        Intent intentFinalMessage = new Intent(Intent.ACTION_VIEW);
+//                        intentFinalMessage.setType("vnd.android-dir/mms-sms");
+////                        打开系统短信界面
+//                        startActivity(intentFinalMessage);
+//                        创建Uri，设置行为和号码
+                        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:"+"123"));
+//                        创建意图
+                        intent.putExtra("sms_body", "aaa");
+//                        打开系统短信界面，号码已经填写，只需填写要发送
+                        startActivity(intent);
+                    }
+                }).show();
+            }
+        });
+
+
+        RequestManager.getInstant().getgoods("1001", new RequestCallBack() {
+            @Override
+            public void onSuccess(String s, Call call, Response response) {
+                super.onSuccess(s, call, response);
             }
         });
 

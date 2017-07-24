@@ -12,6 +12,11 @@ import android.widget.TextView;
 
 import com.tiffany.phippy.base.BaseFragment;
 import com.tiffany.phippy.R;
+import com.tiffany.phippy.venv.RequestCallBack;
+import com.tiffany.phippy.venv.RequestManager;
+
+import okhttp3.Call;
+import okhttp3.Response;
 
 
 /**
@@ -35,6 +40,18 @@ public class TourFragment extends BaseFragment implements View.OnClickListener {
     @Override
     public int getContentView() {
         return R.layout.fragment_tour;
+    }
+
+    @Override
+    protected void viewWillAppear() {
+        super.viewWillAppear();
+
+        RequestManager.getInstant().getarticle("", new RequestCallBack() {
+            @Override
+            public void onSuccess(String s, Call call, Response response) {
+                super.onSuccess(s, call, response);
+            }
+        });
     }
 
     @Override
