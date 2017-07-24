@@ -18,6 +18,8 @@ import android.widget.TextView;
 import com.tiffany.phippy.R;
 import com.tiffany.phippy.base.BaseActivity;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -94,5 +96,17 @@ public class FoodDetailActivity extends BaseActivity {
                 Log.e("onItem",""+position);
             }
         });
+
+
+        TextView right = (TextView) findViewById(R.id.toolbar_right_button);
+        right.setText("联系商家");
+        right.setTextSize(15);
+        right.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e("right","right");
+            }
+        });
+
     }
 }

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -51,6 +52,13 @@ public class FoodFragment extends BaseFragment implements View.OnClickListener, 
     }
 
     @Override
+    protected void viewWillAppear() {
+        super.viewWillAppear();
+
+        Log.e("foodFragment","init");
+    }
+
+    @Override
     public void init() {
 
         this.dataArray = getDataList();
@@ -74,6 +82,8 @@ public class FoodFragment extends BaseFragment implements View.OnClickListener, 
         upright.setOnClickListener(this);
         downleft.setOnClickListener(this);
         downright.setOnClickListener(this);
+
+
     }
 
     @Override
