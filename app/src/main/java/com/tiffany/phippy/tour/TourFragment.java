@@ -3,6 +3,7 @@ package com.tiffany.phippy.tour;
 
 import android.content.Intent;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -10,10 +11,16 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.gson.reflect.TypeToken;
 import com.tiffany.phippy.base.BaseFragment;
 import com.tiffany.phippy.R;
+import com.tiffany.phippy.base.BaseModel;
+import com.tiffany.phippy.base.JsonParse;
+import com.tiffany.phippy.food.FoodDetailModel;
 import com.tiffany.phippy.venv.RequestCallBack;
 import com.tiffany.phippy.venv.RequestManager;
+
+import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Response;
@@ -50,6 +57,9 @@ public class TourFragment extends BaseFragment implements View.OnClickListener {
             @Override
             public void onSuccess(String s, Call call, Response response) {
                 super.onSuccess(s, call, response);
+                BaseModel<List<TourModel>> model = JsonParse.parser.fromJson(s, new TypeToken<BaseModel<List<TourModel>>>(){}.getType());
+
+                Log.e("FoodModel",""+model);
             }
         });
     }

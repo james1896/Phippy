@@ -13,13 +13,17 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.gson.reflect.TypeToken;
 import com.tiffany.phippy.base.BaseFragment;
 import com.tiffany.phippy.R;
+import com.tiffany.phippy.base.BaseModel;
+import com.tiffany.phippy.base.JsonParse;
 import com.tiffany.phippy.venv.RequestCallBack;
 import com.tiffany.phippy.venv.RequestManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import okhttp3.Call;
@@ -64,7 +68,9 @@ public class FoodFragment extends BaseFragment implements View.OnClickListener, 
             @Override
             public void onSuccess(String s, Call call, Response response) {
                 super.onSuccess(s, call, response);
+                BaseModel<List<FoodModel>> model = JsonParse.parser.fromJson(s, new TypeToken<BaseModel<List<FoodModel>>>(){}.getType());
 
+                Log.e("FoodModel",""+model);
             }
         });
     }

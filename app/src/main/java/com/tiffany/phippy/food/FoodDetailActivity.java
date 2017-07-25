@@ -24,8 +24,11 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.gson.reflect.TypeToken;
 import com.tiffany.phippy.R;
 import com.tiffany.phippy.base.BaseActivity;
+import com.tiffany.phippy.base.BaseModel;
+import com.tiffany.phippy.base.JsonParse;
 import com.tiffany.phippy.venv.RequestCallBack;
 import com.tiffany.phippy.venv.RequestManager;
 
@@ -180,6 +183,10 @@ public class FoodDetailActivity extends BaseActivity {
             @Override
             public void onSuccess(String s, Call call, Response response) {
                 super.onSuccess(s, call, response);
+
+                BaseModel<List<FoodDetailModel>> model = JsonParse.parser.fromJson(s, new TypeToken<BaseModel<List<FoodDetailModel>>>(){}.getType());
+
+                Log.e("FoodModel",""+model);
             }
         });
 
