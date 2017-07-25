@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.tiffany.phippy.PHIUserManager;
 import com.tiffany.phippy.R;
 import com.tiffany.phippy.base.BaseListAdapter;
+import com.tiffany.phippy.base.BaseListAdapter1;
 
 import org.w3c.dom.Text;
 
@@ -19,7 +20,7 @@ import java.util.Map;
  * Created by moses on 27/06/2017.
  */
 
-public class SettingListAdapter extends BaseListAdapter {
+public class SettingListAdapter extends BaseListAdapter1 {
 
 
 //    protected ArrayList<Map> dataList;

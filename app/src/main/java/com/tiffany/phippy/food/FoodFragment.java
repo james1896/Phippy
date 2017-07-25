@@ -35,7 +35,8 @@ import okhttp3.Response;
  */
 public class FoodFragment extends BaseFragment implements View.OnClickListener, AdapterView.OnItemClickListener {
 
-    ArrayList<Map> dataArray;
+    ArrayList<FoodModel> dataArray;
+    FoodListAdapter adapter;
     public FoodFragment() {
         // Required empty public constructor
     }
@@ -68,9 +69,10 @@ public class FoodFragment extends BaseFragment implements View.OnClickListener, 
             @Override
             public void onSuccess(String s, Call call, Response response) {
                 super.onSuccess(s, call, response);
-                BaseModel<List<FoodModel>> model = JsonParse.parser.fromJson(s, new TypeToken<BaseModel<List<FoodModel>>>(){}.getType());
+                BaseModel<ArrayList<FoodModel>> model = JsonParse.parser.fromJson(s, new TypeToken<BaseModel<ArrayList<FoodModel>>>(){}.getType());
 
-                Log.e("FoodModel",""+model);
+                adapter.setDataList(model.getData());
+                adapter.notifyDataSetChanged();
             }
         });
     }
@@ -78,16 +80,19 @@ public class FoodFragment extends BaseFragment implements View.OnClickListener, 
     @Override
     public void init() {
 
-        this.dataArray = getDataList();
+        ArrayList<FoodModel> list = new ArrayList<>();
+        list.add(new FoodModel());
+        this.dataArray = list;
+
+        adapter = new FoodListAdapter(getContext(),this.dataArray);
+
         ListView listview = (ListView) contentView.findViewById(R.id.food_listview);
-
         LinearLayout mLoadingLayout = (LinearLayout) View.inflate(getContext(), R.layout.img_and_text_header, null);
-
         TextView headerText = (TextView) mLoadingLayout.findViewById(R.id.header_text);
         headerText.setText("猜你喜欢");
         listview.setOnItemClickListener(this);
         listview.addHeaderView(mLoadingLayout);
-        listview.setAdapter(new FoodListAdapter(getContext(),this.dataArray));
+        listview.setAdapter(adapter);
 
 
         ViewGroup upleft = (ViewGroup) mLoadingLayout.findViewById(R.id.upleft);
@@ -133,11 +138,11 @@ public class FoodFragment extends BaseFragment implements View.OnClickListener, 
         Intent intent = new Intent(getActivity(),FoodDetailActivity.class);
         if(i != 0){
             //去掉 headerview
-            Map map = this.dataArray.get(i-1);
+            FoodModel model = this.dataArray.get(i-1);
 
 //        imageview.setImageResource(R.mipmap.food_rec_header_img);
             intent.putExtra("com.tiffany.food.fooddetail.Resource",R.mipmap.food_rec_header_img);
-            intent.putExtra("com.tiffany.food.fooddetail.title", (String) map.get("title"));
+            intent.putExtra("com.tiffany.food.fooddetail.title", model.getName());
             startActivity(intent);
         }
 

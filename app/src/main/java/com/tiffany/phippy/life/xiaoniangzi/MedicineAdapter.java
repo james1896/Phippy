@@ -3,10 +3,12 @@ package com.tiffany.phippy.life.xiaoniangzi;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tiffany.phippy.R;
 import com.tiffany.phippy.base.BaseListAdapter;
+import com.tiffany.phippy.base.BaseListAdapter1;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,7 +18,7 @@ import java.util.Map;
  * Created by toby on 20/04/2017.
  */
 
-public class MedicineAdapter extends BaseListAdapter {
+public class MedicineAdapter extends BaseListAdapter1 {
 
     public MedicineAdapter(Context context, ArrayList<Map> list) {
         super(context, list);
@@ -31,7 +33,7 @@ public class MedicineAdapter extends BaseListAdapter {
 
         View item = mInflater.inflate(R.layout.medicine_listview_item, null);
         TextView title = (TextView)item.findViewById(R.id.home_textView);
-//        ImageView img = (ImageView)item.findViewById(R.id.imageView);
+        ImageView img = (ImageView)item.findViewById(R.id.imageView);
 
         String titleS = (String) map.get("title");
 //        int resid = (int) map.get("resId");
@@ -41,7 +43,7 @@ public class MedicineAdapter extends BaseListAdapter {
         return item;
     }
 
-    private ArrayList<Map> getDataList(){
+    public ArrayList<Map> getDataList(){
         ArrayList<Map> list = new ArrayList<>();
 
         Map<String,Object> map1 = new HashMap<String,Object>();

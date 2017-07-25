@@ -1,8 +1,10 @@
 package com.tiffany.phippy.life.xiaoniangzi;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,13 +18,31 @@ import java.util.Map;
  * Created by toby on 20/04/2017.
  */
 
-public class MedicineListAdapter extends BaseListAdapter {
+public class MedicineListAdapter extends BaseAdapter {
 
+    protected LayoutInflater mInflater = null;
+    protected ArrayList<Map> dataList;
     public MedicineListAdapter(Context context, ArrayList<Map> list) {
-        super(context, list);
+//        super(context, list);
+                this.mInflater = LayoutInflater.from(context);
         this.dataList = list;
     }
 
+
+    @Override
+    public int getCount() {
+        return this.dataList.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return position;
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {

@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.tiffany.phippy.R;
 import com.tiffany.phippy.base.BaseListAdapter;
+import com.tiffany.phippy.base.BaseListAdapter1;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,7 +17,7 @@ import java.util.Map;
  * Created by moses on 27/06/2017.
  */
 
-public class TourListAdapter extends BaseListAdapter {
+public class TourListAdapter extends BaseListAdapter1 {
 
 
 //    protected ArrayList<Map> dataList;
@@ -49,7 +50,7 @@ public class TourListAdapter extends BaseListAdapter {
         return item;
     }
 
-    private ArrayList<Map> getDataList(){
+    public ArrayList<Map> getDataList(){
         ArrayList<Map> list = new ArrayList<>();
 
         Map<String,Object> map1 = new HashMap<String,Object>();

@@ -13,23 +13,23 @@ import java.util.Map;
  * Created by toby on 08/04/2017.
  */
 
-public class BaseListAdapter<T> extends BaseAdapter {
+public class BaseListAdapter1 extends BaseAdapter {
 
     protected LayoutInflater mInflater = null;
-    protected ArrayList<T> dataList;
+    protected ArrayList<Map> dataList;
 
-    public BaseListAdapter(Context context, ArrayList<T> list){
+    public BaseListAdapter1(Context context, ArrayList<Map> list){
 
         //根据context上下文加载布局，这里的是 本身，即this
         this.mInflater = LayoutInflater.from(context);
         this.dataList = list;
     }
 
-    public ArrayList<T> getDataList() {
+    public ArrayList getDataList() {
         return dataList;
     }
 
-    public void setDataList(ArrayList<T> dataList) {
+    public void setDataList(ArrayList dataList) {
         this.dataList = dataList;
     }
 

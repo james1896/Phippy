@@ -21,7 +21,7 @@ public class FoodListAdapter extends BaseListAdapter {
 
 //    protected ArrayList<Map> dataList;
 
-    public FoodListAdapter(Context context, ArrayList<Map> list) {
+    public FoodListAdapter(Context context, ArrayList<FoodModel> list) {
         super(context,list);
 //        //根据context上下文加载布局，这里的是 本身，即this
 //        this.mInflater = LayoutInflater.from(context);
@@ -61,7 +61,7 @@ public class FoodListAdapter extends BaseListAdapter {
 //        int resid = (int) map.get("resId");
 //        img.setImageResource(resid);
 
-        Map<String,Object> map      = this.dataList.get(position);
+        FoodModel model      = (FoodModel) this.dataList.get(position);
         View item                   = mInflater.inflate(R.layout.food_list_wechat_item, null);
         ImageView img               = (ImageView)item.findViewById(R.id.food_wechat_list_img);
         TextView titleTV            = (TextView) item.findViewById(R.id.food_wechat_list_name);
@@ -70,13 +70,17 @@ public class FoodListAdapter extends BaseListAdapter {
         TextView addressTV          = (TextView) item.findViewById(R.id.food_wechat_list_address);
         TextView contactTV          = (TextView) item.findViewById(R.id.food_wechat_list_contact);
 
-        String titleStr           = (String) map.get("title");
-        String deliveryTimeStr    = (String) map.get("deliveryTime");
-        String qisongconditionStr = (String) map.get("qisongcondition");
-        String addressStr         = (String) map.get("address");
-        String contactStr         = (String) map.get("contact");
+//        String titleStr           = (String) map.get("title");
+//        String deliveryTimeStr    = (String) map.get("deliveryTime");
+//        String qisongconditionStr = (String) map.get("qisongcondition");
+//        String addressStr         = (String) map.get("address");
+//        String contactStr         = (String) map.get("contact");
 //        int resid                 = (int) map.get("resId");
-
+        String titleStr           = model.getName();
+        String deliveryTimeStr    = model.getDeliver_time();
+        String qisongconditionStr = model.getQisong_condition();
+        String addressStr         = model.getAdress();
+        String contactStr         = model.getPhone_number();
         titleTV.setText(titleStr);
         deliveryTimeTV.setText(deliveryTimeStr);
         qisongconditionTV.setText(qisongconditionStr);

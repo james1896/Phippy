@@ -57,7 +57,7 @@ public class FoodDetailActivity extends BaseActivity {
 
         String title = intent.getStringExtra("com.tiffany.food.fooddetail.title");
         int resourceId = intent.getIntExtra("com.tiffany.food.fooddetail.Resource", 0);
-        Log.e("food", title);
+//        Log.e("food", title);
 
 //        LinearLayout mLoadingLayout = (LinearLayout) View.inflate(this, R.layout.tour_or_food_rec_header, null);
 //        TextView textView = (TextView) mLoadingLayout.findViewById(R.id.tf_rec_header_title);
