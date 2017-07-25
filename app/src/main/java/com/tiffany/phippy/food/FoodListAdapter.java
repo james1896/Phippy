@@ -25,7 +25,16 @@ public class FoodListAdapter extends BaseListAdapter {
         super(context,list);
 //        //根据context上下文加载布局，这里的是 本身，即this
 //        this.mInflater = LayoutInflater.from(context);
-        this.dataList = list;
+
+
+        if(list == null){
+            ArrayList<FoodModel> l = new ArrayList<>();
+            l.add(new FoodModel());
+            this.dataList = l;
+        }else {
+            this.dataList = list;
+        }
+
     }
 
 

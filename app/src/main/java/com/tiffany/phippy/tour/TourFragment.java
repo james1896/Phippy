@@ -17,9 +17,12 @@ import com.tiffany.phippy.R;
 import com.tiffany.phippy.base.BaseModel;
 import com.tiffany.phippy.base.JsonParse;
 import com.tiffany.phippy.food.FoodDetailModel;
+import com.tiffany.phippy.food.FoodListAdapter;
+import com.tiffany.phippy.food.FoodModel;
 import com.tiffany.phippy.venv.RequestCallBack;
 import com.tiffany.phippy.venv.RequestManager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.Call;
@@ -31,7 +34,8 @@ import okhttp3.Response;
  */
 public class TourFragment extends BaseFragment implements View.OnClickListener {
 
-
+    ArrayList<TourModel> dataArray;
+    TourListAdapter adapter;
     public TourFragment() {
         // Required empty public constructor
     }
@@ -60,17 +64,20 @@ public class TourFragment extends BaseFragment implements View.OnClickListener {
                 BaseModel<List<TourModel>> model = JsonParse.parser.fromJson(s, new TypeToken<BaseModel<List<TourModel>>>(){}.getType());
 
                 Log.e("FoodModel",""+model);
+                adapter.setDataList((ArrayList) model.getData());
+                adapter.notifyDataSetChanged();
             }
         });
     }
 
     @Override
     public void init() {
+        this.adapter = new TourListAdapter(getContext(),null);
         ListView listview = (ListView) contentView.findViewById(R.id.tour_listview);
 
         LinearLayout mLoadingLayout = (LinearLayout) View.inflate(getContext(), R.layout.img_and_text_header, null);
         listview.addHeaderView(mLoadingLayout);
-        listview.setAdapter(new TourListAdapter(getContext(),null));
+        listview.setAdapter(this.adapter);
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

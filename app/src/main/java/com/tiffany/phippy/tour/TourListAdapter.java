@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.tiffany.phippy.R;
 import com.tiffany.phippy.base.BaseListAdapter;
 import com.tiffany.phippy.base.BaseListAdapter1;
+import com.tiffany.phippy.food.FoodModel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,16 +18,22 @@ import java.util.Map;
  * Created by moses on 27/06/2017.
  */
 
-public class TourListAdapter extends BaseListAdapter1 {
+public class TourListAdapter extends BaseListAdapter {
 
 
 //    protected ArrayList<Map> dataList;
 
-    public TourListAdapter(Context context, ArrayList<Map> list) {
+    public TourListAdapter(Context context, ArrayList<TourModel> list) {
         super(context,list);
 //        //根据context上下文加载布局，这里的是 本身，即this
 //        this.mInflater = LayoutInflater.from(context);
-        this.dataList = getDataList();
+        if(list == null){
+            ArrayList<TourModel> l = new ArrayList<>();
+            l.add(new TourModel());
+            this.dataList = l;
+        }else {
+            this.dataList = list;
+        }
     }
 
 
@@ -34,18 +41,18 @@ public class TourListAdapter extends BaseListAdapter1 {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        Map<String,Object> map = this.dataList.get(position);
+        TourModel model = (TourModel) this.dataList.get(position);
 
         View item = mInflater.inflate(R.layout.tour_list_item, null);
         TextView titleTV = (TextView)item.findViewById(R.id.tour_item_title);
         TextView descTV = (TextView)item.findViewById(R.id.tour_item_desc);
 //        ImageView img = (ImageView)item.findViewById(R.id.imageView);
 
-        String titleStr = (String) map.get("title");
-        String descStr = (String) map.get("desc");
+//        String titleStr = (String) map.get("title");
+//        String descStr = (String) map.get("desc");
 //        int resid = (int) map.get("resId");
-        titleTV.setText(titleStr);
-        descTV.setText(descStr);
+        titleTV.setText(model.getTitle());
+        descTV.setText(model.getContent());
 //        img.setImageResource(resid);
         return item;
     }

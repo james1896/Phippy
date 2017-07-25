@@ -65,13 +65,15 @@ public class FoodFragment extends BaseFragment implements View.OnClickListener, 
     protected void viewWillAppear() {
         super.viewWillAppear();
 
+        //类型2 表示餐馆
         RequestManager.getInstant().getStore("2", new RequestCallBack() {
             @Override
             public void onSuccess(String s, Call call, Response response) {
                 super.onSuccess(s, call, response);
                 BaseModel<ArrayList<FoodModel>> model = JsonParse.parser.fromJson(s, new TypeToken<BaseModel<ArrayList<FoodModel>>>(){}.getType());
 
-                adapter.setDataList(model.getData());
+                dataArray = model.getData();
+                adapter.setDataList(dataArray);
                 adapter.notifyDataSetChanged();
             }
         });
@@ -79,11 +81,6 @@ public class FoodFragment extends BaseFragment implements View.OnClickListener, 
 
     @Override
     public void init() {
-
-        ArrayList<FoodModel> list = new ArrayList<>();
-        list.add(new FoodModel());
-        this.dataArray = list;
-
         adapter = new FoodListAdapter(getContext(),this.dataArray);
 
         ListView listview = (ListView) contentView.findViewById(R.id.food_listview);
