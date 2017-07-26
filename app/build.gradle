@@ -42,6 +42,8 @@ dependencies {
     //网络请求的json转model
     compile 'com.google.code.gson:gson:2.8.0'
 
+    //毕加索
+    compile 'com.squareup.picasso:picasso:2.5.2'
     testCompile 'junit:junit:4.12'
 
 

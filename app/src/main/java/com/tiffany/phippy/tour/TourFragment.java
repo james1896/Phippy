@@ -16,9 +16,6 @@ import com.tiffany.phippy.base.BaseFragment;
 import com.tiffany.phippy.R;
 import com.tiffany.phippy.base.BaseModel;
 import com.tiffany.phippy.base.JsonParse;
-import com.tiffany.phippy.food.FoodDetailModel;
-import com.tiffany.phippy.food.FoodListAdapter;
-import com.tiffany.phippy.food.FoodModel;
 import com.tiffany.phippy.venv.RequestCallBack;
 import com.tiffany.phippy.venv.RequestManager;
 

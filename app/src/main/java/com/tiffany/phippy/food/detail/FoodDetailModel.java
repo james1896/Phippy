@@ -1,4 +1,4 @@
-package com.tiffany.phippy.food;
+package com.tiffany.phippy.food.detail;
 
 /**
  * Created by moses on 25/07/2017.

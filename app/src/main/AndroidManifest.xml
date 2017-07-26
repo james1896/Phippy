@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".food.FoodDetailActivity" />
+        <activity android:name=".food.detail.FoodDetailActivity" />
         <activity android:name=".food.FoodRecActivity" />
         <activity android:name=".life.xiaoniangzi.MedicineActivity" />
         <activity android:name=".life.visa.VisaActivity" />

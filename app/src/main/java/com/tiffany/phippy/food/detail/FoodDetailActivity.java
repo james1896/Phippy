@@ -1,27 +1,18 @@
-package com.tiffany.phippy.food;
+package com.tiffany.phippy.food.detail;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.telephony.SmsManager;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.gson.reflect.TypeToken;
@@ -29,18 +20,15 @@ import com.tiffany.phippy.R;
 import com.tiffany.phippy.base.BaseActivity;
 import com.tiffany.phippy.base.BaseModel;
 import com.tiffany.phippy.base.JsonParse;
+import com.tiffany.phippy.food.FoodRecRecyclerAdapter;
 import com.tiffany.phippy.venv.RequestCallBack;
 import com.tiffany.phippy.venv.RequestManager;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Response;
-
-import static android.R.id.message;
 
 public class FoodDetailActivity extends BaseActivity {
 
@@ -64,55 +52,9 @@ public class FoodDetailActivity extends BaseActivity {
 //        textView.setText(title);
 //        ImageView img = (ImageView) mLoadingLayout.findViewById(R.id.tf_rec_header_groundimage);
 //        img.setImageResource(resourceId);
-//
-//        ListView listview = (ListView) findViewById(R.id.food_detail_listview);
-//        listview.addHeaderView(mLoadingLayout);
-//        listview.setAdapter(new FoodDetailListAdapter(this,null));
 
-        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.food_detail_RecyclerView);
-        //设置线性管理器
-//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        //设置表格管理器
-
-
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, FoodRecRecyclerAdapter.PHI_SPAN_COUNT);
-        mRecyclerView.setLayoutManager(gridLayoutManager);
-        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-            @Override
-            public int getSpanSize(int position) {
-                if (position == 0) {
-                    return FoodRecRecyclerAdapter.PHI_SPAN_COUNT;
-                } else if (position == 11) {
-                    return FoodRecRecyclerAdapter.PHI_SPAN_COUNT;
-                } else {
-                    return 1;
-                }
-            }
-        });
-
-
-        List<String> mDataList = new ArrayList<String>();
-        for (int i = 0; i < 10; i++) {
-            mDataList.add("内容 - " + i);
-        }
-        /*
-        设置适配器
-         */
-        FoodRecRecyclerAdapter adapter = new FoodRecRecyclerAdapter(mDataList);
-        View header = LayoutInflater.from(this).inflate(R.layout.recyclerview_header_footer, mRecyclerView, false);
-        adapter.setHeaderView(header);
-
-        View footer = LayoutInflater.from(this).inflate(R.layout.recycler_footer, mRecyclerView, false);
-        adapter.setFooterView(footer);
-
-        mRecyclerView.setAdapter(adapter);
-
-        adapter.setOnItemClickListener(new FoodRecRecyclerAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                Log.e("onItem", "" + position);
-            }
-        });
+        ListView listview = (ListView) findViewById(R.id.food_detai_listView);
+        listview.setAdapter(new FoodDetailListAdapter(this,null));
 
         setToolbarTitle(title);
         TextView right = (TextView) findViewById(R.id.toolbar_right_button);
@@ -192,3 +134,53 @@ public class FoodDetailActivity extends BaseActivity {
 
     }
 }
+
+
+
+
+//          2017.7.26
+//
+//    RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.food_detail_RecyclerView);
+//    //设置线性管理器
+////        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//    //设置表格管理器
+//
+//
+//    GridLayoutManager gridLayoutManager = new GridLayoutManager(this, FoodRecRecyclerAdapter.PHI_SPAN_COUNT);
+//        mRecyclerView.setLayoutManager(gridLayoutManager);
+//                gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+//@Override
+//public int getSpanSize(int position) {
+//        if (position == 0) {
+//        return FoodRecRecyclerAdapter.PHI_SPAN_COUNT;
+//        } else if (position == 11) {
+//        return FoodRecRecyclerAdapter.PHI_SPAN_COUNT;
+//        } else {
+//        return 1;
+//        }
+//        }
+//        });
+//
+//
+//        List<String> mDataList = new ArrayList<String>();
+//        for (int i = 0; i < 10; i++) {
+//        mDataList.add("内容 - " + i);
+//        }
+//        /*
+//        设置适配器
+//         */
+//        FoodRecRecyclerAdapter adapter = new FoodRecRecyclerAdapter(mDataList);
+//        View header = LayoutInflater.from(this).inflate(R.layout.recyclerview_header_footer, mRecyclerView, false);
+//        adapter.setHeaderView(header);
+//
+//        View footer = LayoutInflater.from(this).inflate(R.layout.recycler_footer, mRecyclerView, false);
+//        adapter.setFooterView(footer);
+//
+//        mRecyclerView.setAdapter(adapter);
+//
+//        adapter.setOnItemClickListener(new FoodRecRecyclerAdapter.OnItemClickListener() {
+//@Override
+//public void onItemClick(View view, int position) {
+//        Log.e("onItem", "" + position);
+//        }
+//        });

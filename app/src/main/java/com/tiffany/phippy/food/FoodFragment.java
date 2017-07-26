@@ -2,10 +2,7 @@ package com.tiffany.phippy.food;
 
 
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -18,12 +15,12 @@ import com.tiffany.phippy.base.BaseFragment;
 import com.tiffany.phippy.R;
 import com.tiffany.phippy.base.BaseModel;
 import com.tiffany.phippy.base.JsonParse;
+import com.tiffany.phippy.food.detail.FoodDetailActivity;
 import com.tiffany.phippy.venv.RequestCallBack;
 import com.tiffany.phippy.venv.RequestManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import okhttp3.Call;
@@ -81,6 +78,11 @@ public class FoodFragment extends BaseFragment implements View.OnClickListener, 
 
     @Override
     public void init() {
+
+        //------------------
+        //        Picasso.with(this).load("http://img.my.csdn.net/uploads/201407/26/1406383243_5120.jpg").into(iv_picasso);
+        //------------------
+
         adapter = new FoodListAdapter(getContext(),this.dataArray);
 
         ListView listview = (ListView) contentView.findViewById(R.id.food_listview);

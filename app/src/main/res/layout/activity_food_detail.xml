@@ -5,15 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.tiffany.phippy.food.FoodDetailActivity">
+    tools:context="com.tiffany.phippy.food.detail.FoodDetailActivity">
 
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/food_detail_RecyclerView"
+    <!--伪装一个toobar高度-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"/>
+
+
+    <ListView
+        android:id="@+id/food_detai_listView"
+
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    </android.support.v7.widget.RecyclerView>
+    </ListView>
+
+
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:id="@+id/food_detail_RecyclerView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+    <!--</android.support.v7.widget.RecyclerView>-->
+
     <include layout="@layout/toolbar_back"/>
 
 </RelativeLayout>
