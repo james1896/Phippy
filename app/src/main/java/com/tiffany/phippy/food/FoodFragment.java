@@ -83,6 +83,13 @@ public class FoodFragment extends BaseFragment implements View.OnClickListener, 
         //        Picasso.with(this).load("http://img.my.csdn.net/uploads/201407/26/1406383243_5120.jpg").into(iv_picasso);
         //------------------
 
+
+        if(dataArray == null){
+            ArrayList<FoodModel> l = new ArrayList<>();
+            l.add(new FoodModel());
+            this.dataArray = l;
+        }
+
         adapter = new FoodListAdapter(getContext(),this.dataArray);
 
         ListView listview = (ListView) contentView.findViewById(R.id.food_listview);

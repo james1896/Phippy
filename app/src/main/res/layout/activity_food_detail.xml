@@ -8,21 +8,28 @@
     tools:context="com.tiffany.phippy.food.detail.FoodDetailActivity">
 
 
-    <!--伪装一个toobar高度-->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="55dp"/>
-
-
-    <ListView
-        android:id="@+id/food_detai_listView"
-
-        android:focusable="true"
-        android:focusableInTouchMode="true"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    </ListView>
+        <!--伪装一个toobar高度-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"/>
+
+
+        <ListView
+            android:id="@+id/food_detai_listView"
+
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </ListView>
+    </LinearLayout>
+
 
 
     <!--<android.support.v7.widget.RecyclerView-->

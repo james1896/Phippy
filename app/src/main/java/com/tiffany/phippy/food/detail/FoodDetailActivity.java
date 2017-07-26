@@ -15,12 +15,13 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.baoyz.actionsheet.ActionSheet;
 import com.google.gson.reflect.TypeToken;
 import com.tiffany.phippy.R;
 import com.tiffany.phippy.base.BaseActivity;
 import com.tiffany.phippy.base.BaseModel;
 import com.tiffany.phippy.base.JsonParse;
-import com.tiffany.phippy.base.actionSheet.AndroidActionSheetFragment;
+
 import com.tiffany.phippy.food.FoodRecRecyclerAdapter;
 import com.tiffany.phippy.venv.RequestCallBack;
 import com.tiffany.phippy.venv.RequestManager;
@@ -31,7 +32,7 @@ import java.util.List;
 import okhttp3.Call;
 import okhttp3.Response;
 
-public class FoodDetailActivity extends BaseActivity {
+public class FoodDetailActivity extends BaseActivity implements ActionSheet.ActionSheetListener {
 
     private String[] chatStr = new String[]{"1", "2", "3", "4", "5", "6"};
     @Override
@@ -46,7 +47,7 @@ public class FoodDetailActivity extends BaseActivity {
 
         String title = intent.getStringExtra("com.tiffany.food.fooddetail.title");
         int resourceId = intent.getIntExtra("com.tiffany.food.fooddetail.Resource", 0);
-        Log.e("food", title);
+        Log.e("food", ""+title);
 
 //        LinearLayout mLoadingLayout = (LinearLayout) View.inflate(this, R.layout.tour_or_food_rec_header, null);
 //        TextView textView = (TextView) mLoadingLayout.findViewById(R.id.tf_rec_header_title);
@@ -120,28 +121,42 @@ public class FoodDetailActivity extends BaseActivity {
 //                }).show();
 
 
-                AndroidActionSheetFragment.build(getSupportFragmentManager()).setChoice(AndroidActionSheetFragment.Builder.CHOICE.ITEM).setTitle("标题").setTag("MainActivity")
-                        .setItems(chatStr).setOnItemClickListener(new AndroidActionSheetFragment.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(int position) {
-                        Log.e("actionSheet",""+chatStr[position]);
-                    }
-                }).show();
+                ActionSheet.createBuilder(FoodDetailActivity.this, getSupportFragmentManager())
+                        .setCancelButtonTitle("Cancel")
+                        .setOtherButtonTitles("Item1", "Item2", "Item3", "Item4")
+                        .setCancelableOnTouchOutside(true)
+                        .setListener(FoodDetailActivity.this).show();
+
+
             }
         });
 
 
-        RequestManager.getInstant().getgoods("1001", new RequestCallBack() {
-            @Override
-            public void onSuccess(String s, Call call, Response response) {
-                super.onSuccess(s, call, response);
 
-                BaseModel<List<FoodDetailModel>> model = JsonParse.parser.fromJson(s, new TypeToken<BaseModel<List<FoodDetailModel>>>(){}.getType());
+//        RequestManager.getInstant().getgoods("1001", new RequestCallBack() {
+//            @Override
+//            public void onSuccess(String s, Call call, Response response) {
+//                super.onSuccess(s, call, response);
+//
+//                BaseModel<List<FoodDetailModel>> model = JsonParse.parser.fromJson(s, new TypeToken<BaseModel<List<FoodDetailModel>>>(){}.getType());
+//
+//                Log.e("FoodModel",""+model);
+//            }
+//        }
 
-                Log.e("FoodModel",""+model);
-            }
-        });
 
+
+    }
+
+
+    @Override
+    public void onDismiss(ActionSheet actionSheet, boolean isCancel) {
+
+    }
+
+    @Override
+    public void onOtherButtonClick(ActionSheet actionSheet, int index) {
+            Log.e("onOtherButtonClick",""+index);
     }
 }
 
