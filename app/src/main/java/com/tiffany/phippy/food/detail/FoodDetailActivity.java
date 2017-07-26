@@ -20,6 +20,7 @@ import com.tiffany.phippy.R;
 import com.tiffany.phippy.base.BaseActivity;
 import com.tiffany.phippy.base.BaseModel;
 import com.tiffany.phippy.base.JsonParse;
+import com.tiffany.phippy.base.actionSheet.AndroidActionSheetFragment;
 import com.tiffany.phippy.food.FoodRecRecyclerAdapter;
 import com.tiffany.phippy.venv.RequestCallBack;
 import com.tiffany.phippy.venv.RequestManager;
@@ -32,7 +33,7 @@ import okhttp3.Response;
 
 public class FoodDetailActivity extends BaseActivity {
 
-
+    private String[] chatStr = new String[]{"1", "2", "3", "4", "5", "6"};
     @Override
     protected int getContentView() {
         return R.layout.activity_food_detail;
@@ -63,58 +64,67 @@ public class FoodDetailActivity extends BaseActivity {
         right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Window window = myDialog.getWindow();
-                new AlertDialog.Builder(FoodDetailActivity.this)
-                        .setMessage("退出当前账号不会删除任何历史数据，下次登录依然可以使用本账号")
-                        .setPositiveButton("微信", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-//                                              //参考文献
-//                http://blog.csdn.net/lovexieyuan520/article/details/44301753
-                                try {
-                                    PackageManager packageManager = getPackageManager();
-                                    Intent intent = new Intent();
-                                    intent = packageManager.getLaunchIntentForPackage("com.tencent.mm");
-                                    startActivity(intent);
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                    Intent viewIntent = new
-                                            Intent("android.intent.action.VIEW", Uri.parse("http://weixin.qq.com/"));
-                                    startActivity(viewIntent);
-                                }
-                            }
-                        }).setNegativeButton("电话", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
+////                Window window = myDialog.getWindow();
+//                new AlertDialog.Builder(FoodDetailActivity.this)
+//                        .setMessage("退出当前账号不会删除任何历史数据，下次登录依然可以使用本账号")
+//                        .setPositiveButton("微信", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+////                                              //参考文献
+////                http://blog.csdn.net/lovexieyuan520/article/details/44301753
+//                                try {
+//                                    PackageManager packageManager = getPackageManager();
+//                                    Intent intent = new Intent();
+//                                    intent = packageManager.getLaunchIntentForPackage("com.tencent.mm");
+//                                    startActivity(intent);
+//                                } catch (Exception e) {
+//                                    e.printStackTrace();
+//                                    Intent viewIntent = new
+//                                            Intent("android.intent.action.VIEW", Uri.parse("http://weixin.qq.com/"));
+//                                    startActivity(viewIntent);
+//                                }
+//                            }
+//                        }).setNegativeButton("电话", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//
+//                        if (ActivityCompat.checkSelfPermission(FoodDetailActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+//                            // TODO: Consider calling
+//                            //    ActivityCompat#requestPermissions
+//                            // here to request the missing permissions, and then overriding
+//                            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+//                            //                                          int[] grantResults)
+//                            // to handle the case where the user grants the permission. See the documentation
+//                            // for ActivityCompat#requestPermissions for more details.
+//                            return;
+//                        }
+//                        Uri uri = Uri.parse("tel:" + 123);
+//                        Intent intent = new Intent(Intent.ACTION_CALL, uri);
+//                        startActivity(intent);
+//                    }
+//                }).setNegativeButton("短信", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//
+////                        Intent intentFinalMessage = new Intent(Intent.ACTION_VIEW);
+////                        intentFinalMessage.setType("vnd.android-dir/mms-sms");
+//////                        打开系统短信界面
+////                        startActivity(intentFinalMessage);
+////                        创建Uri，设置行为和号码
+//                        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:"+"123"));
+////                        创建意图
+//                        intent.putExtra("sms_body", "aaa");
+////                        打开系统短信界面，号码已经填写，只需填写要发送
+//                        startActivity(intent);
+//                    }
+//                }).show();
 
-                        if (ActivityCompat.checkSelfPermission(FoodDetailActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                            // TODO: Consider calling
-                            //    ActivityCompat#requestPermissions
-                            // here to request the missing permissions, and then overriding
-                            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                            //                                          int[] grantResults)
-                            // to handle the case where the user grants the permission. See the documentation
-                            // for ActivityCompat#requestPermissions for more details.
-                            return;
-                        }
-                        Uri uri = Uri.parse("tel:" + 123);
-                        Intent intent = new Intent(Intent.ACTION_CALL, uri);
-                        startActivity(intent);
-                    }
-                }).setNegativeButton("短信", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
 
-//                        Intent intentFinalMessage = new Intent(Intent.ACTION_VIEW);
-//                        intentFinalMessage.setType("vnd.android-dir/mms-sms");
-////                        打开系统短信界面
-//                        startActivity(intentFinalMessage);
-//                        创建Uri，设置行为和号码
-                        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:"+"123"));
-//                        创建意图
-                        intent.putExtra("sms_body", "aaa");
-//                        打开系统短信界面，号码已经填写，只需填写要发送
-                        startActivity(intent);
+                AndroidActionSheetFragment.build(getSupportFragmentManager()).setChoice(AndroidActionSheetFragment.Builder.CHOICE.ITEM).setTitle("标题").setTag("MainActivity")
+                        .setItems(chatStr).setOnItemClickListener(new AndroidActionSheetFragment.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(int position) {
+                        Log.e("actionSheet",""+chatStr[position]);
                     }
                 }).show();
             }
