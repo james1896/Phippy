@@ -156,7 +156,41 @@ public class FoodDetailActivity extends BaseActivity implements ActionSheet.Acti
 
     @Override
     public void onOtherButtonClick(ActionSheet actionSheet, int index) {
-            Log.e("onOtherButtonClick",""+index);
+        Log.e("onOtherButtonClick",""+index);
+
+        if(index == 1) {
+            //打开微信
+            //参考文献
+//                http://blog.csdn.net/lovexieyuan520/article/details/44301753
+            try {
+                PackageManager packageManager = getPackageManager();
+                Intent intent = new Intent();
+                intent = packageManager.getLaunchIntentForPackage("com.tencent.mm");
+                startActivity(intent);
+            } catch (Exception e) {
+                e.printStackTrace();
+                Intent viewIntent = new
+                        Intent("android.intent.action.VIEW", Uri.parse("http://weixin.qq.com/"));
+                startActivity(viewIntent);
+            }
+        }else if (index == 2){
+
+            //打电话
+
+            if (ActivityCompat.checkSelfPermission(FoodDetailActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return;
+            }
+            Uri uri = Uri.parse("tel:" + 123);
+            Intent intent = new Intent(Intent.ACTION_CALL, uri);
+            startActivity(intent);
+        }
     }
 }
 
