@@ -123,7 +123,7 @@ public class FoodDetailActivity extends BaseActivity implements ActionSheet.Acti
 
                 ActionSheet.createBuilder(FoodDetailActivity.this, getSupportFragmentManager())
                         .setCancelButtonTitle("Cancel")
-                        .setOtherButtonTitles("Item1", "Item2", "Item3", "Item4")
+                        .setOtherButtonTitles("订单系统正在跟商家协调，内部测试中，敬请期待哦，亲", "Item2", "Item3", "Item4")
                         .setCancelableOnTouchOutside(true)
                         .setListener(FoodDetailActivity.this).show();
 

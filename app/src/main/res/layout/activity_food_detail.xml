@@ -14,16 +14,16 @@
         android:layout_height="wrap_content">
 
         <!--伪装一个toobar高度-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="55dp"/>
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="55dp"-->
+            <!--android:background="#00FFFFFF"/>-->
 
 
         <ListView
             android:id="@+id/food_detai_listView"
 
-            android:focusable="true"
-            android:focusableInTouchMode="true"
+            android:layout_marginTop="55dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
