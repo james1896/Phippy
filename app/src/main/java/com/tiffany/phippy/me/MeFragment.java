@@ -36,27 +36,25 @@ public class MeFragment extends BaseFragment {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                switch (i){
-//
-//                    case 3:{
-//                        //常用设置
-//                        Intent intent = new Intent(getActivity(),SettingActivity.class);
-//                        startActivity(intent);
-//                        break;
-//                    }
-//                    case 8:{
-////                        DB 调试
-//                        Intent intent = new Intent(getActivity(),DBDebugActivity.class);
-//                        startActivity(intent);
-//                        break;
-//                    }
-//                    default:
-//                        Log.e("点击",""+i);
-//                }
+                switch (i){
 
-                //常用设置
-                Intent intent = new Intent(getActivity(),SettingActivity.class);
-                startActivity(intent);
+                    case 3:{
+                        //常用设置
+                        Intent intent = new Intent(getActivity(),SettingActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 8:{
+//                        DB 调试
+                        Intent intent = new Intent(getActivity(),DBDebugActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    default:
+                        Log.e("点击",""+i);
+                }
+
+
             }
         });
     }
