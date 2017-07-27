@@ -36,39 +36,8 @@ public class FoodListAdapter extends BaseListAdapter {
         }
 
     }
-
-
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
-//        Map<String,Object> map = this.dataList.get(position);
-//
-//        View item = mInflater.inflate(R.layout.food_list_item, null);
-//        TextView titleTV = (TextView)item.findViewById(R.id.food_list_item_name);
-//        TextView addressTV = (TextView)item.findViewById(R.id.food_list_item_address);
-//        TextView current_priceTV = (TextView)item.findViewById(R.id.food_list_item_price);
-//        TextView original_priceTV = (TextView)item.findViewById(R.id.food_list_item_price1);
-//
-//        TextView hotTV = (TextView)item.findViewById(R.id.food_list_item_hot);
-//
-////        ImageView img = (ImageView)item.findViewById(R.id.imageView);
-//
-//        String titleStr = (String) map.get("title");
-//        String addressStr = (String) map.get("add");
-//        String current_priceStr = (String) map.get("current_price");
-//        String original_priceStr = (String) map.get("original_price");
-//        String hotStr = (String) map.get("hot");
-//
-//
-//        titleTV.setText(titleStr);
-//        addressTV.setText(addressStr);
-//        current_priceTV.setText(current_priceStr);
-//        original_priceTV.setText(original_priceStr);
-//        hotTV.setText(hotStr);
-
-//        int resid = (int) map.get("resId");
-//        img.setImageResource(resid);
 
         FoodModel model      = (FoodModel) this.dataList.get(position);
         View item                   = mInflater.inflate(R.layout.food_list_wechat_item, null);

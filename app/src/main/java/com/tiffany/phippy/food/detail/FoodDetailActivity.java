@@ -178,7 +178,7 @@ public class FoodDetailActivity extends BaseActivity implements ActionSheet.Acti
             //打电话
 
             if (ActivityCompat.checkSelfPermission(FoodDetailActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
+
                 //    ActivityCompat#requestPermissions
                 // here to request the missing permissions, and then overriding
                 //   public void onRequestPermissionsResult(int requestCode, String[] permissions,

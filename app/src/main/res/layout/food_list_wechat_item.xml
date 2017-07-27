@@ -1,46 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-
-    <ImageView
-        android:id="@+id/food_wechat_list_img"
-
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:background="#FFFFCC"/>
+    android:layout_height="wrap_content"
+    >
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:paddingLeft="10dp">
 
-        <TextView
-            android:id="@+id/food_wechat_list_name"
-            android:textSize="18sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/food_wechat_list_deliveryTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            >
 
-        <TextView
-            android:id="@+id/food_wechat_list_qisongcondition"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/food_wechat_list_img"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:background="#FFFFCC"/>
+        </RelativeLayout>
 
-        <TextView
-            android:id="@+id/food_wechat_list_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/food_wechat_list_contact"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <!--名字-->
+            <TextView
+                android:id="@+id/food_wechat_list_name"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"/>
+
+            <!--配送时间-->
+            <TextView
+                android:textSize="15sp"
+                android:layout_marginBottom="4dp"
+                android:id="@+id/food_wechat_list_deliveryTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!--起送条件-->
+            <TextView
+                android:textSize="15sp"
+                android:layout_marginBottom="4dp"
+                android:id="@+id/food_wechat_list_qisongcondition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!--商家地址-->
+            <TextView
+                android:textSize="15sp"
+                android:layout_marginBottom="4dp"
+                android:id="@+id/food_wechat_list_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <View
+
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+
+                android:background="#88999999"/>
+
+            <!--联系方式-->
+            <TextView
+                android:id="@+id/food_wechat_list_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
     </LinearLayout>
+
+    <!--底线-->
+    <View
+
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#88BBBBBB"/>
 </LinearLayout>

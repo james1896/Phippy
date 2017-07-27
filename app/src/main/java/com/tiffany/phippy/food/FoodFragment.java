@@ -99,6 +99,7 @@ public class FoodFragment extends BaseFragment implements View.OnClickListener, 
         listview.setOnItemClickListener(this);
         listview.addHeaderView(mLoadingLayout);
         listview.setAdapter(adapter);
+        listview.setDividerHeight(0);
 
 
         ViewGroup upleft = (ViewGroup) mLoadingLayout.findViewById(R.id.upleft);
@@ -157,48 +158,6 @@ public class FoodFragment extends BaseFragment implements View.OnClickListener, 
 
     private ArrayList<Map> getDataList(){
         ArrayList<Map> list = new ArrayList<>();
-
-//        Map<String,Object> map1 = new HashMap<String,Object>();
-//        map1.put("title","金手勺东北情餐厅");
-////        map1.put("resId",R.drawable.me_list_zengsong);
-//        map1.put("add","海鲜大咖套餐1份，有赠品");
-//        map1.put("current_price","188");
-//        map1.put("original_price","门市价:¥288");
-//        map1.put("hot","热度5");
-//        list.add(map1);
-//
-//        Map<String,Object> map2 = new HashMap<String,Object>();
-//        map2.put("title","奶茶嫁给粉");
-//        map2.put("add","10元代金券1张，可叠加");
-//        map2.put("current_price","8.5");
-//        map2.put("original_price","门市价:¥10");
-//        map2.put("hot","热度5");
-//        list.add(map2);
-//
-//        Map<String,Object> map3 = new HashMap<String,Object>();
-//        map3.put("title","全聚德");
-//        map3.put("add","精品烤鸭5-6人餐1份");
-//        map3.put("current_price","588");
-//        map3.put("original_price","门市价:¥736");
-//        map3.put("hot","热度5");
-//        list.add(map3);
-//
-//        Map<String,Object> map4 = new HashMap<String,Object>();
-//        map4.put("title","后海老炮儿");
-//        map4.put("add","海盗船1份，免费包间");
-//        map4.put("current_price","98");
-//        map4.put("original_price","门市价:¥168");
-//        map4.put("hot","热度5");
-//        list.add(map4);
-//
-//        Map<String,Object> map5 = new HashMap<String,Object>();
-//        map5.put("title","海鲜大咖");
-//        map5.put("add","海货4-6人餐1份");
-//        map5.put("current_price","588");
-//        map5.put("original_price","门市价:¥888");
-//        map5.put("hot","热度5");
-//        list.add(map5);
-
 
         Map<String,Object> map1 = new HashMap<String,Object>();
         map1.put("title","金手勺东北情餐厅");
