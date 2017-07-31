@@ -37,6 +37,9 @@
         <activity android:name=".tour.TourRecActivity" />
         <activity android:name=".base.db.DBDebugActivity" />
         <activity android:name=".me.SettingActivity"/>
+
+        <activity android:name=".base.LoginActivity"/>
+        <activity android:name=".base.RegisterActivity"/>
     </application>
 
 </manifest>

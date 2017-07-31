@@ -9,6 +9,7 @@ import android.widget.ListView;
 
 import com.tiffany.phippy.base.BaseFragment;
 import com.tiffany.phippy.R;
+import com.tiffany.phippy.base.LoginActivity;
 import com.tiffany.phippy.base.db.DBDebugActivity;
 
 /**
@@ -29,6 +30,14 @@ public class MeFragment extends BaseFragment {
 
         LinearLayout mLoadingLayout = (LinearLayout) View.inflate(getContext(), R.layout.me_header, null);
 
+//      登录
+        mLoadingLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 //        TextView headerText = (TextView) mLoadingLayout.findViewById(R.id.header_text);
 //        headerText.setText("猜你喜欢");
         listview.addHeaderView(mLoadingLayout);
