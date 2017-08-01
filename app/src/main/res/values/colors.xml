@@ -19,4 +19,6 @@
     <color name="tiffanyPink">#FF6599</color>
     <color name="theme_white">#FFFFFF</color>
     <color name="theme_text_black">#111111</color>
+
+    <color name="color_login_tbn">#FEEC89</color>
 </resources>

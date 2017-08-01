@@ -25,19 +25,23 @@
             android:hint="手机号"
             android:id="@+id/login_userName"
             android:layout_width="match_parent"
-            android:layout_height="40dp" />
+            android:layout_height="50dp" />
         <EditText
             android:hint="密码"
             android:id="@+id/login_pwd"
             android:layout_width="match_parent"
-            android:layout_height="40dp" />
+            android:layout_height="50dp" />
+
         <Button
             android:id="@+id/login_btn"
-            android:text="登录"
+            style="?android:attr/borderlessButtonStyle"
+        android:text="登录"
+            android:layout_marginTop="@dimen/login_v_pace"
             android:textSize="18sp"
-            android:background="#00FFFFFF"
+            android:textColor="@color/background_whit"
+            android:background="@color/color_login_tbn"
             android:layout_width="match_parent"
-            android:layout_height="40dp" />
+            android:layout_height="50dp" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -73,6 +77,6 @@
         android:layout_marginTop="15dp"
         android:layout_centerHorizontal="true"
         android:text="微信登录"
-        android:layout_width="35dp"
-        android:layout_height="35dp" />
+        android:layout_width="40dp"
+        android:layout_height="40dp" />
 </RelativeLayout>
