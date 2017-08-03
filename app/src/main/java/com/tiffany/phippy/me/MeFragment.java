@@ -10,6 +10,7 @@ import android.widget.ListView;
 import com.tiffany.phippy.base.BaseFragment;
 import com.tiffany.phippy.R;
 import com.tiffany.phippy.base.LoginActivity;
+import com.tiffany.phippy.base.ShowAddressActivity;
 import com.tiffany.phippy.base.db.DBDebugActivity;
 
 /**
@@ -61,6 +62,8 @@ public class MeFragment extends BaseFragment {
                     }
                     default:
                         Log.e("点击",""+i);
+                        Intent intent = new Intent(getActivity(), ShowAddressActivity.class);
+                        startActivity(intent);
                 }
 
 

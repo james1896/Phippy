@@ -40,6 +40,9 @@
 
         <activity android:name=".base.LoginActivity"/>
         <activity android:name=".base.RegisterActivity"/>
+        <activity android:name=".base.ShowAddressActivity"
+            android:launchMode="singleTask" android:screenOrientation="landscape">
+            </activity>
     </application>
 
 </manifest>
