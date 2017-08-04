@@ -45,6 +45,7 @@ public class FoodDetailActivity extends BaseActivity implements ActionSheet.Acti
         Intent intent = getIntent();
 //        intent.putExtra("com.tiffany.food.fooddetail.Resource",R.mipmap.food_rec_header_img);
 
+
         String title = intent.getStringExtra("com.tiffany.food.fooddetail.title");
         int resourceId = intent.getIntExtra("com.tiffany.food.fooddetail.Resource", 0);
         Log.e("food", ""+title);

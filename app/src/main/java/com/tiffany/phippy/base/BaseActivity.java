@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tiffany.phippy.R;
+import com.tiffany.phippy.TabLayoutItemView;
 
 import org.w3c.dom.Text;
 
@@ -23,6 +24,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     View toolbar;
     protected String toolbarTitle;
     private TextView toolbarTilteTV;
+
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getContentView());
@@ -54,6 +58,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         //-----------------------------------
         this.toolbarTilteTV = (TextView) findViewById(R.id.toolbar_back_title);
 
+
         init();
     }
 
@@ -72,6 +77,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
 
     }
+
 
     protected abstract int getContentView();
     /**
