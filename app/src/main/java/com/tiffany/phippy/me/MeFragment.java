@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.tiffany.phippy.base.BaseFragment;
 import com.tiffany.phippy.R;
@@ -30,6 +31,12 @@ public class MeFragment extends BaseFragment {
         ListView listview = (ListView) contentView.findViewById(R.id.me_listview);
 
         LinearLayout mLoadingLayout = (LinearLayout) View.inflate(getContext(), R.layout.me_header, null);
+
+//        跑马灯
+        TextView tv = (TextView) mLoadingLayout.findViewById(R.id.tv_marquee);
+        tv.setText("123 如果个韩国 如果个韩国 i 恶化个啊个啊 啊份萨嘎 萨嘎 人个如果个韩国 i 恶化个啊个啊 啊份萨嘎 萨嘎 人个如果个韩国 i 恶化个啊个啊 啊份萨嘎 萨嘎 人个i 恶化个啊个啊 啊份萨嘎 萨嘎 人个");
+        tv.setVisibility(View.VISIBLE);
+
 
 //      登录
         mLoadingLayout.setOnClickListener(new View.OnClickListener() {

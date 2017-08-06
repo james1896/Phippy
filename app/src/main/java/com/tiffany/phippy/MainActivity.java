@@ -1,7 +1,6 @@
 package com.tiffany.phippy;
 
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.view.View;
 
@@ -36,7 +35,7 @@ public class MainActivity extends BaseActivity implements TabLayout.OnTabSelecte
         this.foodTab = new TabLayoutItemView(this,"美食",R.drawable.tab_food_icon_selector);
         this.tourTab = new TabLayoutItemView(this,"旅游",R.drawable.tab_tour_icon_selector);
         this.lifeTab = new TabLayoutItemView(this,"生活",R.drawable.tab_life_icon_selector);
-        this.meTab = new TabLayoutItemView(this,"我的",R.drawable.tab_me_icon_selector);
+        this.meTab   = new TabLayoutItemView(this,"我的",R.drawable.tab_me_icon_selector);
         tabLayout.getTabAt(0).setCustomView(foodTab);
         tabLayout.getTabAt(1).setCustomView(tourTab);
         tabLayout.getTabAt(2).setCustomView(lifeTab);

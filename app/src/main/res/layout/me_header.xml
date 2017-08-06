@@ -11,6 +11,15 @@
     android:layout_height="20dp"
     android:background="#00FFFFFF"/>
 
+    <com.tiffany.phippy.base.view.MarqueeTextView
+        android:id="@+id/tv_marquee"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever" />
 <TextView
     android:background="@color/tiffanyPink"
     android:layout_width="match_parent"
