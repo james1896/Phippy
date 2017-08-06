@@ -17,11 +17,13 @@ public class BaseListAdapter<T> extends BaseAdapter {
 
     protected LayoutInflater mInflater = null;
     protected ArrayList<T> dataList;
+    protected Context context;
 
     public BaseListAdapter(Context context, ArrayList<T> list){
 
         //根据context上下文加载布局，这里的是 本身，即this
         this.mInflater = LayoutInflater.from(context);
+        this.context = context;
         this.dataList = list;
     }
 

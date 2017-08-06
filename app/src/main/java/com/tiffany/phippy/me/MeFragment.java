@@ -13,6 +13,7 @@ import com.tiffany.phippy.R;
 import com.tiffany.phippy.base.LoginActivity;
 import com.tiffany.phippy.base.ShowAddressActivity;
 import com.tiffany.phippy.base.db.DBDebugActivity;
+import com.tiffany.phippy.me.order.OrderActivity;
 
 /**
  * Created by moses on 09/06/2017.
@@ -55,6 +56,12 @@ public class MeFragment extends BaseFragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i){
 
+                    case 1:{
+                        //常用设置
+                        Intent intent = new Intent(getActivity(),OrderActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
                     case 3:{
                         //常用设置
                         Intent intent = new Intent(getActivity(),SettingActivity.class);
