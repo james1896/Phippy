@@ -50,10 +50,9 @@ public class OrderListAdapter extends BaseListAdapter {
         View item  = mInflater.inflate(R.layout.order_listview_item, null);
 
         ListView lv = (ListView) item.findViewById(R.id.order_item_listview);
+
         lv.setAdapter(new OrderItemListViewAdapter(context,list));
 
-
-        Log.e("list","--------");
         return item;
     }
 

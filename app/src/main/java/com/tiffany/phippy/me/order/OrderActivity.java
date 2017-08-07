@@ -22,9 +22,10 @@ public class OrderActivity extends BaseActivity {
 
     @Override
     protected void init() {
-
+        setToolbarTitle("我的订单");
         ListView listView = (ListView) findViewById(R.id.order_listview);
         listView.setAdapter(new OrderListAdapter(this,getDataList()));
+
     }
 
     public ArrayList<ArrayList> getDataList(){

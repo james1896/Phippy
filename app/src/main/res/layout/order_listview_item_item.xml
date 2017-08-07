@@ -4,43 +4,86 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <!--name-->
     <TextView
+        android:paddingLeft="10dp"
         android:id="@+id/order_item_item_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:text="name"/>
 
     <LinearLayout
+        android:paddingLeft="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-
+        <!--img-->
         <ImageView
             android:layout_width="60dp"
-            android:layout_height="60dp" />
+            android:layout_height="60dp"
+            android:background="@color/cardview_dark_background"/>
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp">
 
+            <!--价格-->
             <TextView
+                android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="price"/>
+
+            <!--pace-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+
+            <!--数量-->
             <TextView
+                android:layout_marginBottom="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="count"/>
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <!--pace-->
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="2017-8-3"/>
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <!--pace-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <!--日期-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2017-8-3"
+                android:layout_marginRight="10dp"/>
+        </LinearLayout>
+
     </LinearLayout>
+
+    <!--line-->
     <View
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/colorBlock"/>
+        android:background="@color/theme_green"/>
 </LinearLayout>
