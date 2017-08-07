@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.tiffany.phippy.me.order.NoScrollListView
+    <com.tiffany.phippy.me.myOrder.NoScrollListView
         android:id="@+id/order_item_listview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

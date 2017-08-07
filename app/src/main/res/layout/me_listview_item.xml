@@ -9,7 +9,7 @@
         android:layout_height="10dp"
         android:background="@color/theme_pace"/>
 
-    <com.tiffany.phippy.me.order.NoScrollListView
+    <com.tiffany.phippy.me.myOrder.NoScrollListView
         android:id="@+id/me_item_listview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

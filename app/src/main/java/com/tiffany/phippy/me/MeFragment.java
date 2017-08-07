@@ -13,7 +13,7 @@ import com.tiffany.phippy.R;
 import com.tiffany.phippy.base.LoginActivity;
 import com.tiffany.phippy.base.ShowAddressActivity;
 import com.tiffany.phippy.base.db.DBDebugActivity;
-import com.tiffany.phippy.me.order.OrderActivity;
+import com.tiffany.phippy.me.myOrder.MyOrderActivity;
 
 /**
  * Created by moses on 09/06/2017.
@@ -58,7 +58,7 @@ public class MeFragment extends BaseFragment {
 
                     case 1:{
                         //常用设置
-                        Intent intent = new Intent(getActivity(),OrderActivity.class);
+                        Intent intent = new Intent(getActivity(),MyOrderActivity.class);
                         startActivity(intent);
                         break;
                     }

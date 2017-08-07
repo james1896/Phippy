@@ -1,4 +1,4 @@
-package com.tiffany.phippy.me.order;
+package com.tiffany.phippy.me.myOrder;
 
 import android.widget.ListView;
 
@@ -8,13 +8,12 @@ import com.tiffany.phippy.base.BaseActivity;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * Created by moses on 06/08/2017.
  */
 
-public class OrderActivity extends BaseActivity {
+public class MyOrderActivity extends BaseActivity {
     @Override
     protected int getContentView() {
         return R.layout.activity_order;
@@ -24,7 +23,7 @@ public class OrderActivity extends BaseActivity {
     protected void init() {
         setToolbarTitle("我的订单");
         ListView listView = (ListView) findViewById(R.id.order_listview);
-        listView.setAdapter(new OrderListAdapter(this,getDataList()));
+        listView.setAdapter(new MyOrderListAdapter(this,getDataList()));
 
     }
 

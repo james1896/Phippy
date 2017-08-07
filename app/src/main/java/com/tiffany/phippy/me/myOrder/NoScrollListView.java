@@ -1,8 +1,7 @@
-package com.tiffany.phippy.me.order;
+package com.tiffany.phippy.me.myOrder;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.GridView;
 import android.widget.ListView;
 
 /**
