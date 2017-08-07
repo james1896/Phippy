@@ -1,14 +1,19 @@
 package com.tiffany.phippy.me;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.tiffany.phippy.R;
 import com.tiffany.phippy.base.BaseListAdapter;
 import com.tiffany.phippy.base.BaseListAdapter1;
+import com.tiffany.phippy.food.order.OrderActivity;
+import com.tiffany.phippy.me.myOrder.MyOrderActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,7 +36,7 @@ public class MeListAdapter extends BaseListAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, final View convertView, ViewGroup parent) {
 
         ArrayList<Map> list = (ArrayList<Map>) this.dataList.get(position);
 
@@ -61,8 +66,19 @@ public class MeListAdapter extends BaseListAdapter {
 //        int resid = (int) map.get("resId");
 //        img.setImageResource(resid);
 
+        final int pos = position;
         ListView lv = (ListView) item.findViewById(R.id.me_item_listview);
         lv.setAdapter(new MeListItemAdapter(context,list));
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Log.e("me_listview_click","section:"+pos+"index:"+i);
+                if(pos == 1 && i == 0){
+                    Intent intent = new Intent(context,OrderActivity.class);
+                    context.startActivity(intent);
+                }
+            }
+        });
         return item;
     }
 

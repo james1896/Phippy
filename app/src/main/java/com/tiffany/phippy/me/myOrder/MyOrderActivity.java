@@ -16,7 +16,7 @@ import java.util.Map;
 public class MyOrderActivity extends BaseActivity {
     @Override
     protected int getContentView() {
-        return R.layout.activity_order;
+        return R.layout.activity_me_myorder;
     }
 
     @Override

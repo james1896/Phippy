@@ -2,15 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
+
 
     <com.tiffany.phippy.me.myOrder.NoScrollListView
-        android:id="@+id/order_item_listview"
+        android:id="@+id/food_order_item_listview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-
-
+        android:layout_height="wrap_content"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,10 +47,4 @@
             android:layout_marginRight="10dp"/>
 
     </LinearLayout>
-
-    <!--pace-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="@color/theme_pace"/>
 </LinearLayout>
