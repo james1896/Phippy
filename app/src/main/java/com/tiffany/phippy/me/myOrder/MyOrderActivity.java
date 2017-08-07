@@ -30,17 +30,6 @@ public class MyOrderActivity extends BaseActivity {
     public ArrayList<ArrayList> getDataList(){
         ArrayList<ArrayList> list = new ArrayList<>();
 
-//        Map<String,Object> map1 = new HashMap<String,Object>();
-//        map1.put("title","滋补调养");
-////        map1.put("resId",R.drawable.me_list_zengsong);
-//        list.add(map1);
-//
-//        Map<String,Object> map2 = new HashMap<String,Object>();
-//        map2.put("title","男科用药");
-////        map2.put("resId",R.drawable.me_list_key);
-//        list.add(map2);
-
-
         ArrayList<Map> list1 = new ArrayList<>();
         Map<String,Object> map1 = new HashMap<String,Object>();
         map1.put("title","aaaghfdlhagkjdsakldjfldddd");

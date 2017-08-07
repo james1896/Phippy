@@ -48,12 +48,17 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
+
+            <!--订单状态-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@color/cardview_dark_background"
-                android:text="已付款"/>
+                android:background="@drawable/order_status_circular"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:text="已付款"
+                android:padding="5dp"/>
         </LinearLayout>
 
         <!--虚线  height 必须大于 虚线的 height-->
