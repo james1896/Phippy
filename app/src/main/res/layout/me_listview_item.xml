@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/me_item_icon"
-        android:layout_width="30dp"
-        android:layout_height="40dp"
-        android:background="#FFFFCC"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/theme_pace"/>
 
-    <TextView
-        android:id="@+id/me_item_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="19sp"/>
-
+    <com.tiffany.phippy.me.order.NoScrollListView
+        android:id="@+id/me_item_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>
