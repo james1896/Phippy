@@ -73,6 +73,12 @@ public class MeListAdapter extends BaseListAdapter {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Log.e("me_listview_click","section:"+pos+"index:"+i);
+
+                if(pos == 0 && i == 0){
+                    Intent intent = new Intent(context,MyOrderActivity.class);
+                    context.startActivity(intent);
+
+                }
                 if(pos == 1 && i == 0){
                     Intent intent = new Intent(context,OrderActivity.class);
                     context.startActivity(intent);
