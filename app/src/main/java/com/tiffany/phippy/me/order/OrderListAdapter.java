@@ -1,6 +1,7 @@
 package com.tiffany.phippy.me.order;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -24,7 +25,7 @@ public class OrderListAdapter extends BaseListAdapter {
 
 //    protected ArrayList<Map> dataList;
 
-    public OrderListAdapter(Context context, ArrayList<Map> list) {
+    public OrderListAdapter(Context context, ArrayList<ArrayList> list) {
         super(context,list);
 //        //根据context上下文加载布局，这里的是 本身，即this
 //        this.mInflater = LayoutInflater.from(context);
@@ -37,17 +38,22 @@ public class OrderListAdapter extends BaseListAdapter {
 //        }else {
 //            this.dataList = list;
 //        }
-
+        this.dataList = list;
 
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        Map<String,Object> map = (Map<String, Object>) this.dataList.get(position);
-        View item                   = mInflater.inflate(R.layout.order_listview_item, null);
+        ArrayList<Map> list = (ArrayList<Map>) this.dataList.get(position);
+
+//        Map<String,Object> map = (Map<String, Object>) list.get(position);
+        View item  = mInflater.inflate(R.layout.order_listview_item, null);
 
         ListView lv = (ListView) item.findViewById(R.id.order_item_listview);
-        lv.setAdapter(new OrderItemListViewAdapter(context,getDataList()));
+        lv.setAdapter(new OrderItemListViewAdapter(context,list));
+
+
+        Log.e("list","--------");
         return item;
     }
 
@@ -57,35 +63,19 @@ class OrderItemListViewAdapter extends BaseListAdapter{
 
     public OrderItemListViewAdapter(Context context, ArrayList<Map> list) {
         super(context, list);
-        this.dataList = getDataList();
+
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
         Map<String,Object> map = (Map<String, Object>) this.dataList.get(position);
-        View item                   = mInflater.inflate(R.layout.order_listview_item_item, null);
-
+        View item              = mInflater.inflate(R.layout.order_listview_item_item, null);
+        Log.e("list_list","--------"+map.get("title"));
         TextView title = (TextView) item.findViewById(R.id.order_item_item_title);
         title.setText((String) map.get("title"));
 
         return item;
     }
 
-    public ArrayList<Map> getDataList(){
-        ArrayList<Map> list = new ArrayList<>();
-
-        Map<String,Object> map1 = new HashMap<String,Object>();
-        map1.put("title","滋补调养");
-//        map1.put("resId",R.drawable.me_list_zengsong);
-        list.add(map1);
-
-        Map<String,Object> map2 = new HashMap<String,Object>();
-        map2.put("title","男科用药");
-//        map2.put("resId",R.drawable.me_list_key);
-        list.add(map2);
-
-        return list;
-
-    }
 }
