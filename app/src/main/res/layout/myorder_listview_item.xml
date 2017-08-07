@@ -3,77 +3,102 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingLeft="8dp"
-    android:paddingRight="8dp"
-    android:paddingTop="8dp"
     android:background="#FFFFFF">
-
-    <!--订单号 订单状态-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:text="订单号:XH657439265734926"/>
-
-        <!--pace-->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/cardview_dark_background"
-            android:text="已付款"/>
-    </LinearLayout>
-
-    <!--虚线  height 必须大于 虚线的 height-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1.5dp"
-        android:background="@drawable/dashed_shape"/>
-
-    <com.tiffany.phippy.me.myOrder.NoScrollListView
-        android:id="@+id/order_item_listview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:divider="@null"/>
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_gravity="center"
-           android:text="配送费: 0.00"/>
-
-        <!--pace-->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <!--订单状态-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="共11件商品 合计: 100"
-
-            android:layout_gravity="center" />
-
-    </LinearLayout>
 
     <!--pace-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:background="@color/theme_pace"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+        <!--订单号 日期 订单状态-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="19sp"
+                    android:text="订单号:XH657439265734926"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14.5sp"
+                    android:text="2017-7-7"/>
+            </LinearLayout>
+
+
+            <!--pace-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/cardview_dark_background"
+                android:text="已付款"/>
+        </LinearLayout>
+
+        <!--虚线  height 必须大于 虚线的 height-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:background="@drawable/dashed_shape" />
+
+        <com.tiffany.phippy.me.myOrder.NoScrollListView
+            android:id="@+id/order_item_listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@null"
+
+            android:paddingTop="10dp"/>
+
+        <!--配送费 共计-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="配送费: 0.00"/>
+
+            <!--pace-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+            <!--订单状态-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="共11件商品 合计: 100"
+
+                android:layout_gravity="center" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
 </LinearLayout>
