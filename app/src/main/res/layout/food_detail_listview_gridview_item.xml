@@ -8,13 +8,39 @@
     android:layout_gravity="center"
     android:background="#FFFFFF"
     >
-    <ImageView
-        android:src="@mipmap/ic_launcher"
-        android:id="@+id/imgview_item"
-        android:scaleType="fitXY"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:src="@mipmap/ic_launcher"
+            android:id="@+id/imgview_item"
+            android:scaleType="fitXY"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            />
+
+        <TextView
+            android:id="@+id/food_grid_item_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:text="0.00 P"/>
+
+        <ImageView
+            android:id="@+id/food_grid_item_check"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="20dp"
+            android:layout_height="18dp"
+            android:background="#aaFFFFFF"
+            android:visibility="invisible"
+            android:src="@mipmap/food_check"/>
+
+    </RelativeLayout>
+
 
     <TextView
         android:layout_marginTop="5dp"
