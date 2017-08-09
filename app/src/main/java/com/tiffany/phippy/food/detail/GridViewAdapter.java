@@ -66,7 +66,7 @@ public class GridViewAdapter extends ArrayAdapter<GridItem> {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        GridItem item = mGridData.get(position);
+        final GridItem item = mGridData.get(position);
         holder.textView.setText(item.getTitle());
         Picasso.with(mContext).load(item.getImage()).into(holder.imageView);
         holder.imageView.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +75,8 @@ public class GridViewAdapter extends ArrayAdapter<GridItem> {
 
                 if(foodInterface != null){
                    holder.checkImage.setVisibility((holder.checkImage.getVisibility() == View.INVISIBLE?View.VISIBLE:View.INVISIBLE));
+                    item.setCheck((holder.checkImage.getVisibility() == View.INVISIBLE?false:true));
+                    Log.e("sss",""+mGridData);
                     foodInterface.foodMenuSelectedAt(itemNumber,position);
                 }
 

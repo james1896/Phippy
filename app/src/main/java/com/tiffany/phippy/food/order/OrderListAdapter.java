@@ -7,9 +7,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import com.tiffany.phippy.R;
 import com.tiffany.phippy.base.BaseListAdapter;
 import com.tiffany.phippy.food.FoodModel;
+import com.tiffany.phippy.food.detail.GridItem;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -26,7 +28,7 @@ public class OrderListAdapter extends BaseListAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        ArrayList<Map> list      = (ArrayList<Map>) this.dataList.get(position);
+        ArrayList<GridItem> list      = (ArrayList<GridItem>) this.dataList.get(position);
 
         View item                   = mInflater.inflate(R.layout.food_order_item, null);
 
@@ -47,13 +49,20 @@ class OrderListItemAdapter extends BaseListAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        Map<String,Object> map      = (Map<String, Object>) this.dataList.get(position);
+        GridItem gitem      = (GridItem) this.dataList.get(position);
 
         View item                   = mInflater.inflate(R.layout.food_order_item_item, null);
 
 
         TextView titleTv = (TextView) item.findViewById(R.id.food_order_item_item_title);
-        titleTv.setText((String) map.get("title"));
+        TextView priceTv = (TextView) item.findViewById(R.id.food_order_item_item_price);
+        TextView countTv = (TextView) item.findViewById(R.id.food_order_item_item_count);
+        ImageView img    = (ImageView) item.findViewById(R.id.food_order_item_item_img);
+
+        titleTv.setText(gitem.getTitle());
+        priceTv.setText(""+gitem.getPrice());
+        countTv.setText(""+gitem.getCount());
+        Picasso.with(context).load(gitem.getImage()).into(img);
         return item;
     }
 }

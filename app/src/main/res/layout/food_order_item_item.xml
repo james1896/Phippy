@@ -13,6 +13,7 @@
 
         <!--img-->
         <ImageView
+            android:id="@+id/food_order_item_item_img"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:background="@color/cardview_dark_background"/>
@@ -43,6 +44,7 @@
 
             <!--价格-->
             <TextView
+                android:id="@+id/food_order_item_item_price"
                 android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -51,6 +53,7 @@
 
             <!--数量-->
             <TextView
+                android:id="@+id/food_order_item_item_count"
                 android:layout_marginBottom="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

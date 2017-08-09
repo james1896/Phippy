@@ -23,9 +23,11 @@ import com.tiffany.phippy.base.BaseModel;
 import com.tiffany.phippy.base.JsonParse;
 
 import com.tiffany.phippy.food.FoodRecRecyclerAdapter;
+import com.tiffany.phippy.food.order.OrderActivity;
 import com.tiffany.phippy.venv.RequestCallBack;
 import com.tiffany.phippy.venv.RequestManager;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -34,13 +36,16 @@ import java.util.Map;
 import okhttp3.Call;
 import okhttp3.Response;
 
-public class FoodDetailActivity extends BaseActivity implements ActionSheet.ActionSheetListener, FoodInterface {
+public class FoodDetailActivity extends BaseActivity implements ActionSheet.ActionSheetListener, FoodInterface, View.OnClickListener {
 
     private String[] chatStr = new String[]{"1", "2", "3", "4", "5", "6"};
 
 
     private String[] localCartoonText = {"名侦探柯南", "死亡笔记", "火影忍者", "海贼王"};
     private String[] imgURL ={"http://img1.imgtn.bdimg.com/it/u=3350993068,3652800343&fm=21&gp=0.jpg", "http://img0.imgtn.bdimg.com/it/u=2545030489,2226096219&fm=21&gp=0.jpg", "http://img3.imgtn.bdimg.com/it/u=3171772449,1023293196&fm=21&gp=0.jpg", "http://img0.imgtn.bdimg.com/it/u=820734872,552500686&fm=21&gp=0.jpg"};
+    private FoodDetailListAdapter detailAdapter;
+
+
     @Override
     protected int getContentView() {
         return R.layout.activity_food_detail;
@@ -63,95 +68,16 @@ public class FoodDetailActivity extends BaseActivity implements ActionSheet.Acti
 //        img.setImageResource(resourceId);
 
         ListView listview = (ListView) findViewById(R.id.food_detai_listView);
-        FoodDetailListAdapter detailAdapter = new FoodDetailListAdapter(this,getDataList());
+        this.detailAdapter = new FoodDetailListAdapter(this,getDataList());
         detailAdapter.setFoodInterface(this);
+
         listview.setAdapter(detailAdapter);
 
         setToolbarTitle(title);
         TextView right = (TextView) findViewById(R.id.toolbar_right_button);
         right.setText("提交订单");
         right.setTextSize(15);
-        right.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-////                Window window = myDialog.getWindow();
-//                new AlertDialog.Builder(FoodDetailActivity.this)
-//                        .setMessage("退出当前账号不会删除任何历史数据，下次登录依然可以使用本账号")
-//                        .setPositiveButton("微信", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int which) {
-////                                              //参考文献
-////                http://blog.csdn.net/lovexieyuan520/article/details/44301753
-//                                try {
-//                                    PackageManager packageManager = getPackageManager();
-//                                    Intent intent = new Intent();
-//                                    intent = packageManager.getLaunchIntentForPackage("com.tencent.mm");
-//                                    startActivity(intent);
-//                                } catch (Exception e) {
-//                                    e.printStackTrace();
-//                                    Intent viewIntent = new
-//                                            Intent("android.intent.action.VIEW", Uri.parse("http://weixin.qq.com/"));
-//                                    startActivity(viewIntent);
-//                                }
-//                            }
-//                        }).setNegativeButton("电话", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//
-//                        if (ActivityCompat.checkSelfPermission(FoodDetailActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-//                            // TODO: Consider calling
-//                            //    ActivityCompat#requestPermissions
-//                            // here to request the missing permissions, and then overriding
-//                            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-//                            //                                          int[] grantResults)
-//                            // to handle the case where the user grants the permission. See the documentation
-//                            // for ActivityCompat#requestPermissions for more details.
-//                            return;
-//                        }
-//                        Uri uri = Uri.parse("tel:" + 123);
-//                        Intent intent = new Intent(Intent.ACTION_CALL, uri);
-//                        startActivity(intent);
-//                    }
-//                }).setNegativeButton("短信", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//
-////                        Intent intentFinalMessage = new Intent(Intent.ACTION_VIEW);
-////                        intentFinalMessage.setType("vnd.android-dir/mms-sms");
-//////                        打开系统短信界面
-////                        startActivity(intentFinalMessage);
-////                        创建Uri，设置行为和号码
-//                        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:"+"123"));
-////                        创建意图
-//                        intent.putExtra("sms_body", "aaa");
-////                        打开系统短信界面，号码已经填写，只需填写要发送
-//                        startActivity(intent);
-//                    }
-//                }).show();
-
-
-                ActionSheet.createBuilder(FoodDetailActivity.this, getSupportFragmentManager())
-                        .setCancelButtonTitle("Cancel")
-                        .setOtherButtonTitles("订单系统正在跟商家协调，内部测试中，敬请期待哦，亲", "Item2", "Item3", "Item4")
-                        .setCancelableOnTouchOutside(true)
-                        .setListener(FoodDetailActivity.this).show();
-
-
-            }
-        });
-
-
-
-//        RequestManager.getInstant().getgoods("1001", new RequestCallBack() {
-//            @Override
-//            public void onSuccess(String s, Call call, Response response) {
-//                super.onSuccess(s, call, response);
-//
-//                BaseModel<List<FoodDetailModel>> model = JsonParse.parser.fromJson(s, new TypeToken<BaseModel<List<FoodDetailModel>>>(){}.getType());
-//
-//                Log.e("FoodModel",""+model);
-//            }
-//        }
+        right.setOnClickListener(this);
 
 
 
@@ -209,7 +135,6 @@ public class FoodDetailActivity extends BaseActivity implements ActionSheet.Acti
 
     public ArrayList<Map> getDataList(){
         ArrayList<Map> list = new ArrayList<>();
-
         Map<String,Object> map1 = new HashMap<String,Object>();
         map1.put("title","第一季");
 
@@ -218,32 +143,26 @@ public class FoodDetailActivity extends BaseActivity implements ActionSheet.Acti
             GridItem item1 = new GridItem();
             item1.setTitle(localCartoonText[i]);
             item1.setImage(imgURL[i]);
+            item1.setCheck(false);
+            item1.setPrice(50+i*4);
+            item1.setCount(1);
             mGridData.add(item1);
-
-//            Log.e("position"+position,localCartoonText[i]);
         }
-
         map1.put("data",mGridData);
-//        map1.put("resId",R.drawable.me_list_zengsong);
-//        map1.put("add","海鲜大咖套餐1份，有赠品");
-//        map1.put("current_price","188");
-//        map1.put("original_price","门市价:¥288");
-//        map1.put("hot","热度5");
         list.add(map1);
 
         Map<String,Object> map2 = new HashMap<String,Object>();
         map2.put("title","第二季");
-
         ArrayList<GridItem> mGridData2 = new ArrayList<GridItem>();
         for (int i=0; i<imgURL.length; i++) {
             GridItem item1 = new GridItem();
             item1.setTitle(localCartoonText[i]);
             item1.setImage(imgURL[i]);
+            item1.setCheck(false);
+            item1.setPrice(199+i*4);
+            item1.setCount(1);
             mGridData2.add(item1);
-
-//            Log.e("position"+position,localCartoonText[i]);
         }
-
         map2.put("data",mGridData2);
         list.add(map2);
 
@@ -254,33 +173,41 @@ public class FoodDetailActivity extends BaseActivity implements ActionSheet.Acti
             GridItem item1 = new GridItem();
             item1.setTitle(localCartoonText[i]);
             item1.setImage(imgURL[i]);
+            item1.setCheck(false);
+            item1.setPrice(80+i*4);
+            item1.setCount(1);
             mGridData3.add(item1);
-
-//            Log.e("position"+position,localCartoonText[i]);
         }
-
         map3.put("data",mGridData3);
         list.add(map3);
 
-        Map<String,Object> map4 = new HashMap<String,Object>();
-        map4.put("title","第四季");
-        ArrayList<GridItem> mGridData4 = new ArrayList<GridItem>();
-        for (int i=0; i<imgURL.length; i++) {
-            GridItem item1 = new GridItem();
-            item1.setTitle(localCartoonText[i]);
-            item1.setImage(imgURL[i]);
-            mGridData4.add(item1);
-
-//            Log.e("position"+position,localCartoonText[i]);
-        }
-
-        map4.put("data",mGridData4);
-        list.add(map4);
-
-
-
         return list;
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view.getId() == R.id.toolbar_right_button){
+
+            ArrayList<Map> list = this.detailAdapter.getDataList();
+
+            ArrayList<GridItem>  data = new ArrayList<>();
+
+            for(Map<String,Object> map :list){
+                ArrayList<GridItem> tmpList = (ArrayList<GridItem>) map.get("data");
+
+                for(GridItem item:tmpList){
+                    if(item.getCheck()){
+                        data.add(item);
+                    }
+                }
+            }
+
+
+            Intent intent = new Intent(FoodDetailActivity.this, OrderActivity.class);
+            intent.putExtra("GridItem", (Serializable) data);
+            startActivity(intent);
+        }
     }
 }
 
@@ -333,3 +260,94 @@ public class FoodDetailActivity extends BaseActivity implements ActionSheet.Acti
 //        Log.e("onItem", "" + position);
 //        }
 //        });
+
+
+
+
+
+
+
+
+
+
+//new View.OnClickListener() {
+//@Override
+//public void onClick(View view) {
+//////                Window window = myDialog.getWindow();
+////                new AlertDialog.Builder(FoodDetailActivity.this)
+////                        .setMessage("退出当前账号不会删除任何历史数据，下次登录依然可以使用本账号")
+////                        .setPositiveButton("微信", new DialogInterface.OnClickListener() {
+////                            @Override
+////                            public void onClick(DialogInterface dialog, int which) {
+//////                                              //参考文献
+//////                http://blog.csdn.net/lovexieyuan520/article/details/44301753
+////                                try {
+////                                    PackageManager packageManager = getPackageManager();
+////                                    Intent intent = new Intent();
+////                                    intent = packageManager.getLaunchIntentForPackage("com.tencent.mm");
+////                                    startActivity(intent);
+////                                } catch (Exception e) {
+////                                    e.printStackTrace();
+////                                    Intent viewIntent = new
+////                                            Intent("android.intent.action.VIEW", Uri.parse("http://weixin.qq.com/"));
+////                                    startActivity(viewIntent);
+////                                }
+////                            }
+////                        }).setNegativeButton("电话", new DialogInterface.OnClickListener() {
+////                    @Override
+////                    public void onClick(DialogInterface dialog, int which) {
+////
+////                        if (ActivityCompat.checkSelfPermission(FoodDetailActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+////                            // TODO: Consider calling
+////                            //    ActivityCompat#requestPermissions
+////                            // here to request the missing permissions, and then overriding
+////                            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+////                            //                                          int[] grantResults)
+////                            // to handle the case where the user grants the permission. See the documentation
+////                            // for ActivityCompat#requestPermissions for more details.
+////                            return;
+////                        }
+////                        Uri uri = Uri.parse("tel:" + 123);
+////                        Intent intent = new Intent(Intent.ACTION_CALL, uri);
+////                        startActivity(intent);
+////                    }
+////                }).setNegativeButton("短信", new DialogInterface.OnClickListener() {
+////                    @Override
+////                    public void onClick(DialogInterface dialogInterface, int i) {
+////
+//////                        Intent intentFinalMessage = new Intent(Intent.ACTION_VIEW);
+//////                        intentFinalMessage.setType("vnd.android-dir/mms-sms");
+////////                        打开系统短信界面
+//////                        startActivity(intentFinalMessage);
+//////                        创建Uri，设置行为和号码
+////                        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:"+"123"));
+//////                        创建意图
+////                        intent.putExtra("sms_body", "aaa");
+//////                        打开系统短信界面，号码已经填写，只需填写要发送
+////                        startActivity(intent);
+////                    }
+////                }).show();
+//
+//
+//        ActionSheet.createBuilder(FoodDetailActivity.this, getSupportFragmentManager())
+//        .setCancelButtonTitle("Cancel")
+//        .setOtherButtonTitles("订单系统正在跟商家协调，内部测试中，敬请期待哦，亲", "Item2", "Item3", "Item4")
+//        .setCancelableOnTouchOutside(true)
+//        .setListener(FoodDetailActivity.this).show();
+//
+//
+//        }
+//        });
+//
+//
+//
+////        RequestManager.getInstant().getgoods("1001", new RequestCallBack() {
+////            @Override
+////            public void onSuccess(String s, Call call, Response response) {
+////                super.onSuccess(s, call, response);
+////
+////                BaseModel<List<FoodDetailModel>> model = JsonParse.parser.fromJson(s, new TypeToken<BaseModel<List<FoodDetailModel>>>(){}.getType());
+////
+////                Log.e("FoodModel",""+model);
+////            }
+////        }

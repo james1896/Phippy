@@ -1,12 +1,16 @@
 package com.tiffany.phippy.food.order;
 
+import android.content.Intent;
+import android.util.Log;
 import android.widget.ListView;
 
 import com.tiffany.phippy.R;
 import com.tiffany.phippy.base.BaseActivity;
+import com.tiffany.phippy.food.detail.GridItem;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -22,17 +26,36 @@ public class OrderActivity extends BaseActivity {
     @Override
     protected void init() {
         setToolbarTitle("订单详情");
+
+        Intent intentGet = getIntent();
+        ArrayList<GridItem> data = (ArrayList<GridItem>) intentGet.getSerializableExtra("GridItem");
+        Log.e("data",""+data);
+
         ListView lv = (ListView) findViewById(R.id.food_order_listview);
-        lv.setAdapter(new OrderListAdapter(this,getDataList()));
+        if(data != null){
+
+            ArrayList arr = new ArrayList();
+            arr.add(data);
+            lv.setAdapter(new OrderListAdapter(this,arr));
+        }
+
+
+
+
     }
 
     public ArrayList<ArrayList> getDataList(){
+
+
+
+
         ArrayList<ArrayList> list = new ArrayList<>();
 
         ArrayList<Map> list1 = new ArrayList<>();
         Map<String,Object> map1 = new HashMap<String,Object>();
         map1.put("title","aaa");
         list1.add(map1);
+
         Map<String,Object> map2 = new HashMap<String,Object>();
         map2.put("title","bbb");
         list1.add(map2);
