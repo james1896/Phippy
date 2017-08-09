@@ -23,33 +23,56 @@ public class OrderActivity extends BaseActivity implements OrderInterface {
         return R.layout.activity_food_order;
     }
 
+    protected OrderListAdapter orderAdapter;
+    protected ArrayList<GridItem> dataArray;
     @Override
     protected void init() {
         setToolbarTitle("订单详情");
 
         Intent intentGet = getIntent();
-        ArrayList<GridItem> data = (ArrayList<GridItem>) intentGet.getSerializableExtra("GridItem");
-        Log.e("data",""+data);
+        this.dataArray = (ArrayList<GridItem>) intentGet.getSerializableExtra("GridItem");
+        Log.e("data",""+this.dataArray);
 
         ListView lv = (ListView) findViewById(R.id.food_order_listview);
-        if(data != null){
+        if(this.dataArray != null){
 
             ArrayList arr = new ArrayList();
-            arr.add(data);
+            arr.add(this.dataArray);
 
-            OrderListAdapter adapter = new OrderListAdapter(this,arr);
-            adapter.setOrderInterface(this);
-            lv.setAdapter(adapter);
+            this.orderAdapter = new OrderListAdapter(this,arr);
+            this.orderAdapter.setOrderInterface(this);
+            lv.setAdapter(this.orderAdapter);
         }
     }
 
     @Override
     public void plusButtonClickOn(int position) {
         Log.e("order","plus"+position);
+
+        GridItem item = this.dataArray.get(position);
+        item.setCount(item.getCount()+1);
+
+        ArrayList arr = new ArrayList();
+        arr.add(this.dataArray);
+        this.orderAdapter.setDataList(arr);
+        this.orderAdapter.notifyDataSetChanged();
     }
 
     @Override
     public void subButtonClickOn(int position) {
         Log.e("order","sub"+position);
+
+        GridItem item = this.dataArray.get(position);
+
+        if(item.getCount() >1){
+            item.setCount(item.getCount()-1);
+            ArrayList arr = new ArrayList();
+            arr.add(this.dataArray);
+            this.orderAdapter.setDataList(arr);
+            this.orderAdapter.notifyDataSetChanged();
+        }else {
+            Log.e("order","最小值是 1");
+        }
+
     }
 }
