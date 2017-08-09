@@ -69,6 +69,7 @@ public class GridViewAdapter extends ArrayAdapter<GridItem> {
         final GridItem item = mGridData.get(position);
         holder.textView.setText(item.getTitle());
         Picasso.with(mContext).load(item.getImage()).into(holder.imageView);
+        holder.checkImage.setVisibility((item.getCheck()==true?View.VISIBLE:View.INVISIBLE));
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
