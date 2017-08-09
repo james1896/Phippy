@@ -52,7 +52,7 @@ public class GridViewAdapter extends ArrayAdapter<GridItem> {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
+        final ViewHolder holder;
 
         if (convertView == null) {
             LayoutInflater inflater = ((Activity)mContext).getLayoutInflater();
@@ -60,6 +60,8 @@ public class GridViewAdapter extends ArrayAdapter<GridItem> {
             holder = new ViewHolder();
             holder.textView = (TextView) convertView.findViewById(R.id.textview_item);
             holder.imageView = (ImageView) convertView.findViewById(R.id.imgview_item);
+            holder.checkImage = (ImageView) convertView.findViewById(R.id.food_grid_item_check);
+
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -72,6 +74,7 @@ public class GridViewAdapter extends ArrayAdapter<GridItem> {
             public void onClick(View view) {
 
                 if(foodInterface != null){
+                   holder.checkImage.setVisibility((holder.checkImage.getVisibility() == View.INVISIBLE?View.VISIBLE:View.INVISIBLE));
                     foodInterface.foodMenuSelectedAt(itemNumber,position);
                 }
 
@@ -83,6 +86,7 @@ public class GridViewAdapter extends ArrayAdapter<GridItem> {
     private class ViewHolder {
         TextView textView;
         ImageView imageView;
+        ImageView checkImage;
     }
 }
 
