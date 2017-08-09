@@ -27,14 +27,20 @@ import com.tiffany.phippy.venv.RequestCallBack;
 import com.tiffany.phippy.venv.RequestManager;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import okhttp3.Call;
 import okhttp3.Response;
 
-public class FoodDetailActivity extends BaseActivity implements ActionSheet.ActionSheetListener {
+public class FoodDetailActivity extends BaseActivity implements ActionSheet.ActionSheetListener, FoodInterface {
 
     private String[] chatStr = new String[]{"1", "2", "3", "4", "5", "6"};
+
+
+    private String[] localCartoonText = {"名侦探柯南", "死亡笔记", "火影忍者", "海贼王"};
+    private String[] imgURL ={"http://img1.imgtn.bdimg.com/it/u=3350993068,3652800343&fm=21&gp=0.jpg", "http://img0.imgtn.bdimg.com/it/u=2545030489,2226096219&fm=21&gp=0.jpg", "http://img3.imgtn.bdimg.com/it/u=3171772449,1023293196&fm=21&gp=0.jpg", "http://img0.imgtn.bdimg.com/it/u=820734872,552500686&fm=21&gp=0.jpg"};
     @Override
     protected int getContentView() {
         return R.layout.activity_food_detail;
@@ -57,7 +63,9 @@ public class FoodDetailActivity extends BaseActivity implements ActionSheet.Acti
 //        img.setImageResource(resourceId);
 
         ListView listview = (ListView) findViewById(R.id.food_detai_listView);
-        listview.setAdapter(new FoodDetailListAdapter(this,null));
+        FoodDetailListAdapter detailAdapter = new FoodDetailListAdapter(this,getDataList());
+        detailAdapter.setFoodInterface(this);
+        listview.setAdapter(detailAdapter);
 
         setToolbarTitle(title);
         TextView right = (TextView) findViewById(R.id.toolbar_right_button);
@@ -192,6 +200,87 @@ public class FoodDetailActivity extends BaseActivity implements ActionSheet.Acti
             Intent intent = new Intent(Intent.ACTION_CALL, uri);
             startActivity(intent);
         }
+    }
+
+    @Override
+    public void foodMenuSelectedAt(int section, int row) {
+        Log.e("food","section:"+section+"row:"+row);
+    }
+
+    public ArrayList<Map> getDataList(){
+        ArrayList<Map> list = new ArrayList<>();
+
+        Map<String,Object> map1 = new HashMap<String,Object>();
+        map1.put("title","第一季");
+
+        ArrayList<GridItem> mGridData = new ArrayList<GridItem>();
+        for (int i=0; i<imgURL.length; i++) {
+            GridItem item1 = new GridItem();
+            item1.setTitle(localCartoonText[i]);
+            item1.setImage(imgURL[i]);
+            mGridData.add(item1);
+
+//            Log.e("position"+position,localCartoonText[i]);
+        }
+
+        map1.put("data",mGridData);
+//        map1.put("resId",R.drawable.me_list_zengsong);
+//        map1.put("add","海鲜大咖套餐1份，有赠品");
+//        map1.put("current_price","188");
+//        map1.put("original_price","门市价:¥288");
+//        map1.put("hot","热度5");
+        list.add(map1);
+
+        Map<String,Object> map2 = new HashMap<String,Object>();
+        map2.put("title","第二季");
+
+        ArrayList<GridItem> mGridData2 = new ArrayList<GridItem>();
+        for (int i=0; i<imgURL.length; i++) {
+            GridItem item1 = new GridItem();
+            item1.setTitle(localCartoonText[i]);
+            item1.setImage(imgURL[i]);
+            mGridData2.add(item1);
+
+//            Log.e("position"+position,localCartoonText[i]);
+        }
+
+        map2.put("data",mGridData2);
+        list.add(map2);
+
+        Map<String,Object> map3 = new HashMap<String,Object>();
+        map3.put("title","第三季");
+        ArrayList<GridItem> mGridData3 = new ArrayList<GridItem>();
+        for (int i=0; i<imgURL.length; i++) {
+            GridItem item1 = new GridItem();
+            item1.setTitle(localCartoonText[i]);
+            item1.setImage(imgURL[i]);
+            mGridData3.add(item1);
+
+//            Log.e("position"+position,localCartoonText[i]);
+        }
+
+        map3.put("data",mGridData3);
+        list.add(map3);
+
+        Map<String,Object> map4 = new HashMap<String,Object>();
+        map4.put("title","第四季");
+        ArrayList<GridItem> mGridData4 = new ArrayList<GridItem>();
+        for (int i=0; i<imgURL.length; i++) {
+            GridItem item1 = new GridItem();
+            item1.setTitle(localCartoonText[i]);
+            item1.setImage(imgURL[i]);
+            mGridData4.add(item1);
+
+//            Log.e("position"+position,localCartoonText[i]);
+        }
+
+        map4.put("data",mGridData4);
+        list.add(map4);
+
+
+
+        return list;
+
     }
 }
 

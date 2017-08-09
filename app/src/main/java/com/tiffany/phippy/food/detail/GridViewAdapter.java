@@ -14,6 +14,7 @@ import com.squareup.picasso.Picasso;
 import com.tiffany.phippy.R;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * Created by moses on 26/07/2017.
@@ -26,6 +27,15 @@ public class GridViewAdapter extends ArrayAdapter<GridItem> {
     private ArrayList<GridItem> mGridData = new ArrayList<GridItem>();
 
     public int itemNumber;
+
+    private FoodInterface foodInterface;
+    public FoodInterface getFoodInterface() {
+        return foodInterface;
+    }
+
+    public void setFoodInterface(FoodInterface foodInterface) {
+        this.foodInterface = foodInterface;
+    }
 
 
     public GridViewAdapter(Context context, int resource, ArrayList<GridItem> objects) {
@@ -60,7 +70,11 @@ public class GridViewAdapter extends ArrayAdapter<GridItem> {
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.e("111", "header:"+itemNumber + "item:"+position);
+
+                if(foodInterface != null){
+                    foodInterface.foodMenuSelectedAt(itemNumber,position);
+                }
+
             }
         });
         return convertView;

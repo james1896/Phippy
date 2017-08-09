@@ -35,10 +35,9 @@
         <activity android:name=".food.detail.FoodDetailActivity" />
         <activity android:name=".food.FoodRecActivity" />
         <activity android:name=".food.order.OrderActivity"
-                  />
+            android:hardwareAccelerated="false" />
 
         <activity android:name=".life.xiaoniangzi.MedicineActivity" />
-        <activity android:name=".life.visa.VisaActivity" />
         <activity android:name=".tour.TourRecActivity" />
 
         <activity android:name=".me.SettingActivity"/>
