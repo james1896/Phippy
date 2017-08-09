@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.tiffany.phippy.R;
@@ -38,35 +39,46 @@ public class FoodListAdapter extends BaseListAdapter {
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
+        final ViewHolder holder;
         FoodModel model      = (FoodModel) this.dataList.get(position);
-        View item                   = mInflater.inflate(R.layout.food_list_wechat_item, null);
-        ImageView img               = (ImageView)item.findViewById(R.id.food_wechat_list_img);
-        TextView titleTV            = (TextView) item.findViewById(R.id.food_wechat_list_name);
-        TextView deliveryTimeTV     = (TextView) item.findViewById(R.id.food_wechat_list_deliveryTime);
-        TextView qisongconditionTV  = (TextView) item.findViewById(R.id.food_wechat_list_qisongcondition);
-        TextView addressTV          = (TextView) item.findViewById(R.id.food_wechat_list_address);
-        TextView contactTV          = (TextView) item.findViewById(R.id.food_wechat_list_contact);
+//        View item                   = mInflater.inflate(R.layout.food_list_wechat_item, null);
+        if(convertView == null){
+            convertView = mInflater.inflate(R.layout.food_list_wechat_item, null);
+            holder = new ViewHolder();
+            holder.img               = (ImageView)convertView.findViewById(R.id.food_wechat_list_img);
+            holder.titleTV            = (TextView) convertView.findViewById(R.id.food_wechat_list_name);
+            holder.deliveryTimeTV     = (TextView) convertView.findViewById(R.id.food_wechat_list_deliveryTime);
+            holder.qisongconditionTV  = (TextView) convertView.findViewById(R.id.food_wechat_list_qisongcondition);
+            holder.addressTV          = (TextView) convertView.findViewById(R.id.food_wechat_list_address);
+            holder.contactTV          = (TextView) convertView.findViewById(R.id.food_wechat_list_contact);
+            convertView.setTag(holder);
+        }else {
+            holder = (ViewHolder) convertView.getTag();
+        }
 
-//        String titleStr           = (String) map.get("title");
-//        String deliveryTimeStr    = (String) map.get("deliveryTime");
-//        String qisongconditionStr = (String) map.get("qisongcondition");
-//        String addressStr         = (String) map.get("address");
-//        String contactStr         = (String) map.get("contact");
-//        int resid                 = (int) map.get("resId");
         String titleStr           = model.getName();
         String deliveryTimeStr    = model.getDeliver_time();
         String qisongconditionStr = model.getQisong_condition();
         String addressStr         = model.getAdress();
         String contactStr         = model.getPhone_number();
-        titleTV.setText(titleStr);
-        deliveryTimeTV.setText(deliveryTimeStr);
-        qisongconditionTV.setText(qisongconditionStr);
-        addressTV.setText(addressStr);
-        contactTV.setText(contactStr);
+
+        holder.titleTV.setText(titleStr);
+        holder.deliveryTimeTV.setText(deliveryTimeStr);
+        holder.qisongconditionTV.setText(qisongconditionStr);
+        holder.addressTV.setText(addressStr);
+        holder.contactTV.setText(contactStr);
 
 //        img.setImageResource(resid);
-        return item;
+        return convertView;
     }
 
+    private class ViewHolder {
+        ImageView img;
+        TextView titleTV;
+        TextView deliveryTimeTV;
+        TextView qisongconditionTV;
+        TextView addressTV;
+        TextView contactTV;
+
+    }
 }
