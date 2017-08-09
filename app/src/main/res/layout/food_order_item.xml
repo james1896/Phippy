@@ -36,6 +36,7 @@
                     android:text="订单号:XH657439265734926"/>
 
                 <TextView
+                    android:id="@+id/food_order_item_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="14.5sp"

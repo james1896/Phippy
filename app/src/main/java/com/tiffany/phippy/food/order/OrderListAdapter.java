@@ -13,7 +13,9 @@ import com.tiffany.phippy.base.BaseListAdapter;
 import com.tiffany.phippy.food.FoodModel;
 import com.tiffany.phippy.food.detail.GridItem;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -35,6 +37,12 @@ public class OrderListAdapter extends BaseListAdapter {
         ListView lv = (ListView) item.findViewById(R.id.food_order_item_listview);
         lv.setAdapter(new OrderListItemAdapter(context,list));
 
+//        获得当前时间 作为订单时间
+        TextView dateTv = (TextView) item.findViewById(R.id.food_order_item_date);
+        SimpleDateFormat formatter   =   new   SimpleDateFormat   ("yyyy年MM月dd日   HH:mm:ss");
+        Date curDate =  new Date(System.currentTimeMillis());
+        String   dateStr   =   formatter.format(curDate);
+        dateTv.setText(dateStr);
         return item;
     }
 
