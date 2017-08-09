@@ -50,20 +50,14 @@ public class FoodDetailListAdapter extends BaseListAdapter1 {
     public View getView(final int position, View convertView, ViewGroup parent) {
 
         Map<String,Object> map = this.dataList.get(position);
-//
+        ArrayList<GridItem> list = (ArrayList<GridItem>) map.get("data");
+
         View item = mInflater.inflate(R.layout.food_detail_listview_item, null);
         TextView titleTV = (TextView)item.findViewById(R.id.header);
         NoScrollGridView gridView = (NoScrollGridView) item.findViewById(R.id.gridview);
-//
 
         String titleStr = (String) map.get("title");
         titleTV.setText(titleStr);
-//        String addressStr = (String) map.get("add");
-//        String current_priceStr = (String) map.get("current_price");
-//        String original_priceStr = (String) map.get("original_price");
-//        String hotStr = (String) map.get("hot");
-
-        ArrayList<GridItem> list = (ArrayList<GridItem>) map.get("data");
 
         GridViewAdapter mGridViewAdapter = new GridViewAdapter(context, R.layout.food_detail_listview_gridview_item, list);
         mGridViewAdapter.itemNumber = position;

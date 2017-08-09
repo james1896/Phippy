@@ -69,7 +69,7 @@ public class FoodDetailActivity extends BaseActivity implements ActionSheet.Acti
 
         setToolbarTitle(title);
         TextView right = (TextView) findViewById(R.id.toolbar_right_button);
-        right.setText("联系商家");
+        right.setText("提交订单");
         right.setTextSize(15);
         right.setOnClickListener(new View.OnClickListener() {
             @Override
