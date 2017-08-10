@@ -36,6 +36,8 @@
         <activity android:name=".food.FoodRecActivity" />
         <activity android:name=".food.order.OrderActivity"
             android:hardwareAccelerated="false" />
+        <activity android:name=".food.order.OrderFinishActivity"/>
+        <activity android:name=".food.order.OrderFailureActivity"/>
 
         <activity android:name=".life.xiaoniangzi.MedicineActivity" />
         <activity android:name=".tour.TourRecActivity" />

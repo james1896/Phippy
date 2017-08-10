@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.design.widget.BottomSheetDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -35,13 +37,14 @@ public class OrderActivity extends BaseActivity implements OrderInterface {
     protected void init() {
         setToolbarTitle("订单详情");
 
+//        得到上个activity传过来的 list
         Intent intentGet = getIntent();
         this.dataArray = (ArrayList<GridItem>) intentGet.getSerializableExtra("GridItem");
         Log.e("data",""+this.dataArray);
 
+//        listview
         ListView lv = (ListView) findViewById(R.id.food_order_listview);
         if(this.dataArray != null){
-
             ArrayList arr = new ArrayList();
             arr.add(this.dataArray);
 
@@ -60,10 +63,26 @@ public class OrderActivity extends BaseActivity implements OrderInterface {
         this.sheetDialog.cancelTextView = (TextView) dialogView.findViewById(R.id.order_dialog_cancel);
 //        必须放在最后面 等 各个控件初始化完成才可以  这应该是个缺陷 后期改进
         this.sheetDialog.setOrderInterface(this);
+
+        //货到付款
+        Button btn = (Button) findViewById(R.id.food_order_huodaofukuan);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(OrderActivity.this,OrderFinishActivity.class);
+                startActivityForResult(intent,103);
+            }
+        });
     }
 
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode == 103){
+            Log.e("A onActivityResult",""+resultCode);
+            finish();
+        }
+    }
 
     //    订单详情 interface
     @Override
