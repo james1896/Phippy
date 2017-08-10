@@ -22,6 +22,7 @@ public class MyAddressActivity extends BaseActivity {
     @Override
     protected void init() {
 
+        setToolbarTitle("收货地址");
         ListView lv = (ListView) findViewById(R.id.myaddress_listview);
         lv.setAdapter(new MyAddressListAdapter(this,getDataList()));
     }
@@ -32,7 +33,7 @@ public class MyAddressActivity extends BaseActivity {
         Map<String,Object> map1 = new HashMap<String, Object>();
         map1.put("name","james");
         map1.put("phone","09162511897");
-        map1.put("address","antel spa hotel makati manila phi");
+        map1.put("address","antel spa hotel makati manila phidela costa evune antel sopa hotel dela costa address");
 
         Map<String,Object> map2 = new HashMap<String, Object>();
         map2.put("name","james");

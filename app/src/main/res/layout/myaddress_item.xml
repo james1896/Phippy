@@ -57,11 +57,14 @@
                         android:text="phone"/>
                 </LinearLayout>
 
+                <!--address-->
                 <TextView
                     android:id="@+id/myaddress_item_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
+                    android:maxLines="2"
+                    android:ellipsize="end"
                     android:text="address"/>
             </LinearLayout>
 
