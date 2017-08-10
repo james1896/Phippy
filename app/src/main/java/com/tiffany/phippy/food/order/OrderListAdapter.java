@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -25,7 +26,7 @@ import java.util.Map;
  */
 
 public class OrderListAdapter extends BaseListAdapter {
-    public OrderListAdapter(Context context, ArrayList list) {
+    public OrderListAdapter(Context context, ArrayList<GridItem> list) {
         super(context, list);
     }
 
@@ -53,14 +54,27 @@ public class OrderListAdapter extends BaseListAdapter {
             holder = new ViewHolder();
             holder.listView = (ListView) convertView.findViewById(R.id.food_order_item_listview);
             holder.dateTv = (TextView) convertView.findViewById(R.id.food_order_item_date);
+            holder.totalPrice = (TextView) convertView.findViewById(R.id.food_order_item_totalPrice);
+
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
+//        listView
         OrderListItemAdapter adapter =new OrderListItemAdapter(context,list);
         adapter.setOrderInterface(this.orderInterface);
         holder.listView.setAdapter(adapter);
+        holder.listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                if(orderInterface != null){
+                    orderInterface.orderDetailOnItemLongClick(i);
+                }
+                return true;
+            }
+        });
+
 
 //        获得当前时间 作为订单时间
         SimpleDateFormat formatter   =   new   SimpleDateFormat   ("yyyy年MM月dd日   HH:mm:ss");
@@ -68,12 +82,25 @@ public class OrderListAdapter extends BaseListAdapter {
         String   dateStr   =   formatter.format(curDate);
         holder.dateTv.setText(dateStr);
 
+//        footer
+        holder.totalPrice.setText("共"+list.size()+"件商品 合计: "+""+getTotalPrice()+" P");
+
         return convertView;
     }
     private class ViewHolder {
         ListView listView;
         TextView dateTv;
+        TextView totalPrice;
+    }
 
+    private float getTotalPrice(){
+
+        float price = 0;
+        ArrayList<GridItem> list = (ArrayList<GridItem>) this.dataList.get(0);
+        for(GridItem item:list){
+            price += item.getPrice()*item.getCount();
+        }
+        return price;
     }
 }
 

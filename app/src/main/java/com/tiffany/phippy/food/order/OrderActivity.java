@@ -1,8 +1,13 @@
 package com.tiffany.phippy.food.order;
 
 import android.content.Intent;
+import android.support.design.widget.BottomSheetDialog;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.tiffany.phippy.R;
 import com.tiffany.phippy.base.BaseActivity;
@@ -25,6 +30,7 @@ public class OrderActivity extends BaseActivity implements OrderInterface {
 
     protected OrderListAdapter orderAdapter;
     protected ArrayList<GridItem> dataArray;
+    protected OrderBottomSheetDialog sheetDialog;
     @Override
     protected void init() {
         setToolbarTitle("订单详情");
@@ -43,6 +49,52 @@ public class OrderActivity extends BaseActivity implements OrderInterface {
             this.orderAdapter.setOrderInterface(this);
             lv.setAdapter(this.orderAdapter);
         }
+
+        //bottom弹出 sheet
+        LinearLayout dialogView = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.food_order_bottomdialog_sheet,null);
+        this.sheetDialog = new OrderBottomSheetDialog(this);
+        this.sheetDialog.setContentView(dialogView);
+
+        this.sheetDialog.contentTextView = (TextView) dialogView.findViewById(R.id.order_dialog_content);
+        this.sheetDialog.confirmTextView = (TextView) dialogView.findViewById(R.id.order_dialog_confirm);
+        this.sheetDialog.cancelTextView = (TextView) dialogView.findViewById(R.id.order_dialog_cancel);
+//        必须放在最后面 等 各个控件初始化完成才可以  这应该是个缺陷 后期改进
+        this.sheetDialog.setOrderInterface(this);
+    }
+
+
+
+
+    //    订单详情 interface
+    @Override
+    public void bottomSheetConfirm(BottomSheetDialog dialog, int position) {
+
+        this.dataArray.remove(position);
+        ArrayList arr = new ArrayList();
+        arr.add(this.dataArray);
+        this.orderAdapter.setDataList(arr);
+        this.orderAdapter.notifyDataSetChanged();
+        dialog.cancel();
+    }
+
+    @Override
+    public void bottomSheetCancel(BottomSheetDialog dialog) {
+        dialog.cancel();
+    }
+
+
+    @Override
+    public void orderDetailOnItemLongClick(int position) {
+        Log.e("",""+position);
+
+        if(this.dataArray.size() == 1){
+            Toast.makeText(this,"亲，当前订单只剩下一个餐品了，别删了好不？",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        GridItem item  = this.dataArray.get(position);
+        this.sheetDialog.longClickOnPosition = position;
+        this.sheetDialog.contentTextView.setText("确认要删除 "+item.getTitle()+" 吗？");
+        this.sheetDialog.show();
     }
 
     @Override
