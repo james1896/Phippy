@@ -22,4 +22,6 @@
     <color name="theme_pace">#EFEFF4</color>
 
     <color name="color_login_tbn">#FEEC89</color>
+    <color name="color_unselected_text">#D3D3D3</color>
+    <color name="color_selected_text">#696969</color>
 </resources>
