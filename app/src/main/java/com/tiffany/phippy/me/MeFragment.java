@@ -52,39 +52,39 @@ public class MeFragment extends BaseFragment {
 //        headerText.setText("猜你喜欢");
         listview.addHeaderView(mLoadingLayout);
         listview.setAdapter(new MeListAdapter(getContext(),null));
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                switch (i){
-
-                    case 1:{
-                        //我的订单
-                        Intent intent = new Intent(getActivity(),MyOrderActivity.class);
-                        startActivity(intent);
-                        break;
-                    }
-
-                    case 3:{
-                        //常用设置
-                        Intent intent = new Intent(getActivity(),SettingActivity.class);
-                        startActivity(intent);
-                        break;
-                    }
-                    case 8:{
-//                        DB 调试
-                        Intent intent = new Intent(getActivity(),DBDebugActivity.class);
-                        startActivity(intent);
-                        break;
-                    }
-                    default:
-                        Log.e("点击",""+i);
-                        Intent intent = new Intent(getActivity(), ShowAddressActivity.class);
-                        startActivity(intent);
-                }
-
-
-            }
-        });
+//        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//
+//                switch (i){
+//
+//                    case 1:{
+//                        //我的订单
+//                        Intent intent = new Intent(getActivity(),MyOrderActivity.class);
+//                        startActivity(intent);
+//                        break;
+//                    }
+//
+//                    case 3:{
+//                        //常用设置
+//                        Intent intent = new Intent(getActivity(),SettingActivity.class);
+//                        startActivity(intent);
+//                        break;
+//                    }
+//                    case 8:{
+////                        DB 调试
+//                        Intent intent = new Intent(getActivity(),DBDebugActivity.class);
+//                        startActivity(intent);
+//                        break;
+//                    }
+//                    default:
+//                        Log.e("点击",""+i);
+//                        Intent intent = new Intent(getActivity(), ShowAddressActivity.class);
+//                        startActivity(intent);
+//                }
+//
+//
+//            }
+//        });
     }
 }

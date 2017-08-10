@@ -67,9 +67,9 @@ class MyOrderItemListViewAdapter extends BaseListAdapter{
 
         Map<String,Object> map = (Map<String, Object>) this.dataList.get(position);
         View item              = mInflater.inflate(R.layout.myorder_listview_item_item, null);
-        Log.e("list_list","--------"+map.get("title"));
+//        Log.e("list_list","--------"+map.get("title"));
         TextView title = (TextView) item.findViewById(R.id.order_item_item_title);
-        title.setText((String) map.get("title"));
+//        title.setText((String) map.get("title"));
 
         return item;
     }

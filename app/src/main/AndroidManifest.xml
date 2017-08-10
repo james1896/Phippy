@@ -45,12 +45,13 @@
         <activity android:name=".me.SettingActivity"/>
         <activity android:name=".me.myOrder.MyOrderActivity"
             android:hardwareAccelerated="false"/>
+        <activity android:name=".me.myAddress.MyAddressActivity"/>
 
         <activity android:name=".base.db.DBDebugActivity" />
         <activity android:name=".base.LoginActivity"/>
         <activity android:name=".base.RegisterActivity"/>
         <activity android:name=".base.ShowAddressActivity"
-            android:launchMode="singleTask" android:screenOrientation="landscape">
+             android:screenOrientation="landscape">
             </activity>
     </application>
 

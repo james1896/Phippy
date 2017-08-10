@@ -13,6 +13,7 @@ import com.tiffany.phippy.R;
 import com.tiffany.phippy.base.BaseListAdapter;
 import com.tiffany.phippy.base.BaseListAdapter1;
 import com.tiffany.phippy.food.order.OrderActivity;
+import com.tiffany.phippy.me.myAddress.MyAddressActivity;
 import com.tiffany.phippy.me.myOrder.MyOrderActivity;
 
 import java.util.ArrayList;
@@ -75,12 +76,14 @@ public class MeListAdapter extends BaseListAdapter {
                 Log.e("me_listview_click","section:"+pos+"index:"+i);
 
                 if(pos == 0 && i == 0){
+//                    我的订单
                     Intent intent = new Intent(context,MyOrderActivity.class);
                     context.startActivity(intent);
 
                 }
-                if(pos == 1 && i == 0){
-                    Intent intent = new Intent(context,OrderActivity.class);
+                if(pos == 0 && i == 1){
+//                    收货地址
+                    Intent intent = new Intent(context,MyAddressActivity.class);
                     context.startActivity(intent);
                 }
             }
@@ -94,9 +97,11 @@ public class MeListAdapter extends BaseListAdapter {
         ArrayList<Map> list1 = new ArrayList<>();
         Map<String,Object> map1 = new HashMap<String,Object>();
         map1.put("title","我的订单");
-//        map1.put("resId",R.drawable.me_list_zengsong);
-
         list1.add(map1);
+//        map1.put("resId",R.drawable.me_list_zengsong);
+        Map<String,Object> map12 = new HashMap<String,Object>();
+        map12.put("title","收货地址");
+        list1.add(map12);
 
         ArrayList<Map> list2 = new ArrayList<>();
         Map<String,Object> map2 = new HashMap<String,Object>();
