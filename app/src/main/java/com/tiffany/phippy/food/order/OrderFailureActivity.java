@@ -10,7 +10,7 @@ import com.tiffany.phippy.base.BaseActivity;
 public class OrderFailureActivity extends BaseActivity {
     @Override
     protected int getContentView() {
-        return R.layout.acitvity_order_finish;
+        return R.layout.activity_order_finish;
     }
 
     @Override

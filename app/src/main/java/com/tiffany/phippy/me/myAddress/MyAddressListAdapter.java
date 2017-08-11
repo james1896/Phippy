@@ -1,7 +1,9 @@
 package com.tiffany.phippy.me.myAddress;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 
 import com.tiffany.phippy.PHIUserManager;
 import com.tiffany.phippy.R;
+import com.tiffany.phippy.base.BaseListAdapter;
 import com.tiffany.phippy.base.BaseListAdapter1;
 
 import java.util.ArrayList;
@@ -20,7 +23,7 @@ import java.util.Map;
  * Created by moses on 27/06/2017.
  */
 
-public class MyAddressListAdapter extends BaseListAdapter1 {
+public class MyAddressListAdapter extends BaseListAdapter {
 
 
 //    protected ArrayList<Map> dataList;
@@ -31,11 +34,11 @@ public class MyAddressListAdapter extends BaseListAdapter1 {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         final ViewHolder holder;
 
-        Map<String,Object> map = this.dataList.get(position);
+        Map<String,Object> map = (Map<String, Object>) this.dataList.get(position);
 
         if(convertView == null){
             convertView = mInflater.inflate(R.layout.myaddress_item, null);
@@ -64,9 +67,24 @@ public class MyAddressListAdapter extends BaseListAdapter1 {
             setUnselectedColor(holder);
 
         }
-        holder.name.setText((String) map.get("name"));
-        holder.phoneNumber.setText((String) map.get("phone"));
-        holder.address.setText((String) map.get("address"));
+        final String name = (String) map.get("name");
+        final String phone = (String) map.get("phone");
+        final String address = (String) map.get("address");
+        holder.name.setText(name);
+        holder.phoneNumber.setText(phone);
+        holder.address.setText(address);
+
+        holder.edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e("edit",""+position);
+                Intent intent = new Intent(context,EditAddressActivity.class);
+                intent.putExtra("com.tiffany.me.editaddress.name",name);
+                intent.putExtra("com.tiffany.me.editaddress.phone",phone);
+                intent.putExtra("com.tiffany.me.editaddress.address",address);
+                context.startActivity(intent);
+            }
+        });
         return convertView;
     }
 

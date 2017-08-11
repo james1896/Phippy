@@ -53,6 +53,7 @@
         <activity android:name=".base.ShowAddressActivity"
              android:screenOrientation="landscape">
             </activity>
+        <activity android:name=".me.myAddress.EditAddressActivity" />
     </application>
 
 </manifest>
