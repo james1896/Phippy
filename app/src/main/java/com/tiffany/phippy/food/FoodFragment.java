@@ -1,8 +1,11 @@
 package com.tiffany.phippy.food;
 
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -117,11 +120,77 @@ public class FoodFragment extends BaseFragment implements View.OnClickListener, 
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(getActivity(),FoodRecActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(getActivity(),FoodRecActivity.class);
+//        startActivity(intent);
         switch (view.getId()){
             case R.id.upleft:{
 
+
+                final ProgressDialog dialog = new ProgressDialog(getActivity());
+
+                dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);// 设置进度条的形式为圆形转动的进度条
+                dialog.setCancelable(true);// 设置是否可以通过点击Back键取消
+                dialog.setCanceledOnTouchOutside(false);// 设置在点击Dialog外是否取消Dialog进度条
+                // 设置提示的title的图标，默认是没有的，如果没有设置title的话只设置Icon是不会显示图标的
+                dialog.setTitle("提示");
+                // dismiss监听
+                dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+
+                    @Override
+                    public void onDismiss(DialogInterface dialog) {
+                        // TODO Auto-generated method stub
+
+                    }
+                });
+                // 监听Key事件被传递给dialog
+                dialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+
+                    @Override
+                    public boolean onKey(DialogInterface dialog, int keyCode,
+                                         KeyEvent event) {
+                        // TODO Auto-generated method stub
+                        return false;
+                    }
+                });
+                // 监听cancel事件
+                dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+
+                    @Override
+                    public void onCancel(DialogInterface dialog) {
+                        // TODO Auto-generated method stub
+
+                    }
+                });
+                //设置可点击的按钮，最多有三个(默认情况下)
+                dialog.setButton(DialogInterface.BUTTON_POSITIVE, "确定",
+                        new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // TODO Auto-generated method stub
+
+                            }
+                        });
+                dialog.setButton(DialogInterface.BUTTON_NEGATIVE, "取消",
+                        new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // TODO Auto-generated method stub
+
+                            }
+                        });
+//        dialog.setButton(DialogInterface.BUTTON_NEUTRAL, "中立",
+//                new DialogInterface.OnClickListener() {
+//
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        // TODO Auto-generated method stub
+//
+//                    }
+//                });
+                dialog.setMessage("这是一个圆形进度条");
+                dialog.show();
                 break;
             }
 

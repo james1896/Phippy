@@ -30,6 +30,9 @@
             android:text="电话"/>
         <EditText
             android:id="@+id/edit_address_phone"
+            android:digits="1234567890"
+            android:inputType="phone|number"
+            android:singleLine="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
