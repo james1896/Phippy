@@ -2,6 +2,7 @@ package com.tiffany.phippy;
 
 import android.support.v4.view.ViewPager;
 import android.support.design.widget.TabLayout;
+import android.util.Log;
 import android.view.View;
 
 import com.tiffany.phippy.base.BaseActivity;
@@ -42,6 +43,9 @@ public class MainActivity extends BaseActivity implements TabLayout.OnTabSelecte
         tabLayout.getTabAt(3).setCustomView(meTab);
 
 //        showBadgeOnItemIndex(0);
+
+        JniHello hello = new JniHello();
+        Log.e("hello",hello.SayHello());
     }
 
     protected void showBadgeOnItemIndex(int index){

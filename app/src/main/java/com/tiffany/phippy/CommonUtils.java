@@ -272,7 +272,7 @@ public class CommonUtils {
 //        Log.e("curDate", String.valueOf(curDate.getTime()/1000L + "|" + last_time));
 
         //毫秒
-//        Log.e("curDate","c"+System.currentTimeMillis());
+//        Log.e("curDate","Hellojni"+System.currentTimeMillis());
         Log.e("isIntraday","last_time:" + last_time + "  curDate:" + curDate/1000L);
         return curDate/1000L -last_time < CommonUtils.secondOfDay;
     }
