@@ -1,5 +1,7 @@
 package com.tiffany.phippy.me.myAddress;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -7,6 +9,9 @@ import android.widget.ListView;
 
 import com.tiffany.phippy.R;
 import com.tiffany.phippy.base.BaseActivity;
+import com.tiffany.phippy.base.db.PhippyDBHelper;
+import com.tiffany.phippy.base.db.T_DeliveryAddress;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,6 +34,9 @@ public class MyAddressActivity extends BaseActivity {
 
         setToolbarTitle("收货地址");
         this.dataList = getDataList();
+        query();
+
+
         this.adapter = new MyAddressListAdapter(this,this.dataList);
         ListView lv = (ListView) findViewById(R.id.myaddress_listview);
         lv.setAdapter(this.adapter);
@@ -60,6 +68,50 @@ public class MyAddressActivity extends BaseActivity {
                 adapter.notifyDataSetChanged();
             }
         });
+
+
+    }
+
+    private void query(){
+        PhippyDBHelper dbHelper = new PhippyDBHelper(MyAddressActivity.this,T_DeliveryAddress.t_delivery_address,null,1);
+        //得到一个可写的数据库
+        SQLiteDatabase db =dbHelper.getReadableDatabase();
+        //参数1：表名
+        //参数2：要想显示的列
+        //参数3：where子句
+        //参数4：where子句对应的条件值
+        //参数5：分组方式
+        //参数6：having条件
+        //参数7：排序方式
+        //Cursor cursor = db.query("stu_table", new String[]{"id","sname","sage","ssex"}, "id=?", new String[]{"1"}, null, null, null);
+
+        Cursor cursor = db.query(T_DeliveryAddress.t_delivery_address,
+                new String[]{T_DeliveryAddress.user_id,
+                        T_DeliveryAddress.user_name,
+                        T_DeliveryAddress.user_address,
+                        T_DeliveryAddress.landmark},
+                null, null, null, null, null);
+        String str =null;
+
+        if(cursor.getCount() == 0){
+            Log.e("cursor","0");
+        }else {
+            Log.e("cursor","not 0");
+        }
+
+        while(cursor.moveToNext()){
+            int id = cursor.getInt(0);
+            String name = cursor.getString(cursor.getColumnIndex(T_DeliveryAddress.user_id));
+            String age = cursor.getString(cursor.getColumnIndex(T_DeliveryAddress.user_name));
+            String sex = cursor.getString(cursor.getColumnIndex(T_DeliveryAddress.user_address));
+            String landmark = cursor.getString(cursor.getColumnIndex(T_DeliveryAddress.landmark));
+
+            System.out.println("query------->" +"id:" + id + "姓名："+name+" "+"年龄："+age+" "+"性别："+sex);
+            str += "\n姓名："+name+" "+"年龄："+age+" "+"性别："+sex;
+        }
+
+        //关闭数据库
+        db.close();
     }
 
     ArrayList<Map> getDataList(){

@@ -139,10 +139,10 @@ public class FoodDetailActivity extends BaseActivity implements ActionSheet.Acti
         map1.put("title","第一季");
 
         ArrayList<GridItem> mGridData = new ArrayList<GridItem>();
-        for (int i=0; i<imgURL.length; i++) {
+        for (int i=0; i<40; i++) {
             GridItem item1 = new GridItem();
-            item1.setTitle(localCartoonText[i]);
-            item1.setImage(imgURL[i]);
+            item1.setTitle(localCartoonText[i%4]);
+            item1.setImage(imgURL[i%4]);
             item1.setCheck(false);
             item1.setPrice(50+i*4);
             item1.setCount(1);
@@ -154,12 +154,12 @@ public class FoodDetailActivity extends BaseActivity implements ActionSheet.Acti
         Map<String,Object> map2 = new HashMap<String,Object>();
         map2.put("title","第二季");
         ArrayList<GridItem> mGridData2 = new ArrayList<GridItem>();
-        for (int i=0; i<imgURL.length; i++) {
+        for (int i=0; i<40; i++) {
             GridItem item1 = new GridItem();
-            item1.setTitle(localCartoonText[i]);
-            item1.setImage(imgURL[i]);
+            item1.setTitle(localCartoonText[i%4]);
+            item1.setImage(imgURL[i%4]);
             item1.setCheck(false);
-            item1.setPrice(199+i*4);
+            item1.setPrice(50+i*4);
             item1.setCount(1);
             mGridData2.add(item1);
         }
@@ -169,12 +169,12 @@ public class FoodDetailActivity extends BaseActivity implements ActionSheet.Acti
         Map<String,Object> map3 = new HashMap<String,Object>();
         map3.put("title","第三季");
         ArrayList<GridItem> mGridData3 = new ArrayList<GridItem>();
-        for (int i=0; i<imgURL.length; i++) {
+        for (int i=0; i<40; i++) {
             GridItem item1 = new GridItem();
-            item1.setTitle(localCartoonText[i]);
-            item1.setImage(imgURL[i]);
+            item1.setTitle(localCartoonText[i%4]);
+            item1.setImage(imgURL[i%4]);
             item1.setCheck(false);
-            item1.setPrice(80+i*4);
+            item1.setPrice(50+i*4);
             item1.setCount(1);
             mGridData3.add(item1);
         }

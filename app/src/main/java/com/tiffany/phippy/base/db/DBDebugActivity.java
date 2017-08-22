@@ -38,6 +38,7 @@ public class DBDebugActivity extends AppCompatActivity implements View.OnClickLi
 
         //创建StuDBHelper对象
         PhippyDBHelper dbHelper = new PhippyDBHelper(DBDebugActivity.this,"stu_db",null,1);
+
         //得到一个可读的SQLiteDatabase对象
         SQLiteDatabase db =dbHelper.getReadableDatabase();
 

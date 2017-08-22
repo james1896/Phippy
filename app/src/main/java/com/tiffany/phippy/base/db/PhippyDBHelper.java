@@ -19,16 +19,26 @@ public class PhippyDBHelper extends SQLiteOpenHelper {
 
     // 当第一次创建数据库的时候，调用该方法
     public void onCreate(SQLiteDatabase db) {
+
         String sql = "create table stu_table(id integer primary key autoincrement,sname varchar(20),sage int,ssex varchar(10))";
 //输出创建数据库的日志信息
+        String creat_delivery_address_sql = "create table t_delivery_address(id integer primary key autoincrement," +
+
+                                                T_DeliveryAddress.user_id + " varchar(20)," +
+                                                T_DeliveryAddress.user_name + " varchar(20)," +
+                                                T_DeliveryAddress.user_address + " varchar(50)," +
+                                                T_DeliveryAddress.landmark + " varchar(30)"
+
+                                                + ")";
         Log.i(TAG, "create Database------------->");
 //execSQL函数用于执行SQL语句
         db.execSQL(sql);
+        db.execSQL(creat_delivery_address_sql);
     }
 
     //当更新数据库的时候执行该方法
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-//输出更新数据库的日志信息
+    //输出更新数据库的日志信息
         Log.i(TAG, "update Database------------->");
     }
 }
