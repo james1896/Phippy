@@ -23,7 +23,7 @@ public class RequestManager extends Request{
     // phippy 相关
     //--------------------------------------------------------------------------------
 
-    static String TB_BASE_URL = "http://10.71.66.2:5000";
+    static String TB_BASE_URL = "http://10.71.66.2:5001/user";
 //      static String TB_BASE_URL = "http://127.0.0.1:5000";
 
 //    getstore
@@ -153,14 +153,21 @@ public class RequestManager extends Request{
 
     /*****************************************************************************************/
     //用户信息收集
-    public void userinfo(String uuid,String device,String version,RequestCallBack callbck){
+    public void initializeUser(String ip,String userId,
+                               String time,String uuid,
+                               String device,String version,
+                               String language,RequestCallBack callbck){
 
-        String url = TB_BASE_URL+ "/userinfo";
+        String url = TB_BASE_URL+ "/initializeUser";
 
         Map<String,String> params = new HashMap<>();
         params.put("uuid",uuid);
         params.put("device",device);
         params.put("version",version);
+        params.put("ip",ip);
+        params.put("userid",userId);
+        params.put("time",time);
+        params.put("language",language);
 
 //        if(AppManager.getInstance().getUserName() != null){
 //            Map<String,String> rsaMap = new HashMap<>();

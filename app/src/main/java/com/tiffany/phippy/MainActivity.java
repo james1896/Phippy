@@ -1,11 +1,21 @@
 package com.tiffany.phippy;
 
+import android.icu.text.SimpleDateFormat;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v4.view.ViewPager;
 import android.support.design.widget.TabLayout;
 import android.util.Log;
 import android.view.View;
 
 import com.tiffany.phippy.base.BaseActivity;
+import com.tiffany.phippy.venv.RequestCallBack;
+import com.tiffany.phippy.venv.RequestManager;
+
+import java.util.Date;
+
+import okhttp3.Call;
+import okhttp3.Response;
 
 
 public class MainActivity extends BaseActivity implements TabLayout.OnTabSelectedListener {
@@ -20,6 +30,7 @@ public class MainActivity extends BaseActivity implements TabLayout.OnTabSelecte
         return R.layout.activity_main;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void init() {
 //viewPage
@@ -46,6 +57,20 @@ public class MainActivity extends BaseActivity implements TabLayout.OnTabSelecte
 
         JniHello hello = new JniHello();
         Log.e("hello",hello.SayHello());
+        SimpleDateFormat formatter = new SimpleDateFormat ("yyyy年MM月dd日 HH:mm:ss ");
+        Date curDate = new Date(System.currentTimeMillis());//获取当前时间
+        String dateTime = formatter.format(curDate);
+        RequestManager.getInstant().initializeUser(CommonUtils.getIPAddress(this), "userId",
+                                                    dateTime, CommonUtils.getUniquePsuedoID(),
+                                                    CommonUtils.collectDeviceInfo(this), CommonUtils.getAppVersionName(this),
+                                                    CommonUtils.getCurrentSystemLanguage(this), new RequestCallBack() {
+            @Override
+            public void onSuccess(String s, Call call, Response response) {
+                super.onSuccess(s, call, response);
+            }
+        });
+
+
     }
 
     protected void showBadgeOnItemIndex(int index){
